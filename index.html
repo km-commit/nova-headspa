@@ -1219,6 +1219,177 @@ footer::before {
 .footer-bottom a:hover { color: var(--rose); }
 
 /* =====================
+   PROMO BANNER
+===================== */
+#promo-banner {
+  background: linear-gradient(135deg, var(--rose-fonce) 0%, #6B1F1F 50%, var(--rose-fonce) 100%);
+  color: var(--or-clair);
+  text-align: center;
+  padding: 10px 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 300;
+  position: relative;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+#promo-banner a {
+  color: var(--or-clair);
+  text-decoration: underline;
+  text-decoration-color: rgba(237,217,163,0.4);
+  transition: opacity 0.2s;
+}
+#promo-banner a:hover { opacity: 0.75; }
+#promo-banner .promo-sep { color: rgba(237,217,163,0.35); }
+#promo-banner .promo-close {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(237,217,163,0.5);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.2s;
+}
+#promo-banner .promo-close:hover { color: var(--or-clair); }
+
+/* =====================
+   CARTE-CADEAU SECTION
+===================== */
+#cadeau {
+  padding: 90px 52px;
+  background: linear-gradient(160deg, #2A0C0C 0%, #1E0808 50%, #2C1008 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#cadeau::before, #cadeau::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(198,151,63,0.3), transparent);
+}
+#cadeau::before { top: 0; }
+#cadeau::after { bottom: 0; }
+.cadeau-glow {
+  position: absolute;
+  width: 500px; height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(198,151,63,0.1) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+}
+.cadeau-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.cadeau-icon {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+.cadeau-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #F5DDD5;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+.cadeau-inner p {
+  font-size: 0.92rem;
+  color: rgba(245,221,213,0.55);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 40px;
+  letter-spacing: 0.03em;
+}
+.btn-or {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brun);
+  background: linear-gradient(135deg, var(--or-clair), var(--or-vif), var(--or));
+  padding: 15px 38px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 400;
+  transition: all 0.35s;
+  display: inline-block;
+  box-shadow: 0 6px 24px rgba(198,151,63,0.35);
+}
+.btn-or:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(198,151,63,0.5); }
+.cadeau-note {
+  margin-top: 24px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: rgba(196,112,106,0.35);
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.cadeau-montants {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.cadeau-montant {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: rgba(237,217,163,0.55);
+  border: 1px solid rgba(198,151,63,0.18);
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-style: italic;
+  transition: all 0.3s;
+}
+.cadeau-montant:hover { border-color: var(--or); color: var(--or-clair); }
+
+/* Duo badge */
+.duo-badge {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  background: linear-gradient(135deg, var(--rose), var(--rose-fonce));
+  padding: 3px 12px;
+  border-radius: 40px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.tarif-card-duo {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--creme), #FDF5EE);
+  border: 1px solid rgba(198,151,63,0.25);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  transition: all 0.35s;
+}
+.tarif-card-duo:hover { box-shadow: 0 20px 56px rgba(196,112,106,0.1); border-color: var(--or); transform: translateY(-3px); }
+.duo-left { }
+.duo-right { text-align: right; }
+.tarif-card-duo .tarif-includes { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+
+/* =====================
    RESPONSIVE
 ===================== */
 @media (max-width: 900px) {
@@ -1249,15 +1420,29 @@ footer::before {
   .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
   .concept-stats { gap: 28px; flex-wrap: wrap; }
   .form-2col { grid-template-columns: 1fr; }
+  #cadeau { padding: 72px 24px; }
+  .tarif-card-duo { grid-template-columns: 1fr; gap: 20px; }
+  .duo-right { text-align: left; }
+  .tarif-card-duo .tarif-includes { grid-template-columns: 1fr; }
+  .cadeau-montants { gap: 8px; }
 }
 </style>
 </head>
 <body>
 
+<!-- PROMO BANNER SAISONNIER -->
+<div id="promo-banner">
+  <span>🎁 Fête des Pères · Offrez-lui un soin Nova</span>
+  <span class="promo-sep">—</span>
+  <span>Carte-cadeau disponible · <a href="#cadeau">Découvrir →</a></span>
+  <button class="promo-close" onclick="document.getElementById('promo-banner').style.display='none'" aria-label="Fermer">✕</button>
+</div>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" onclick="closeMobile()">Soins</a>
   <a href="#tarifs" onclick="closeMobile()">Tarifs</a>
+  <a href="#cadeau" onclick="closeMobile()">Carte-cadeau 🎁</a>
   <a href="#apropos" onclick="closeMobile()">Notre Histoire</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
   <a href="#reservation" class="btn-rose" style="font-size:0.7rem;" onclick="closeMobile()">Sur Rendez-vous ♡</a>
@@ -1288,6 +1473,7 @@ footer::before {
   <ul class="nav-links">
     <li><a href="#services">Soins</a></li>
     <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#cadeau">Carte-cadeau</a></li>
     <li><a href="#apropos">Notre Histoire</a></li>
     <li><a href="#temoignages">Avis</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1433,8 +1619,8 @@ footer::before {
       Nova Head Spa est né d'une passion sincère pour le bien-être et la santé capillaire. Filiale d'Entretien Nova, une entreprise familiale bien enracinée dans notre communauté, nous apportons cette même rigueur et cette même douceur dans un espace entièrement dédié à vous.
     </p>
     <div class="concept-stats reveal d3">
-      <div class="stat"><div class="stat-num">60'</div><div class="stat-label">Soin Essentiel</div></div>
-      <div class="stat"><div class="stat-num">90'</div><div class="stat-label">Soin Signature</div></div>
+      <div class="stat"><div class="stat-num">60'</div><div class="stat-label">Soin Lumière</div></div>
+      <div class="stat"><div class="stat-num">90'</div><div class="stat-label">Rituel Nova</div></div>
       <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Personnalisé</div></div>
       <div class="stat"><div class="stat-num">♡</div><div class="stat-label">Sur Rendez-vous</div></div>
     </div>
@@ -1450,24 +1636,30 @@ footer::before {
     <h2 class="reveal d1">Une expertise,<br>une lumière retrouvée.</h2>
     <p class="reveal d2">Chaque soin est adapté à votre cuir chevelu. Parce qu'il n'y a pas deux peaux identiques — et vous le méritez entièrement.</p>
   </div>
-  <div class="services-grid">
+  <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
     <div class="service-card reveal">
       <div class="service-icon-wrap"><span>🌊</span></div>
-      <h3>Head Spa Essentiel</h3>
-      <p>Consultation express, massage relaxant aux huiles essentielles et traitement de base adapté à votre type de cuir chevelu. Le soin idéal pour commencer.</p>
+      <h3>Soin Lumière</h3>
+      <p>Consultation express, massage relaxant aux huiles essentielles et traitement de base adapté à votre cuir chevelu. L'invitation parfaite à découvrir Nova.</p>
       <div class="service-prix">60 min · 125 $</div>
     </div>
     <div class="service-card reveal d1">
       <div class="service-icon-wrap"><span>🪷</span></div>
-      <h3>Head Spa Signature</h3>
-      <p>Notre expérience complète. Consultation personnalisée, massage profond du cuir chevelu et de la nuque, traitement premium, masque nourrissant et rinçage relaxant.</p>
+      <h3>Rituel Nova</h3>
+      <p>Notre expérience signature. Massage profond du cuir chevelu et de la nuque, traitement premium ciblé, masque nourrissant vapeur et rinçage cascade relaxant.</p>
       <div class="service-prix">90 min · 150 $</div>
     </div>
     <div class="service-card reveal d2">
       <div class="service-icon-wrap"><span>✨</span></div>
-      <h3>Diagnostic Capillaire</h3>
-      <p>Analyse approfondie de votre cuir chevelu avec recommandations personnalisées pour votre routine à la maison. Le point de départ pour une vraie transformation.</p>
+      <h3>Révélation Capillaire</h3>
+      <p>Analyse approfondie de votre cuir chevelu avec diagnostic précis et recommandations sur mesure pour votre routine maison. Le premier pas vers la transformation.</p>
       <div class="service-prix">Add-on · 30 $</div>
+    </div>
+    <div class="service-card reveal d3">
+      <div class="service-icon-wrap"><span>🌹</span></div>
+      <h3>Duo Éclat <span style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.15em;font-style:normal;color:var(--rose);vertical-align:middle;"> · POUR DEUX</span></h3>
+      <p>Partagez un moment inoubliable. Deux soins Lumière simultanés, en couple ou entre amies — parce que le bien-être est encore plus doux à deux.</p>
+      <div class="service-prix">90 min · 270 $</div>
     </div>
   </div>
 </section>
@@ -1483,7 +1675,7 @@ footer::before {
     </div>
     <div class="tarifs-grid">
       <div class="tarif-card reveal">
-        <div class="tarif-nom">Essentiel</div>
+        <div class="tarif-nom">Soin Lumière</div>
         <div class="tarif-duree">⏱ 60 minutes</div>
         <div class="tarif-prix"><sup>$</sup>125</div>
         <ul class="tarif-includes">
@@ -1495,16 +1687,37 @@ footer::before {
       </div>
       <div class="tarif-card vedette reveal d1">
         <div class="vedette-badge">Coup de cœur</div>
-        <div class="tarif-nom">Signature</div>
+        <div class="tarif-nom">Rituel Nova</div>
         <div class="tarif-duree">⏱ 90 minutes</div>
         <div class="tarif-prix"><sup>$</sup>150</div>
         <ul class="tarif-includes">
           <li>Consultation personnalisée approfondie</li>
           <li>Massage profond cuir chevelu & nuque</li>
           <li>Traitement ciblé premium</li>
-          <li>Masque nourrissant</li>
-          <li>Rinçage relaxant & coiffage inclus</li>
+          <li>Masque nourrissant vapeur</li>
+          <li>Rinçage cascade & coiffage inclus</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- DUO OPTION -->
+    <div class="tarif-card tarif-card-duo reveal" style="margin-top: 20px;">
+      <div class="duo-left">
+        <div class="duo-badge">🌹 Pour deux personnes</div>
+        <div class="tarif-nom">Duo Éclat</div>
+        <div class="tarif-duree">⏱ 90 minutes · Deux soins simultanés</div>
+        <ul class="tarif-includes" style="margin-top:20px;">
+          <li>2 soins Lumière réalisés en même temps</li>
+          <li>Massage cuir chevelu & épaules pour chaque personne</li>
+          <li>Traitements adaptés à chaque type de cheveux</li>
+          <li>Ambiance intimiste, pour couple ou amies</li>
+          <li>Idéal comme cadeau ou gâterie entre proches</li>
+        </ul>
+      </div>
+      <div class="duo-right">
+        <div class="tarif-prix" style="font-size:3.5rem;"><sup>$</sup>270</div>
+        <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.15em;color:var(--brun-clair);font-weight:200;text-transform:uppercase;">pour deux · taxes en sus</div>
+        <a href="#reservation" class="btn-rose" style="margin-top:20px;display:inline-block;font-size:0.58rem;">Réserver le Duo →</a>
       </div>
     </div>
 
@@ -1662,6 +1875,31 @@ footer::before {
 </section>
 
 <!-- =====================
+     CARTE-CADEAU
+===================== -->
+<section id="cadeau">
+  <div class="cadeau-glow"></div>
+  <div class="cadeau-inner">
+    <span class="cadeau-icon">🎁</span>
+    <span class="section-eyebrow reveal" style="color:rgba(196,112,106,0.6);">Offrir Nova</span>
+    <h2 class="reveal d1">Le plus beau cadeau ?<br><em>Un moment rien que pour elle.</em></h2>
+    <p class="reveal d2">
+      Nos cartes-cadeaux sont disponibles en tout montant. Une façon élégante d'offrir la détente, le soin et l'éclat à quelqu'un que vous chérissez — pour un anniversaire, la Fête des Mères, ou juste parce que.
+    </p>
+    <div class="cadeau-montants reveal d3">
+      <div class="cadeau-montant">Soin Lumière · 125 $</div>
+      <div class="cadeau-montant">Rituel Nova · 150 $</div>
+      <div class="cadeau-montant">Duo Éclat · 270 $</div>
+      <div class="cadeau-montant">Montant libre</div>
+    </div>
+    <div class="reveal d4">
+      <a href="tel:5793660433" class="btn-or">Commander ma carte-cadeau →</a>
+      <p class="cadeau-note">Par téléphone ou en salon · (579) 366-0433</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================
      CONTACT
 ===================== -->
 <section id="contact">
@@ -1749,6 +1987,7 @@ footer::before {
         <ul>
           <li><a href="#services">Nos Soins</a></li>
           <li><a href="#tarifs">Tarifs</a></li>
+          <li><a href="#cadeau">Carte-cadeau 🎁</a></li>
           <li><a href="#apropos">Notre Histoire</a></li>
           <li><a href="#temoignages">Avis</a></li>
           <li><a href="#contact">Contact</a></li>
