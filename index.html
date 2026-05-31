@@ -3,2084 +3,492 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Head Spa | Détente · Bien-Être · Éclat — Napierville, QC</title>
-<meta name="description" content="Nova Head Spa à Napierville — massages du cuir chevelu, traitements profonds et diagnostic personnalisé par Giovanna Minoletti. Sur rendez-vous. (579) 366-0433">
+<title>Nova Head Spa | Détente · Bien-Être · Éclat — Montérégie, QC</title>
+<meta name="description" content="Nova Head Spa — head spa, soins personnalisés et bien-être complet. Pour tous. Napierville, QC. Nouveaux services à venir. Sur rendez-vous. (579) 366-0433">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet">
-<style>
-
-/* =====================
-   VARIABLES
-===================== */
-:root {
-  --peche:       #F2C4AF;
-  --rose:        #D98A7E;
-  --rose-chaud:  #C4706A;
-  --rose-fonce:  #8C3A3A;
-  --or:          #C6973F;
-  --or-vif:      #D4A84B;
-  --or-clair:    #EDD9A3;
-  --or-pale:     #F7EDD5;
-  --creme:       #FEF5EF;
-  --fond:        #FDF0E8;
-  --brun:        #3D1510;
-  --brun-moyen:  #7A4535;
-  --brun-clair:  #B07055;
-  --blanc:       #FFFBF8;
-}
-
-/* =====================
-   RESET & BASE
-===================== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Cormorant Garamond', serif;
-  background: var(--fond);
-  color: var(--brun);
-  overflow-x: hidden;
-}
-
-/* =====================
-   GRAIN TEXTURE
-===================== */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 180px;
-  pointer-events: none;
-  z-index: 9000;
-  opacity: 0.5;
-}
-
-/* =====================
-   REVEAL ANIMATIONS
-===================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.d1 { transition-delay: 0.1s; }
-.d2 { transition-delay: 0.22s; }
-.d3 { transition-delay: 0.36s; }
-.d4 { transition-delay: 0.5s; }
-.d5 { transition-delay: 0.64s; }
-
-/* =====================
-   LOGO SVG LOTUS
-===================== */
-.lotus-icon svg { width: 100%; height: 100%; }
-
-/* =====================
-   NAVIGATION
-===================== */
-#nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 500;
-  padding: 20px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: all 0.5s;
-}
-#nav.scrolled {
-  background: rgba(253,240,232,0.96);
-  backdrop-filter: blur(16px);
-  padding: 14px 48px;
-  box-shadow: 0 1px 0 rgba(196,151,63,0.15);
-}
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-.nav-lotus { width: 36px; height: 36px; }
-.nav-wordmark {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-.nav-nova {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--or-vif), var(--or), var(--brun-moyen));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.12em;
-}
-.nav-headspa {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.5rem;
-  font-weight: 200;
-  letter-spacing: 0.35em;
-  color: var(--brun-moyen);
-  text-transform: uppercase;
-  -webkit-text-fill-color: var(--brun-moyen);
-}
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--brun-moyen);
-  text-decoration: none;
-  font-weight: 300;
-  transition: color 0.25s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; left: 0; right: 0;
-  height: 1px;
-  background: var(--or);
-  transform: scaleX(0);
-  transition: transform 0.3s;
-}
-.nav-links a:hover { color: var(--or); }
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-rdv {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--blanc);
-  background: linear-gradient(135deg, var(--rose-chaud), var(--rose-fonce));
-  padding: 11px 26px;
-  text-decoration: none;
-  font-weight: 300;
-  transition: all 0.3s;
-  border-radius: 40px;
-}
-.nav-rdv:hover { background: linear-gradient(135deg, var(--rose-fonce), var(--brun)); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,112,106,0.35); }
-.nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-.nav-burger span { display: block; width: 24px; height: 1px; background: var(--brun-moyen); transition: all 0.3s; }
-
-/* Mobile menu */
-.mobile-menu {
-  display: none;
-  position: fixed; inset: 0;
-  background: var(--fond);
-  z-index: 490;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: var(--brun);
-  text-decoration: none;
-  font-style: italic;
-  transition: color 0.2s;
-}
-.mobile-menu a:hover { color: var(--rose); }
-
-/* =====================
-   HERO
-===================== */
-#hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #FDE8DC 0%, #F5D0C0 30%, #EDB8A8 60%, #F0C8B0 100%);
-  z-index: 0;
-}
-/* Floating petals animation */
-.petal {
-  position: absolute;
-  width: 12px; height: 16px;
-  background: radial-gradient(ellipse at 40% 30%, rgba(255,220,210,0.9), rgba(220,160,140,0.4));
-  border-radius: 50% 0 50% 0;
-  animation: floatPetal linear infinite;
-  pointer-events: none;
-}
-@keyframes floatPetal {
-  0% { transform: translateY(-20px) rotate(0deg); opacity: 0.8; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-}
-.hero-left {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 140px 60px 80px;
-}
-/* Big logo in hero */
-.hero-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 36px;
-}
-.hero-lotus { width: 64px; height: 64px; margin-bottom: 16px; }
-.hero-nova {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(4rem, 8vw, 6.5rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 0.85;
-  background: linear-gradient(160deg, #E8C070 0%, #C6973F 30%, #9A6B20 60%, #D4A84B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 2px 8px rgba(198,151,63,0.3));
-}
-.hero-headspa {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
-  font-weight: 100;
-  letter-spacing: 0.6em;
-  color: var(--brun-moyen);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 4px;
-}
-.hero-headspa::before, .hero-headspa::after {
-  content: '';
-  display: block;
-  height: 1px;
-  width: 28px;
-  background: var(--or);
-}
-.hero-tagline {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--brun-moyen);
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hero-tagline .dot { color: var(--or); }
-.hero-desc {
-  font-size: 1.05rem;
-  line-height: 1.9;
-  color: var(--brun-moyen);
-  font-weight: 300;
-  font-style: italic;
-  max-width: 380px;
-  margin-bottom: 44px;
-}
-.hero-giovanna {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.4rem;
-  color: var(--rose-chaud);
-  margin-bottom: 32px;
-  opacity: 0.85;
-}
-.hero-actions { display: flex; align-items: center; gap: 24px; }
-.btn-rose {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--blanc);
-  background: linear-gradient(135deg, var(--rose), var(--rose-fonce));
-  padding: 15px 34px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 300;
-  transition: all 0.35s;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  box-shadow: 0 6px 20px rgba(196,112,106,0.3);
-}
-.btn-rose:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(196,112,106,0.45); }
-.btn-ghost {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--brun-moyen);
-  text-decoration: none;
-  font-weight: 300;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.2s;
-}
-.btn-ghost::before { content: '—'; color: var(--or); }
-.btn-ghost:hover { color: var(--rose); }
-/* Hero right — atmospheric visual */
-.hero-right {
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-.hero-right-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, rgba(253,232,220,0.3) 0%, rgba(224,152,128,0.4) 100%);
-}
-.hero-circles-wrap {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-}
-.hc {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(198,151,63,0.25);
-  transform: translate(-50%, -50%);
-}
-.hc1 { width: 320px; height: 320px; border-color: rgba(196,112,106,0.2); animation: spin-slow 20s linear infinite; }
-.hc2 { width: 220px; height: 220px; border-color: rgba(198,151,63,0.3); animation: spin-slow 15s linear infinite reverse; }
-.hc3 { width: 140px; height: 140px; border-color: rgba(196,112,106,0.35); animation: pulse-ring 4s ease-in-out infinite; }
-@keyframes spin-slow { to { transform: translate(-50%,-50%) rotate(360deg); } }
-@keyframes pulse-ring {
-  0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.5; }
-  50% { transform: translate(-50%,-50%) scale(1.08); opacity: 1; }
-}
-.hero-photo-note {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 3;
-}
-.hero-photo-note p {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.6rem;
-  color: rgba(196,112,106,0.5);
-}
-.hero-photo-note span {
-  display: block;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(140,100,80,0.4);
-  margin-top: 8px;
-}
-/* Candle glow effect */
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  pointer-events: none;
-  animation: glow-pulse 4s ease-in-out infinite;
-}
-.glow-orb-1 { width: 200px; height: 200px; background: rgba(255,180,120,0.3); top: 20%; right: 10%; animation-delay: 0s; }
-.glow-orb-2 { width: 150px; height: 150px; background: rgba(220,140,100,0.25); bottom: 25%; left: 15%; animation-delay: 2s; }
-.glow-orb-3 { width: 100px; height: 100px; background: rgba(198,151,63,0.2); top: 60%; right: 30%; animation-delay: 1s; }
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-/* Scroll indicator */
-.hero-scroll {
-  position: absolute;
-  bottom: 36px; left: 60px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--brun-clair);
-  z-index: 3;
-}
-.scroll-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--or);
-  animation: bounce-dot 2s ease-in-out infinite;
-}
-@keyframes bounce-dot {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
-}
-
-/* =====================
-   DIVIDER LOTUS
-===================== */
-.lotus-divider {
-  text-align: center;
-  padding: 32px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-.lotus-divider .line-div {
-  flex: 1;
-  max-width: 120px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--or));
-}
-.lotus-divider .line-div.right { background: linear-gradient(to left, transparent, var(--or)); }
-.lotus-divider svg { width: 28px; height: 28px; opacity: 0.6; }
-.tagline-strip {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.45em;
-  text-transform: uppercase;
-  color: var(--brun-clair);
-  text-align: center;
-  padding: 8px 0 40px;
-}
-.tagline-strip .dot { color: var(--or); margin: 0 4px; }
-
-/* =====================
-   CONCEPT
-===================== */
-#concept {
-  background: linear-gradient(160deg, #2A0C0C 0%, #1E0808 50%, #2C1008 100%);
-  padding: 100px 52px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-#concept::before, #concept::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(198,151,63,0.4), transparent);
-}
-#concept::before { top: 0; }
-#concept::after { bottom: 0; }
-.concept-glow {
-  position: absolute;
-  width: 400px; height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(220,140,80,0.12) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.concept-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
-.concept-giovanna {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.2rem;
-  color: var(--peche);
-  opacity: 0.7;
-  margin-bottom: 8px;
-}
-.concept-inner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  color: #F5DDD5;
-  font-weight: 400;
-  font-style: italic;
-  margin: 16px 0 20px;
-  line-height: 1.3;
-}
-.concept-inner p {
-  font-size: 1rem;
-  line-height: 2;
-  color: rgba(245,221,213,0.55);
-  font-weight: 300;
-  letter-spacing: 0.04em;
-}
-.concept-stats {
-  display: flex;
-  justify-content: center;
-  gap: 56px;
-  margin-top: 56px;
-  padding-top: 44px;
-  border-top: 1px solid rgba(198,151,63,0.15);
-}
-.stat { text-align: center; }
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem;
-  color: var(--or-clair);
-  font-weight: 400;
-  font-style: italic;
-}
-.stat-label {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(237,217,163,0.35);
-  margin-top: 6px;
-  font-weight: 200;
-}
-
-/* =====================
-   SERVICES
-===================== */
-#services {
-  padding: 110px 52px;
-  background: var(--fond);
-}
-.section-header { text-align: center; margin-bottom: 68px; }
-.section-eyebrow {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--or);
-  display: block;
-  margin-bottom: 14px;
-}
-.section-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--brun);
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 14px;
-}
-.section-header p {
-  font-size: 0.95rem;
-  color: var(--brun-clair);
-  line-height: 1.9;
-  font-weight: 300;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: rgba(198,151,63,0.12);
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.service-card {
-  background: var(--creme);
-  padding: 52px 36px;
-  text-align: center;
-  transition: background 0.4s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.service-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--rose), var(--or), var(--rose));
-  transform: scaleX(0);
-  transition: transform 0.5s;
-}
-.service-card:hover { background: var(--fond); }
-.service-card:hover::after { transform: scaleX(1); }
-.service-icon-wrap {
-  width: 64px; height: 64px;
-  margin: 0 auto 24px;
-  position: relative;
-}
-.service-icon-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(198,151,63,0.3);
-  border-radius: 50%;
-  transition: transform 0.4s;
-}
-.service-card:hover .service-icon-wrap::before { transform: scale(1.15) rotate(45deg); }
-.service-icon-wrap span { font-size: 1.8rem; line-height: 64px; }
-.service-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  font-style: italic;
-  color: var(--brun);
-  margin-bottom: 12px;
-}
-.service-card p {
-  font-size: 0.85rem;
-  line-height: 1.85;
-  color: var(--brun-clair);
-  font-weight: 300;
-}
-.service-prix {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  color: var(--rose-chaud);
-  margin-top: 20px;
-  font-style: italic;
-}
-
-/* =====================
-   TARIFS
-===================== */
-#tarifs {
-  padding: 110px 52px;
-  background: linear-gradient(160deg, #FEF0E8, #FAE8DC, #FEF0E8);
-  position: relative;
-}
-.tarifs-inner { max-width: 1000px; margin: 0 auto; }
-.tarifs-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  margin-top: 52px;
-}
-.tarif-card {
-  background: var(--creme);
-  border: 1px solid rgba(198,151,63,0.2);
-  padding: 48px 40px;
-  position: relative;
-  transition: all 0.35s;
-}
-.tarif-card:hover { box-shadow: 0 20px 56px rgba(196,112,106,0.12); border-color: var(--rose); transform: translateY(-4px); }
-.tarif-card.vedette { border-color: var(--or); background: linear-gradient(135deg, var(--creme), var(--or-pale)); }
-.vedette-badge {
-  position: absolute;
-  top: -1px; right: 32px;
-  background: linear-gradient(135deg, var(--rose), var(--rose-chaud));
-  color: var(--blanc);
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 5px 16px;
-  border-radius: 0 0 8px 8px;
-  font-weight: 300;
-}
-.tarif-nom {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.7rem;
-  font-style: italic;
-  color: var(--brun);
-  margin-bottom: 4px;
-}
-.tarif-duree {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--or);
-  font-weight: 200;
-  margin-bottom: 24px;
-}
-.tarif-prix {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.2rem;
-  color: var(--rose-chaud);
-  font-style: italic;
-  line-height: 1;
-  margin-bottom: 28px;
-}
-.tarif-prix sup { font-size: 1.2rem; vertical-align: top; margin-top: 10px; font-style: normal; }
-.tarif-includes {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.tarif-includes li {
-  font-size: 0.88rem;
-  color: var(--brun-clair);
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  line-height: 1.6;
-  font-weight: 300;
-}
-.tarif-includes li::before {
-  content: '✦';
-  color: var(--or);
-  font-size: 0.6rem;
-  margin-top: 3px;
-  flex-shrink: 0;
-}
-.extras-section {
-  margin-top: 52px;
-  padding: 44px 0 0;
-  border-top: 1px solid rgba(198,151,63,0.2);
-}
-.extras-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  color: var(--brun-moyen);
-  text-align: center;
-  margin-bottom: 32px;
-}
-.extras-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-.extra-card {
-  text-align: center;
-  padding: 24px 16px;
-  border: 1px solid rgba(198,151,63,0.18);
-  background: var(--creme);
-  transition: all 0.3s;
-}
-.extra-card:hover { border-color: var(--rose); background: #FDF5F0; }
-.extra-name {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brun-moyen);
-  margin-bottom: 10px;
-  font-weight: 300;
-  line-height: 1.6;
-}
-.extra-prix {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: var(--rose-chaud);
-  font-style: italic;
-}
-.forfaits-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 28px;
-}
-.forfait-card {
-  background: var(--creme);
-  border: 1px solid rgba(196,112,106,0.2);
-  padding: 28px 28px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  transition: all 0.3s;
-}
-.forfait-card:hover { border-color: var(--rose); transform: translateY(-2px); }
-.forfait-icon { font-size: 2rem; flex-shrink: 0; }
-.forfait-info h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--brun);
-  margin-bottom: 4px;
-}
-.forfait-info p { font-size: 0.8rem; color: var(--brun-clair); font-weight: 300; line-height: 1.5; }
-.forfait-prix {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  color: var(--rose-chaud);
-  font-style: italic;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-/* =====================
-   À PROPOS
-===================== */
-#apropos {
-  padding: 110px 52px;
-  background: var(--fond);
-}
-.apropos-layout {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.apropos-img-frame {
-  position: relative;
-  height: 520px;
-}
-.apropos-frame-main {
-  position: absolute;
-  top: 0; left: 0;
-  width: calc(100% - 36px);
-  height: calc(100% - 36px);
-  background: linear-gradient(135deg, #F5D5C5, #ECC0A8, #F8E0D0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.apropos-frame-shadow {
-  position: absolute;
-  bottom: 0; right: 0;
-  width: calc(100% - 36px);
-  height: calc(100% - 36px);
-  border: 1px solid rgba(198,151,63,0.4);
-}
-.apropos-frame-inner {
-  text-align: center;
-  padding: 32px;
-}
-.apropos-frame-inner .cursive { font-family: 'Great Vibes', cursive; font-size: 2rem; color: rgba(196,112,106,0.5); }
-.apropos-frame-inner p { font-size: 0.8rem; color: rgba(122,69,53,0.4); font-style: italic; margin-top: 8px; font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.1em; font-weight: 200; }
-/* Lotus corner deco */
-.apropos-lotus-deco {
-  position: absolute;
-  top: -20px; right: 16px;
-  z-index: 2;
-}
-.apropos-content { position: relative; }
-.apropos-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-style: italic;
-  color: var(--brun);
-  margin: 14px 0 20px;
-  line-height: 1.2;
-}
-.apropos-content p {
-  font-size: 0.95rem;
-  line-height: 2;
-  color: var(--brun-clair);
-  font-weight: 300;
-  margin-bottom: 18px;
-}
-.apropos-sig {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.8rem;
-  color: var(--rose-chaud);
-  margin: 28px 0;
-  opacity: 0.85;
-}
-.valeurs-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-.valeur {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--rose-fonce);
-  border: 1px solid rgba(196,112,106,0.35);
-  padding: 7px 16px;
-  font-weight: 300;
-  border-radius: 40px;
-  transition: all 0.3s;
-}
-.valeur:hover { background: var(--rose); color: var(--blanc); border-color: var(--rose); }
-
-/* =====================
-   TÉMOIGNAGES
-===================== */
-#temoignages {
-  background: linear-gradient(160deg, #2A0C0C 0%, #1E0808 100%);
-  padding: 110px 52px;
-  text-align: center;
-  position: relative;
-}
-.temoignages-bg-glow {
-  position: absolute;
-  width: 600px; height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(196,112,106,0.08) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.temoignages-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
-.temoignages-inner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  color: #F5DDD5;
-  font-style: italic;
-  margin: 14px 0 52px;
-}
-.temoignages-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: rgba(196,112,106,0.12);
-  margin-bottom: 44px;
-}
-.temoignage {
-  background: rgba(30,8,8,0.95);
-  padding: 44px 32px;
-  text-align: left;
-  transition: background 0.3s;
-}
-.temoignage:hover { background: rgba(44,16,16,0.95); }
-.temoignage-stars { color: var(--or-clair); font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 16px; }
-.temoignage-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: var(--rose);
-  opacity: 0.25;
-  line-height: 0.5;
-  margin-bottom: 18px;
-}
-.temoignage p {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: rgba(245,221,213,0.75);
-  line-height: 1.75;
-  margin-bottom: 20px;
-}
-.temoignage-auteur {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(196,112,106,0.5);
-  font-weight: 200;
-}
-.temoignage-cta {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: rgba(196,112,106,0.4);
-  font-weight: 200;
-}
-.temoignage-cta a {
-  color: var(--rose);
-  text-decoration: none;
-  transition: opacity 0.2s;
-  border-bottom: 1px solid rgba(196,112,106,0.3);
-  padding-bottom: 1px;
-}
-.temoignage-cta a:hover { opacity: 0.7; }
-
-/* =====================
-   RÉSERVATION CTA
-===================== */
-#reservation {
-  padding: 110px 52px;
-  background: linear-gradient(135deg, #FDE8DC 0%, #F8D5C8 40%, #FDE8DC 100%);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-#reservation::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(198,151,63,0.1) 0%, transparent 60%);
-  pointer-events: none;
-}
-.resa-inner { max-width: 660px; margin: 0 auto; position: relative; z-index: 1; }
-.resa-inner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-style: italic;
-  color: var(--brun);
-  margin: 14px 0 18px;
-  line-height: 1.2;
-}
-.resa-inner p {
-  font-size: 0.9rem;
-  color: var(--brun-clair);
-  line-height: 1.9;
-  font-weight: 300;
-  margin-bottom: 48px;
-}
-.resa-steps {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  margin-bottom: 48px;
-}
-.resa-step {
-  flex: 1;
-  padding: 20px 12px;
-  position: relative;
-}
-.resa-step::after {
-  content: '';
-  position: absolute;
-  top: 38px; right: -1px;
-  width: 2px; height: 24px;
-  background: rgba(198,151,63,0.2);
-}
-.resa-step:last-child::after { display: none; }
-.resa-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: var(--rose);
-  opacity: 0.45;
-  font-style: italic;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.resa-text {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brun-moyen);
-  font-weight: 200;
-  line-height: 1.7;
-}
-.resa-rdv-heart {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.6rem;
-  color: var(--rose-chaud);
-  margin-top: 28px;
-  opacity: 0.7;
-}
-
-/* =====================
-   CONTACT
-===================== */
-#contact {
-  padding: 100px 52px;
-  background: var(--creme);
-  border-top: 1px solid rgba(198,151,63,0.15);
-}
-.contact-layout {
-  max-width: 920px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-}
-.contact-info h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-style: italic;
-  color: var(--brun);
-  margin: 14px 0 28px;
-}
-.contact-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 22px;
-}
-.contact-icon {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(198,151,63,0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 0.85rem;
-}
-.contact-text {
-  font-size: 0.88rem;
-  color: var(--brun-clair);
-  line-height: 1.8;
-  font-weight: 300;
-}
-.contact-text strong { display: block; font-family: 'Josefin Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--or); font-weight: 300; margin-bottom: 3px; }
-.contact-text a { color: var(--rose); text-decoration: none; }
-.contact-insta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.75rem;
-  color: var(--rose);
-  text-decoration: none;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  transition: opacity 0.2s;
-}
-.contact-insta:hover { opacity: 0.7; }
-.contact-insta::before { content: '◈'; color: var(--or); }
-/* Form */
-.contact-form { display: flex; flex-direction: column; gap: 20px; }
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-lbl {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--or);
-  font-weight: 300;
-}
-.form-field {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(196,112,106,0.25);
-  padding: 10px 0;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  color: var(--brun);
-  outline: none;
-  transition: border-color 0.3s;
-  width: 100%;
-}
-.form-field::placeholder { color: rgba(122,69,53,0.3); font-style: italic; }
-.form-field:focus { border-bottom-color: var(--rose); }
-textarea.form-field { resize: vertical; min-height: 80px; }
-.form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-/* =====================
-   FOOTER
-===================== */
-footer {
-  background: linear-gradient(160deg, #1E0808 0%, #2A0C0C 100%);
-  padding: 64px 52px 32px;
-  position: relative;
-}
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 52px; right: 52px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(196,112,106,0.4), transparent);
-}
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  margin-bottom: 52px;
-}
-.footer-brand { text-align: center; }
-.footer-lotus { width: 40px; height: 40px; margin: 0 auto 12px; }
-.footer-nova {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  background: linear-gradient(135deg, var(--or-clair), var(--or));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.footer-headspa {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.5rem;
-  letter-spacing: 0.45em;
-  text-transform: uppercase;
-  color: rgba(245,221,213,0.35);
-  font-weight: 200;
-  margin-top: 2px;
-  -webkit-text-fill-color: rgba(245,221,213,0.35);
-}
-.footer-tagline {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.5rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(196,112,106,0.4);
-  margin-top: 10px;
-  font-weight: 200;
-}
-.footer-links { display: flex; gap: 56px; }
-.footer-col h4 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(196,112,106,0.6);
-  font-weight: 300;
-  margin-bottom: 18px;
-}
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul a {
-  font-size: 0.8rem;
-  color: rgba(245,221,213,0.3);
-  text-decoration: none;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  transition: color 0.2s;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-}
-.footer-col ul a:hover { color: var(--rose); }
-.footer-giovanna {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.8rem;
-  color: rgba(196,112,106,0.4);
-  margin-top: 20px;
-  transition: color 0.3s;
-}
-.footer-giovanna:hover { color: rgba(196,112,106,0.7); }
-.footer-bottom {
-  border-top: 1px solid rgba(196,112,106,0.1);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-bottom p {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.58rem;
-  color: rgba(245,221,213,0.15);
-  font-weight: 200;
-  letter-spacing: 0.08em;
-}
-.footer-bottom a { color: rgba(196,112,106,0.35); text-decoration: none; transition: color 0.2s; }
-.footer-bottom a:hover { color: var(--rose); }
-
-/* =====================
-   PROMO BANNER
-===================== */
-#promo-banner {
-  background: linear-gradient(135deg, var(--rose-fonce) 0%, #6B1F1F 50%, var(--rose-fonce) 100%);
-  color: var(--or-clair);
-  text-align: center;
-  padding: 10px 20px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 300;
-  position: relative;
-  z-index: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-#promo-banner a {
-  color: var(--or-clair);
-  text-decoration: underline;
-  text-decoration-color: rgba(237,217,163,0.4);
-  transition: opacity 0.2s;
-}
-#promo-banner a:hover { opacity: 0.75; }
-#promo-banner .promo-sep { color: rgba(237,217,163,0.35); }
-#promo-banner .promo-close {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: rgba(237,217,163,0.5);
-  cursor: pointer;
-  font-size: 0.9rem;
-  line-height: 1;
-  padding: 4px;
-  transition: color 0.2s;
-}
-#promo-banner .promo-close:hover { color: var(--or-clair); }
-
-/* =====================
-   CARTE-CADEAU SECTION
-===================== */
-#cadeau {
-  padding: 90px 52px;
-  background: linear-gradient(160deg, #2A0C0C 0%, #1E0808 50%, #2C1008 100%);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-#cadeau::before, #cadeau::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(198,151,63,0.3), transparent);
-}
-#cadeau::before { top: 0; }
-#cadeau::after { bottom: 0; }
-.cadeau-glow {
-  position: absolute;
-  width: 500px; height: 350px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(198,151,63,0.1) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  pointer-events: none;
-}
-.cadeau-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
-.cadeau-icon {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-  display: block;
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-.cadeau-inner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  color: #F5DDD5;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 16px;
-  line-height: 1.25;
-}
-.cadeau-inner p {
-  font-size: 0.92rem;
-  color: rgba(245,221,213,0.55);
-  line-height: 1.9;
-  font-weight: 300;
-  margin-bottom: 40px;
-  letter-spacing: 0.03em;
-}
-.btn-or {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--brun);
-  background: linear-gradient(135deg, var(--or-clair), var(--or-vif), var(--or));
-  padding: 15px 38px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 400;
-  transition: all 0.35s;
-  display: inline-block;
-  box-shadow: 0 6px 24px rgba(198,151,63,0.35);
-}
-.btn-or:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(198,151,63,0.5); }
-.cadeau-note {
-  margin-top: 24px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.18em;
-  color: rgba(196,112,106,0.35);
-  font-weight: 200;
-  text-transform: uppercase;
-}
-.cadeau-montants {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-}
-.cadeau-montant {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
-  color: rgba(237,217,163,0.55);
-  border: 1px solid rgba(198,151,63,0.18);
-  padding: 8px 20px;
-  border-radius: 40px;
-  font-style: italic;
-  transition: all 0.3s;
-}
-.cadeau-montant:hover { border-color: var(--or); color: var(--or-clair); }
-
-/* Duo badge */
-.duo-badge {
-  display: inline-block;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.5rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--blanc);
-  background: linear-gradient(135deg, var(--rose), var(--rose-fonce));
-  padding: 3px 12px;
-  border-radius: 40px;
-  font-weight: 300;
-  margin-bottom: 10px;
-}
-.tarif-card-duo {
-  grid-column: 1 / -1;
-  background: linear-gradient(135deg, var(--creme), #FDF5EE);
-  border: 1px solid rgba(198,151,63,0.25);
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 40px;
-  align-items: center;
-  position: relative;
-  transition: all 0.35s;
-}
-.tarif-card-duo:hover { box-shadow: 0 20px 56px rgba(196,112,106,0.1); border-color: var(--or); transform: translateY(-3px); }
-.duo-left { }
-.duo-right { text-align: right; }
-.tarif-card-duo .tarif-includes { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
-
-/* =====================
-   RESPONSIVE
-===================== */
-@media (max-width: 900px) {
-  #nav { padding: 16px 20px; }
-  #nav.scrolled { padding: 12px 20px; }
-  .nav-links, .nav-rdv { display: none; }
-  .nav-burger { display: flex; }
-
-  #hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 110px 24px 48px; }
-  .hero-right { height: 240px; }
-  .hero-scroll { left: 24px; }
-
-  #concept, #services, #tarifs, #apropos, #temoignages, #reservation, #contact { padding: 72px 24px; }
-
-  .services-grid { grid-template-columns: 1fr; }
-  .tarifs-grid { grid-template-columns: 1fr; }
-  .extras-grid { grid-template-columns: 1fr 1fr; }
-  .forfaits-row { grid-template-columns: 1fr; }
-  .apropos-layout { grid-template-columns: 1fr; gap: 48px; }
-  .apropos-img-frame { height: 300px; }
-  .temoignages-grid { grid-template-columns: 1fr; }
-  .resa-steps { flex-wrap: wrap; justify-content: center; }
-  .resa-step::after { display: none; }
-  .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-  .footer-top { flex-direction: column; align-items: center; text-align: center; }
-  .footer-links { flex-direction: column; gap: 32px; text-align: left; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-  .concept-stats { gap: 28px; flex-wrap: wrap; }
-  .form-2col { grid-template-columns: 1fr; }
-  #cadeau { padding: 72px 24px; }
-  .tarif-card-duo { grid-template-columns: 1fr; gap: 20px; }
-  .duo-right { text-align: left; }
-  .tarif-card-duo .tarif-includes { grid-template-columns: 1fr; }
-  .cadeau-montants { gap: 8px; }
-}
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- PROMO BANNER SAISONNIER -->
-<div id="promo-banner">
-  <span>🎁 Fête des Pères · Offrez-lui un soin Nova</span>
-  <span class="promo-sep">—</span>
-  <span>Carte-cadeau disponible · <a href="#cadeau">Découvrir →</a></span>
-  <button class="promo-close" onclick="document.getElementById('promo-banner').style.display='none'" aria-label="Fermer">✕</button>
+<a href="#main-content" class="skip-link" data-i18n="skip">Aller au contenu principal</a>
+
+<!-- ===================== COOKIE BANNER (Loi 25) ===================== -->
+<div id="cookie-consent" role="dialog" aria-label="Consentement aux cookies">
+  <div class="cookie-card">
+    <p class="cookie-title" data-i18n="cookie_title">Respect de votre vie privée</p>
+    <p class="cookie-text" data-i18n="cookie_text">Ce site n'utilise aucun témoin de suivi. Seuls des témoins essentiels sont utilisés. <a href="confidentialite.html">En savoir plus</a></p>
+    <div class="cookie-actions">
+      <button class="btn btn--primary btn--sm" onclick="acceptCookies()" data-i18n="cookie_accept">Compris</button>
+      <a href="confidentialite.html" class="btn btn--ghost btn--sm" data-i18n="cookie_policy">Politique</a>
+    </div>
+  </div>
 </div>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMobile()">Soins</a>
-  <a href="#tarifs" onclick="closeMobile()">Tarifs</a>
-  <a href="#cadeau" onclick="closeMobile()">Carte-cadeau 🎁</a>
-  <a href="#apropos" onclick="closeMobile()">Notre Histoire</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="#reservation" class="btn-rose" style="font-size:0.7rem;" onclick="closeMobile()">Sur Rendez-vous ♡</a>
-</div>
+<!-- ===================== NAVIGATION ===================== -->
+<header id="navbar" class="navbar">
+  <div class="navbar__inner">
+    <a href="#" class="navbar__logo" aria-label="Nova Head Spa — Accueil">
+      <span class="navbar__logo-nova">NOVA</span>
+      <span class="navbar__logo-sub">Head Spa</span>
+    </a>
+    <nav class="navbar__nav" id="nav-menu" aria-label="Navigation principale">
+      <ul class="navbar__list">
+        <li><a href="#services" class="navbar__link" data-i18n="nav_services">Soins</a></li>
+        <li><a href="#tarifs" class="navbar__link" data-i18n="nav_tarifs">Tarifs</a></li>
+        <li><a href="#huiles" class="navbar__link" data-i18n="nav_oils">Huiles</a></li>
+        <li><a href="#cadeau" class="navbar__link" data-i18n="nav_gift">Carte-cadeau</a></li>
+        <li><a href="#apropos" class="navbar__link" data-i18n="nav_about">Notre histoire</a></li>
+        <li><a href="#contact" class="navbar__link" data-i18n="nav_contact">Contact</a></li>
+        <li><a href="#reservation" class="btn btn--nav" data-i18n="nav_book">Sur rendez-vous</a></li>
+      </ul>
+    </nav>
+    <div class="navbar__actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch to English" title="English">EN</button>
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-brand">
-    <div class="nav-lotus">
-      <!-- LOTUS SVG LOGO -->
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="40" cy="52" rx="16" ry="22" fill="none" stroke="#C6973F" stroke-width="1.2"/>
-        <ellipse cx="24" cy="52" rx="12" ry="18" transform="rotate(-20 24 52)" fill="none" stroke="#C6973F" stroke-width="1"/>
-        <ellipse cx="56" cy="52" rx="12" ry="18" transform="rotate(20 56 52)" fill="none" stroke="#C6973F" stroke-width="1"/>
-        <ellipse cx="13" cy="50" rx="9" ry="13" transform="rotate(-38 13 50)" fill="none" stroke="#C6973F" stroke-width="0.8" opacity="0.6"/>
-        <ellipse cx="67" cy="50" rx="9" ry="13" transform="rotate(38 67 50)" fill="none" stroke="#C6973F" stroke-width="0.8" opacity="0.6"/>
-        <line x1="40" y1="30" x2="40" y2="58" stroke="#C6973F" stroke-width="1"/>
-        <circle cx="40" cy="26" r="4" fill="none" stroke="#C6973F" stroke-width="1.2"/>
-        <line x1="40" y1="22" x2="40" y2="18" stroke="#C6973F" stroke-width="1"/>
-        <polygon points="40,14 42,18 38,18" fill="#C6973F" opacity="0.7"/>
+<main id="main-content">
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="hero">
+  <div class="hero__bg">
+    <video class="hero__bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="assets/img/hero-video.mp4" type="video/mp4">
+    </video>
+    <img src="assets/img/salon-1.jpg" alt="Nova Head Spa — espace de bien-être à Napierville" class="hero__bg-img hero__bg-fallback" loading="eager">
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <p class="hero__eyebrow reveal" data-i18n="hero_eyebrow">Head spa · Soins · Bien-être</p>
+    <h1 class="hero__title reveal" data-i18n="hero_title">Votre moment<br>de <em>lumière.</em></h1>
+    <div class="hero__lotus" aria-hidden="true">
+      <svg viewBox="0 0 60 20" fill="none" width="60">
+        <line x1="0" y1="10" x2="18" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+        <g transform="translate(30,10)">
+          <ellipse cx="0" cy="0" rx="3" ry="5" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" fill="none"/>
+          <ellipse cx="-4" cy="0.5" rx="2.5" ry="4" transform="rotate(-15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5" fill="none"/>
+          <ellipse cx="4" cy="0.5" rx="2.5" ry="4" transform="rotate(15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5" fill="none"/>
+        </g>
+        <line x1="42" y1="10" x2="60" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
       </svg>
     </div>
-    <div class="nav-wordmark">
-      <span class="nav-nova">NOVA</span>
-      <span class="nav-headspa">Head Spa</span>
+    <p class="hero__subtitle reveal" data-i18n="hero_subtitle">Head spa, soins personnalisés et bien-être complet.<br>Pour tous ceux qui méritent une parenthèse de lumière.</p>
+    <div class="hero__actions reveal">
+      <a href="#reservation" class="btn btn--hero" data-i18n="hero_cta">Prendre rendez-vous</a>
+      <a href="#services" class="btn btn--hero-ghost" data-i18n="hero_discover">Découvrir nos soins</a>
     </div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">Soins</a></li>
-    <li><a href="#tarifs">Tarifs</a></li>
-    <li><a href="#cadeau">Carte-cadeau</a></li>
-    <li><a href="#apropos">Notre Histoire</a></li>
-    <li><a href="#temoignages">Avis</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#reservation" class="nav-rdv">Sur Rendez-vous ♡</a>
-  <button class="nav-burger" id="burger" onclick="toggleMobile()">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span></span>
+  </div>
+</section>
 
-<!-- FLOATING PETALS -->
-<div id="petals-container" style="position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;"></div>
+<!-- ===================== INTRO STRIP ===================== -->
+<section class="intro-strip">
+  <div class="intro-strip__inner">
+    <span data-i18n="strip_1">Détente</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span data-i18n="strip_2">Bien-Être</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span data-i18n="strip_3">Éclat</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span data-i18n="strip_4">Pour tous</span>
+  </div>
+</section>
 
-<!-- =====================
-     HERO
-===================== -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <!-- Glow orbs -->
-  <div class="glow-orb glow-orb-1"></div>
-  <div class="glow-orb glow-orb-2"></div>
-  <div class="glow-orb glow-orb-3"></div>
-
-  <div class="hero-left">
-    <!-- Logo centrepiece -->
-    <div class="hero-logo reveal">
-      <div class="hero-lotus">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Semi-circle arc -->
-          <path d="M 10 65 A 40 40 0 0 1 90 65" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
-          <!-- Center petal -->
-          <ellipse cx="50" cy="58" rx="18" ry="26" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-          <!-- Left petals -->
-          <ellipse cx="30" cy="60" rx="14" ry="20" transform="rotate(-22 30 60)" fill="none" stroke="url(#goldGrad)" stroke-width="1.2"/>
-          <ellipse cx="14" cy="58" rx="10" ry="15" transform="rotate(-42 14 58)" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7"/>
-          <!-- Right petals -->
-          <ellipse cx="70" cy="60" rx="14" ry="20" transform="rotate(22 70 60)" fill="none" stroke="url(#goldGrad)" stroke-width="1.2"/>
-          <ellipse cx="86" cy="58" rx="10" ry="15" transform="rotate(42 86 58)" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7"/>
-          <!-- Stem -->
-          <line x1="50" y1="36" x2="50" y2="65" stroke="url(#goldGrad)" stroke-width="1.2"/>
-          <!-- Droplet -->
-          <ellipse cx="50" cy="30" rx="5" ry="7" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-          <line x1="50" y1="23" x2="50" y2="18" stroke="url(#goldGrad)" stroke-width="1"/>
-          <!-- Star at top -->
-          <polygon points="50,12 51.5,16 50,14 48.5,16" fill="url(#goldGrad)" opacity="0.8"/>
-          <line x1="50" y1="12" x2="50" y2="8" stroke="url(#goldGrad)" stroke-width="1"/>
-          <line x1="46" y1="12" x2="50" y2="12" stroke="url(#goldGrad)" stroke-width="1"/>
-          <line x1="54" y1="12" x2="50" y2="12" stroke="url(#goldGrad)" stroke-width="1"/>
-          <defs>
-            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#E8C070"/>
-              <stop offset="50%" stop-color="#C6973F"/>
-              <stop offset="100%" stop-color="#9A6B20"/>
-            </linearGradient>
-          </defs>
-        </svg>
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="services section">
+  <div class="container">
+    <div class="services__inner">
+      <div class="services__header reveal">
+        <p class="section__label" data-i18n="services_label">Ce que nous offrons</p>
+        <h2 class="section__title" data-i18n="services_title">Nos soins</h2>
+        <p class="services__note" data-i18n="services_note">Chaque soin est adapté à votre cuir chevelu — parce qu'il n'y a pas deux peaux identiques. Ouvert à tous.</p>
       </div>
-      <div class="hero-nova reveal d1">NOVA</div>
-      <div class="hero-headspa reveal d2">Head Spa</div>
-    </div>
-
-    <div class="hero-tagline reveal d2">
-      <span>Détente</span><span class="dot">·</span>
-      <span>Bien-Être</span><span class="dot">·</span>
-      <span>Éclat</span>
-    </div>
-
-    <p class="hero-desc reveal d3">
-      Un espace de soin profond pour votre cuir chevelu — et pour vous. Parce que vous méritez ce moment de lumière.
-    </p>
-
-    <div class="hero-giovanna reveal d3">Giovanna Minoletti</div>
-
-    <div class="hero-actions reveal d4">
-      <a href="#reservation" class="btn-rose">Sur Rendez-vous ♡</a>
-      <a href="#services" class="btn-ghost">Nos soins</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-right-bg"></div>
-    <div class="hero-circles-wrap" style="position:absolute;top:50%;left:50%;">
-      <div class="hc hc1"></div>
-      <div class="hc hc2"></div>
-      <div class="hc hc3"></div>
-    </div>
-    <!-- Photo placeholder -->
-    <div class="hero-photo-note">
-      <svg width="72" height="72" viewBox="0 0 100 100" fill="none" style="margin-bottom:16px;opacity:0.4;">
-        <ellipse cx="50" cy="58" rx="18" ry="26" stroke="#C6973F" stroke-width="1.5"/>
-        <ellipse cx="30" cy="60" rx="14" ry="20" transform="rotate(-22 30 60)" stroke="#C6973F" stroke-width="1.2"/>
-        <ellipse cx="70" cy="60" rx="14" ry="20" transform="rotate(22 70 60)" stroke="#C6973F" stroke-width="1.2"/>
-        <ellipse cx="50" cy="30" rx="5" ry="7" stroke="#C6973F" stroke-width="1.5"/>
-      </svg>
-      <p>Votre photo ici</p>
-      <span>Giovanna au spa</span>
-    </div>
-    <div class="hero-corner-note" style="position:absolute;bottom:48px;right:40px;text-align:right;z-index:3;">
-      <span style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(122,69,53,0.5);display:block;">Napierville, Québec</span>
-      <span style="font-family:'Josefin Sans',sans-serif;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(198,151,63,0.5);display:block;margin-top:4px;">(579) 366-0433</span>
-    </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-dot"></div>
-    <span>Découvrir</span>
-  </div>
-</section>
-
-<!-- LOTUS DIVIDER -->
-<div class="lotus-divider">
-  <div class="line-div"></div>
-  <svg viewBox="0 0 40 40" fill="none">
-    <ellipse cx="20" cy="24" rx="7" ry="10" stroke="#C6973F" stroke-width="1"/>
-    <ellipse cx="11" cy="25" rx="5.5" ry="8" transform="rotate(-20 11 25)" stroke="#C6973F" stroke-width="0.8"/>
-    <ellipse cx="29" cy="25" rx="5.5" ry="8" transform="rotate(20 29 25)" stroke="#C6973F" stroke-width="0.8"/>
-    <line x1="20" y1="14" x2="20" y2="26" stroke="#C6973F" stroke-width="0.8"/>
-    <circle cx="20" cy="11" r="2" stroke="#C6973F" stroke-width="0.8"/>
-  </svg>
-  <div class="line-div right"></div>
-</div>
-<div class="tagline-strip">
-  Détente <span class="dot">·</span> Bien-Être <span class="dot">·</span> Éclat
-</div>
-
-<!-- =====================
-     CONCEPT
-===================== -->
-<section id="concept">
-  <div class="concept-glow"></div>
-  <div class="concept-inner">
-    <span class="section-eyebrow" style="color:rgba(196,112,106,0.6);" class="reveal">Notre vision</span>
-    <div class="concept-giovanna reveal d1">Nova</div>
-    <h2 class="reveal d1">
-      "Prendre soin de soi<br>commence par le haut."
-    </h2>
-    <div class="lotus-divider reveal d2" style="padding:16px 0;">
-      <div class="line-div" style="background:linear-gradient(to right,transparent,rgba(198,151,63,0.3));"></div>
-      <svg width="20" height="20" viewBox="0 0 40 40" fill="none"><ellipse cx="20" cy="24" rx="7" ry="10" stroke="#C6973F" stroke-width="1" opacity="0.5"/><ellipse cx="11" cy="25" rx="5.5" ry="8" transform="rotate(-20 11 25)" stroke="#C6973F" stroke-width="0.8" opacity="0.4"/><ellipse cx="29" cy="25" rx="5.5" ry="8" transform="rotate(20 29 25)" stroke="#C6973F" stroke-width="0.8" opacity="0.4"/></svg>
-      <div class="line-div right" style="background:linear-gradient(to left,transparent,rgba(198,151,63,0.3));"></div>
-    </div>
-    <p class="reveal d2">
-      Nova Head Spa est né d'une passion sincère pour le bien-être et la santé capillaire. Filiale d'Entretien Nova, une entreprise familiale bien enracinée dans notre communauté, nous apportons cette même rigueur et cette même douceur dans un espace entièrement dédié à vous.
-    </p>
-    <div class="concept-stats reveal d3">
-      <div class="stat"><div class="stat-num">60'</div><div class="stat-label">Soin Lumière</div></div>
-      <div class="stat"><div class="stat-num">90'</div><div class="stat-label">Rituel Nova</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Personnalisé</div></div>
-      <div class="stat"><div class="stat-num">♡</div><div class="stat-label">Sur Rendez-vous</div></div>
+      <div class="services__list">
+        <div class="service-item reveal">
+          <div class="service-item__top">
+            <h3 class="service-item__name" data-i18n="svc_lumiere">Soin Lumière</h3>
+            <span class="service-item__line" aria-hidden="true"></span>
+            <span class="service-item__price">125 $</span>
+          </div>
+          <p class="service-item__desc" data-i18n="svc_lumiere_desc">Consultation express, massage relaxant aux huiles essentielles et traitement de base adapté. 60 minutes.</p>
+        </div>
+        <div class="service-item reveal">
+          <div class="service-item__top">
+            <h3 class="service-item__name"><span data-i18n="svc_rituel">Rituel Nova</span> <span class="service-item__badge" data-i18n="svc_signature">Signature</span></h3>
+            <span class="service-item__line" aria-hidden="true"></span>
+            <span class="service-item__price">150 $</span>
+          </div>
+          <p class="service-item__desc" data-i18n="svc_rituel_desc">Massage profond du cuir chevelu et de la nuque, traitement premium ciblé, masque vapeur et rinçage cascade. 90 minutes.</p>
+        </div>
+        <div class="service-item reveal">
+          <div class="service-item__top">
+            <h3 class="service-item__name" data-i18n="svc_revelation">Révélation Capillaire</h3>
+            <span class="service-item__line" aria-hidden="true"></span>
+            <span class="service-item__price">+ 30 $</span>
+          </div>
+          <p class="service-item__desc" data-i18n="svc_revelation_desc">Analyse approfondie de votre cuir chevelu avec diagnostic précis et recommandations sur mesure. Add-on à tout soin.</p>
+        </div>
+        <div class="service-item reveal">
+          <div class="service-item__top">
+            <h3 class="service-item__name"><span data-i18n="svc_duo">Duo Éclat</span> <span class="service-item__badge" data-i18n="svc_duo_badge">Pour deux</span></h3>
+            <span class="service-item__line" aria-hidden="true"></span>
+            <span class="service-item__price">270 $</span>
+          </div>
+          <p class="service-item__desc" data-i18n="svc_duo_desc">Deux soins Lumière simultanés, en couple ou entre proches. Le bien-être à deux. 90 minutes.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- =====================
-     SERVICES
-===================== -->
-<section id="services">
-  <div class="section-header">
-    <span class="section-eyebrow reveal">Nos Soins</span>
-    <h2 class="reveal d1">Une expertise,<br>une lumière retrouvée.</h2>
-    <p class="reveal d2">Chaque soin est adapté à votre cuir chevelu. Parce qu'il n'y a pas deux peaux identiques — et vous le méritez entièrement.</p>
-  </div>
-  <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
-    <div class="service-card reveal">
-      <div class="service-icon-wrap"><span>🌊</span></div>
-      <h3>Soin Lumière</h3>
-      <p>Consultation express, massage relaxant aux huiles essentielles et traitement de base adapté à votre cuir chevelu. L'invitation parfaite à découvrir Nova.</p>
-      <div class="service-prix">60 min · 125 $</div>
+<!-- ===================== HUILES ESSENTIELLES ===================== -->
+<section id="huiles" class="oils section">
+  <div class="container">
+    <div class="section__header reveal">
+      <p class="section__label" data-i18n="oils_label">Personnalisez votre expérience</p>
+      <h2 class="section__title" data-i18n="oils_title">Choisissez vos <em>huiles.</em></h2>
+      <p class="section__subtitle" data-i18n="oils_subtitle">Sélectionnez vos arômes préférés avant votre rendez-vous. Nous préparerons votre mélange personnalisé.</p>
     </div>
-    <div class="service-card reveal d1">
-      <div class="service-icon-wrap"><span>🪷</span></div>
-      <h3>Rituel Nova</h3>
-      <p>Notre expérience signature. Massage profond du cuir chevelu et de la nuque, traitement premium ciblé, masque nourrissant vapeur et rinçage cascade relaxant.</p>
-      <div class="service-prix">90 min · 150 $</div>
+    <div class="oils__grid">
+      <label class="oil-card reveal">
+        <input type="checkbox" name="oils" value="lavande">
+        <div class="oil-card__inner">
+          <span class="oil-card__emoji" aria-hidden="true">💜</span>
+          <h3 class="oil-card__name" data-i18n="oil_lavande">Lavande</h3>
+          <p class="oil-card__effect" data-i18n="oil_lavande_fx">Apaisante · Anti-stress</p>
+        </div>
+      </label>
+      <label class="oil-card reveal">
+        <input type="checkbox" name="oils" value="eucalyptus">
+        <div class="oil-card__inner">
+          <span class="oil-card__emoji" aria-hidden="true">🌿</span>
+          <h3 class="oil-card__name" data-i18n="oil_eucalyptus">Eucalyptus</h3>
+          <p class="oil-card__effect" data-i18n="oil_eucalyptus_fx">Revigorante · Clarté</p>
+        </div>
+      </label>
+      <label class="oil-card reveal">
+        <input type="checkbox" name="oils" value="menthe">
+        <div class="oil-card__inner">
+          <span class="oil-card__emoji" aria-hidden="true">🍃</span>
+          <h3 class="oil-card__name" data-i18n="oil_menthe">Menthe poivrée</h3>
+          <p class="oil-card__effect" data-i18n="oil_menthe_fx">Rafraîchissante · Énergie</p>
+        </div>
+      </label>
+      <label class="oil-card reveal">
+        <input type="checkbox" name="oils" value="romarin">
+        <div class="oil-card__inner">
+          <span class="oil-card__emoji" aria-hidden="true">🌱</span>
+          <h3 class="oil-card__name" data-i18n="oil_romarin">Romarin</h3>
+          <p class="oil-card__effect" data-i18n="oil_romarin_fx">Stimulante · Croissance</p>
+        </div>
+      </label>
+      <label class="oil-card reveal">
+        <input type="checkbox" name="oils" value="tea-tree">
+        <div class="oil-card__inner">
+          <span class="oil-card__emoji" aria-hidden="true">🫧</span>
+          <h3 class="oil-card__name" data-i18n="oil_teatree">Arbre à thé</h3>
+          <p class="oil-card__effect" data-i18n="oil_teatree_fx">Purifiante · Équilibre</p>
+        </div>
+      </label>
+      <label class="oil-card reveal">
+        <input type="checkbox" name="oils" value="ylang">
+        <div class="oil-card__inner">
+          <span class="oil-card__emoji" aria-hidden="true">🌺</span>
+          <h3 class="oil-card__name" data-i18n="oil_ylang">Ylang-Ylang</h3>
+          <p class="oil-card__effect" data-i18n="oil_ylang_fx">Relaxante · Sensorielle</p>
+        </div>
+      </label>
     </div>
-    <div class="service-card reveal d2">
-      <div class="service-icon-wrap"><span>✨</span></div>
-      <h3>Révélation Capillaire</h3>
-      <p>Analyse approfondie de votre cuir chevelu avec diagnostic précis et recommandations sur mesure pour votre routine maison. Le premier pas vers la transformation.</p>
-      <div class="service-prix">Add-on · 30 $</div>
-    </div>
-    <div class="service-card reveal d3">
-      <div class="service-icon-wrap"><span>🌹</span></div>
-      <h3>Duo Éclat <span style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.15em;font-style:normal;color:var(--rose);vertical-align:middle;"> · POUR DEUX</span></h3>
-      <p>Partagez un moment inoubliable. Deux soins Lumière simultanés, en couple ou entre amies — parce que le bien-être est encore plus doux à deux.</p>
-      <div class="service-prix">90 min · 270 $</div>
+    <div class="oils__selection reveal" id="oils-selection" hidden>
+      <p class="oils__chosen" data-i18n="oils_chosen">Votre sélection :</p>
+      <div class="oils__tags" id="oils-tags"></div>
+      <p class="oils__note" data-i18n="oils_note">Mentionnez vos choix lors de la réservation ou nous les préparerons pour vous.</p>
     </div>
   </div>
 </section>
 
-<!-- =====================
-     TARIFS
-===================== -->
-<section id="tarifs">
-  <div class="tarifs-inner">
-    <div class="section-header">
-      <span class="section-eyebrow reveal">Tarifs</span>
-      <h2 class="reveal d1">Un investissement<br><em style="font-style:italic;">en vous.</em></h2>
+<!-- ===================== CTA BAND ===================== -->
+<section class="cta-band">
+  <div class="cta-band__inner reveal">
+    <p class="cta-band__text" data-i18n="cta_text">Sur rendez-vous seulement — pour vous garantir toute l'attention.</p>
+    <a href="#reservation" class="btn btn--primary btn--lg" data-i18n="cta_btn">Réserver maintenant</a>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="apropos" class="about section">
+  <div class="container about__inner">
+    <div class="about__media reveal">
+      <div class="salon-slider">
+        <div class="salon-slider__track" id="slider-track">
+          <div class="salon-slider__slide">
+            <img src="assets/img/salon-1.jpg" alt="Nova Head Spa — espace de soin lumineux" loading="lazy">
+          </div>
+          <div class="salon-slider__slide">
+            <img src="assets/img/salon-2.jpg" alt="Coin détente avec mur végétal" loading="lazy">
+          </div>
+        </div>
+        <div class="salon-slider__controls">
+          <button class="salon-slider__btn" id="slider-prev" aria-label="Image précédente">&#8592;</button>
+          <div class="salon-slider__dots" id="slider-dots"></div>
+          <button class="salon-slider__btn" id="slider-next" aria-label="Image suivante">&#8594;</button>
+        </div>
+      </div>
     </div>
-    <div class="tarifs-grid">
+    <div class="about__content reveal">
+      <p class="section__label" data-i18n="about_label">Notre histoire</p>
+      <h2 class="section__title" data-i18n="about_title">Le soin, c'est<br><em>une vocation.</em></h2>
+      <p data-i18n="about_p1">Nova est né d'une conviction profonde : prendre soin de soi commence par le haut. Entreprise familiale en pleine croissance, ouverte à toutes et à tous — avec l'ambition d'aller bien au-delà du head spa.</p>
+      <p data-i18n="about_p2">Giovanna Minoletti, praticienne diplômée, a fondé Nova à Napierville comme point de départ. De nouveaux soins et de nouveaux emplacements sont en préparation — parce que le bien-être devrait être accessible à tous, partout.</p>
+      <div class="about__signature">Giovanna Minoletti</div>
+      <div class="about__values">
+        <div class="about__check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="val_1">Soins personnalisés</span>
+        </div>
+        <div class="about__check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="val_2">Ouvert à tous</span>
+        </div>
+        <div class="about__check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="val_3">Atmosphère relaxante</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TARIFS ===================== -->
+<section id="tarifs" class="tarifs section">
+  <div class="container">
+    <div class="section__header reveal">
+      <p class="section__label" data-i18n="tarifs_label">Tarifs</p>
+      <h2 class="section__title" data-i18n="tarifs_title">Un investissement <em>en vous.</em></h2>
+    </div>
+    <div class="tarifs__grid">
       <div class="tarif-card reveal">
-        <div class="tarif-nom">Soin Lumière</div>
-        <div class="tarif-duree">⏱ 60 minutes</div>
-        <div class="tarif-prix"><sup>$</sup>125</div>
-        <ul class="tarif-includes">
-          <li>Consultation express du cuir chevelu</li>
-          <li>Massage relaxant aux huiles essentielles</li>
-          <li>Traitement de base adapté</li>
-          <li>Rinçage et coiffage léger</li>
+        <h3 class="tarif-card__name" data-i18n="tarif_lumiere">Soin Lumière</h3>
+        <p class="tarif-card__duration" data-i18n="tarif_60">60 minutes</p>
+        <p class="tarif-card__price">125<sup>$</sup></p>
+        <ul class="tarif-card__list">
+          <li data-i18n="tarif_l1">Consultation express du cuir chevelu</li>
+          <li data-i18n="tarif_l2">Massage relaxant aux huiles essentielles</li>
+          <li data-i18n="tarif_l3">Traitement de base adapté</li>
+          <li data-i18n="tarif_l4">Rinçage et coiffage léger</li>
         </ul>
+        <a href="#reservation" class="btn btn--outline" data-i18n="tarif_book">Réserver</a>
       </div>
-      <div class="tarif-card vedette reveal d1">
-        <div class="vedette-badge">Coup de cœur</div>
-        <div class="tarif-nom">Rituel Nova</div>
-        <div class="tarif-duree">⏱ 90 minutes</div>
-        <div class="tarif-prix"><sup>$</sup>150</div>
-        <ul class="tarif-includes">
-          <li>Consultation personnalisée approfondie</li>
-          <li>Massage profond cuir chevelu & nuque</li>
-          <li>Traitement ciblé premium</li>
-          <li>Masque nourrissant vapeur</li>
-          <li>Rinçage cascade & coiffage inclus</li>
+      <div class="tarif-card tarif-card--featured reveal">
+        <span class="tarif-card__badge" data-i18n="tarif_fav">Coup de coeur</span>
+        <h3 class="tarif-card__name" data-i18n="tarif_rituel">Rituel Nova</h3>
+        <p class="tarif-card__duration" data-i18n="tarif_90">90 minutes</p>
+        <p class="tarif-card__price">150<sup>$</sup></p>
+        <ul class="tarif-card__list">
+          <li data-i18n="tarif_r1">Consultation personnalisée approfondie</li>
+          <li data-i18n="tarif_r2">Massage profond cuir chevelu & nuque</li>
+          <li data-i18n="tarif_r3">Traitement ciblé premium</li>
+          <li data-i18n="tarif_r4">Masque nourrissant vapeur</li>
+          <li data-i18n="tarif_r5">Rinçage cascade & coiffage inclus</li>
         </ul>
+        <a href="#reservation" class="btn btn--primary" data-i18n="tarif_book">Réserver</a>
       </div>
     </div>
 
-    <!-- DUO OPTION -->
-    <div class="tarif-card tarif-card-duo reveal" style="margin-top: 20px;">
-      <div class="duo-left">
-        <div class="duo-badge">🌹 Pour deux personnes</div>
-        <div class="tarif-nom">Duo Éclat</div>
-        <div class="tarif-duree">⏱ 90 minutes · Deux soins simultanés</div>
-        <ul class="tarif-includes" style="margin-top:20px;">
-          <li>2 soins Lumière réalisés en même temps</li>
-          <li>Massage cuir chevelu & épaules pour chaque personne</li>
-          <li>Traitements adaptés à chaque type de cheveux</li>
-          <li>Ambiance intimiste, pour couple ou amies</li>
-          <li>Idéal comme cadeau ou gâterie entre proches</li>
-        </ul>
-      </div>
-      <div class="duo-right">
-        <div class="tarif-prix" style="font-size:3.5rem;"><sup>$</sup>270</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.15em;color:var(--brun-clair);font-weight:200;text-transform:uppercase;">pour deux · taxes en sus</div>
-        <a href="#reservation" class="btn-rose" style="margin-top:20px;display:inline-block;font-size:0.58rem;">Réserver le Duo →</a>
-      </div>
-    </div>
-
-    <div class="extras-section reveal">
-      <div class="extras-title">À la carte</div>
-      <div class="extras-grid">
-        <div class="extra-card">
-          <div class="extra-name">Massage<br>nuque & épaules</div>
-          <div class="extra-prix">+ 25 $</div>
+    <div class="extras reveal">
+      <h3 class="extras__title" data-i18n="extras_title">À la carte</h3>
+      <div class="extras__grid">
+        <div class="extras__item">
+          <span class="extras__name" data-i18n="ext_massage">Massage nuque & épaules</span>
+          <span class="extras__line"></span>
+          <span class="extras__price">+ 25 $</span>
         </div>
-        <div class="extra-card">
-          <div class="extra-name">Traitement<br>hydratation</div>
-          <div class="extra-prix">+ 20 $</div>
+        <div class="extras__item">
+          <span class="extras__name" data-i18n="ext_hydra">Traitement hydratation</span>
+          <span class="extras__line"></span>
+          <span class="extras__price">+ 20 $</span>
         </div>
-        <div class="extra-card">
-          <div class="extra-name">Diagnostic<br>capillaire</div>
-          <div class="extra-prix">+ 30 $</div>
+        <div class="extras__item">
+          <span class="extras__name" data-i18n="ext_diag">Diagnostic capillaire</span>
+          <span class="extras__line"></span>
+          <span class="extras__price">+ 30 $</span>
         </div>
-        <div class="extra-card">
-          <div class="extra-name">Lissage<br>kératine</div>
-          <div class="extra-prix">Sur devis</div>
+        <div class="extras__item">
+          <span class="extras__name" data-i18n="ext_keratine">Lissage kératine</span>
+          <span class="extras__line"></span>
+          <span class="extras__price" data-i18n="ext_devis">Sur devis</span>
         </div>
       </div>
-      <div class="forfaits-row">
-        <div class="forfait-card">
-          <div class="forfait-icon">🌷</div>
-          <div class="forfait-info">
-            <h4>Carte Fidélité — 5 soins</h4>
-            <p>Économisez 50 $ · Valide 12 mois</p>
+      <div class="extras__forfaits">
+        <div class="forfait reveal">
+          <div>
+            <h4 class="forfait__name" data-i18n="forf_5">Carte Fidélité — 5 soins</h4>
+            <p class="forfait__desc" data-i18n="forf_5_desc">Économisez 50 $ · Valide 12 mois</p>
           </div>
-          <div class="forfait-prix">575 $</div>
+          <span class="forfait__price">575 $</span>
         </div>
-        <div class="forfait-card">
-          <div class="forfait-icon">✦</div>
-          <div class="forfait-info">
-            <h4>Abonnement Mensuel</h4>
-            <p>2 soins/mois · Économisez 20 $/mois</p>
+        <div class="forfait reveal">
+          <div>
+            <h4 class="forfait__name" data-i18n="forf_abo">Abonnement Mensuel</h4>
+            <p class="forfait__desc" data-i18n="forf_abo_desc">2 soins/mois · Économisez 20 $/mois</p>
           </div>
-          <div class="forfait-prix">230 $<span style="font-size:0.8rem;font-style:normal;">/mois</span></div>
+          <span class="forfait__price">230 $<small>/mois</small></span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- =====================
-     À PROPOS
-===================== -->
-<section id="apropos">
-  <div class="apropos-layout">
-    <div class="apropos-img-frame reveal">
-      <div class="apropos-frame-main">
-        <!-- Replace with real photo of Giovanna -->
-        <div class="apropos-frame-inner">
-          <div class="cursive">Giovanna</div>
-          <p>Votre photo ici</p>
-        </div>
+<!-- ===================== CARTE-CADEAU ===================== -->
+<section id="cadeau" class="booking">
+  <div class="booking__bg">
+    <img src="assets/img/salon-2.jpg" alt="" aria-hidden="true" loading="lazy">
+    <div class="booking__overlay"></div>
+  </div>
+  <div class="booking__content reveal">
+    <p class="section__label section__label--light" data-i18n="gift_label">Offrir Nova</p>
+    <h2 class="booking__title" data-i18n="gift_title">Le plus beau cadeau ?<br>Un moment <em>rien que pour soi.</em></h2>
+    <p class="booking__desc" data-i18n="gift_desc">Cartes-cadeaux disponibles en tout montant. Anniversaire, fête, ou juste parce que quelqu'un le mérite.</p>
+    <div class="booking__amounts">
+      <span>Soin Lumière · 125 $</span>
+      <span>Rituel Nova · 150 $</span>
+      <span>Duo Éclat · 270 $</span>
+      <span data-i18n="gift_free">Montant libre</span>
+    </div>
+    <a href="tel:5793660433" class="btn btn--hero" data-i18n="gift_cta">Commander · (579) 366-0433</a>
+    <p class="booking__small" data-i18n="gift_note">Par téléphone ou en salon</p>
+  </div>
+</section>
+
+<!-- ===================== RÉSERVATION ===================== -->
+<section id="reservation" class="reservation section">
+  <div class="container">
+    <div class="section__header reveal">
+      <p class="section__label" data-i18n="resa_label">Rendez-vous</p>
+      <h2 class="section__title" data-i18n="resa_title">Votre moment de lumière<br><em>commence ici.</em></h2>
+    </div>
+    <div class="resa-steps reveal">
+      <div class="resa-step">
+        <span class="resa-step__num">01</span>
+        <p class="resa-step__text" data-i18n="step_1">Choisissez votre soin</p>
       </div>
-      <div class="apropos-frame-shadow"></div>
-      <div class="apropos-lotus-deco">
-        <svg width="44" height="44" viewBox="0 0 100 100" fill="none">
-          <ellipse cx="50" cy="58" rx="18" ry="26" stroke="#C6973F" stroke-width="1.5"/>
-          <ellipse cx="30" cy="60" rx="14" ry="20" transform="rotate(-22 30 60)" stroke="#C6973F" stroke-width="1.2"/>
-          <ellipse cx="70" cy="60" rx="14" ry="20" transform="rotate(22 70 60)" stroke="#C6973F" stroke-width="1.2"/>
-          <ellipse cx="50" cy="30" rx="5" ry="7" stroke="#C6973F" stroke-width="1.5"/>
-        </svg>
+      <div class="resa-step">
+        <span class="resa-step__num">02</span>
+        <p class="resa-step__text" data-i18n="step_2">Sélectionnez vos huiles</p>
+      </div>
+      <div class="resa-step">
+        <span class="resa-step__num">03</span>
+        <p class="resa-step__text" data-i18n="step_3">Choisissez une date</p>
+      </div>
+      <div class="resa-step">
+        <span class="resa-step__num">04</span>
+        <p class="resa-step__text" data-i18n="step_4">Déposez vos tensions</p>
       </div>
     </div>
-    <div class="apropos-content reveal d1">
-      <span class="section-eyebrow">Notre Histoire</span>
-      <h2>Le soin, c'est<br>une vocation.</h2>
-      <p>
-        Nova Head Spa est né d'une conviction profonde : prendre soin de soi commence par le haut. Filiale d'<a href="#" style="color:var(--or);text-decoration:none;border-bottom:1px solid rgba(198,151,63,0.3);">Entretien Nova</a>, entreprise familiale bien établie dans notre communauté, Nova apporte ce même engagement dans un domaine tout nouveau.
-      </p>
-      <p>
-        Giovanna Minoletti, praticienne diplômée en head spa, a fondé Nova pour offrir aux gens de Napierville et des environs un espace de détente sincère. Spécialisée en santé capillaire et en relâchement des tensions, elle traite chaque cliente avec une attention totale et des produits soigneusement sélectionnés.
-      </p>
-      <div class="apropos-sig">Giovanna Minoletti</div>
-      <div class="valeurs-row">
-        <span class="valeur">Soin</span>
-        <span class="valeur">Authenticité</span>
-        <span class="valeur">Bienveillance</span>
-        <span class="valeur">Éclat</span>
-      </div>
+    <div class="resa-cta reveal">
+      <a href="https://www.fresha.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" data-i18n="resa_cta">Prendre rendez-vous →</a>
+      <p class="resa-phone" data-i18n="resa_phone">Ou appelez-nous : <a href="tel:5793660433">(579) 366-0433</a></p>
     </div>
   </div>
 </section>
 
-<!-- =====================
-     TÉMOIGNAGES
-===================== -->
-<section id="temoignages">
-  <div class="temoignages-bg-glow"></div>
-  <div class="temoignages-inner">
-    <span class="section-eyebrow reveal" style="color:rgba(196,112,106,0.6);">Témoignages</span>
-    <h2 class="reveal d1">Ce que nos clientes disent.</h2>
-    <div class="temoignages-grid">
-      <div class="temoignage reveal">
-        <div class="temoignage-stars">★ ★ ★ ★ ★</div>
-        <div class="temoignage-quote">"</div>
-        <p>Je suis sortie de chez Nova comme si j'avais dormi dix heures. Mon cuir chevelu n'avait jamais été aussi bien. Je reviendrai — c'est certain.</p>
-        <div class="temoignage-auteur">— [Prénom C.], Napierville</div>
-      </div>
-      <div class="temoignage reveal d1">
-        <div class="temoignage-stars">★ ★ ★ ★ ★</div>
-        <div class="temoignage-quote">"</div>
-        <p>Giovanna est incroyablement professionnelle et douce. Elle a pris le temps de comprendre ce dont mon cuir chevelu avait besoin. Une vraie expérience luxe.</p>
-        <div class="temoignage-auteur">— [Prénom M.], Saint-Jean</div>
-      </div>
-      <div class="temoignage reveal d2">
-        <div class="temoignage-stars">★ ★ ★ ★ ★</div>
-        <div class="temoignage-quote">"</div>
-        <p>Je ne savais pas ce qu'était un head spa avant d'essayer Nova. Maintenant je comprends. C'est le meilleur moment de ma semaine — sans exception.</p>
-        <div class="temoignage-auteur">— [Prénom A.], Saint-Rémi</div>
-      </div>
-    </div>
-    <p class="temoignage-cta reveal">Vous avez visité Nova ? <a href="https://maps.google.com" target="_blank">Laissez un avis Google ↗</a></p>
-  </div>
-</section>
-
-<!-- =====================
-     RÉSERVATION
-===================== -->
-<section id="reservation">
-  <div class="resa-inner">
-    <span class="section-eyebrow reveal">Rendez-vous</span>
-    <h2 class="reveal d1">Votre moment<br>de lumière commence ici.</h2>
-    <p class="reveal d2">Sur rendez-vous seulement — pour vous garantir toute l'attention et le calme que vous méritez.</p>
-    <div class="resa-steps reveal d2">
-      <div class="resa-step">
-        <div class="resa-num">01</div>
-        <div class="resa-text">Choisissez<br>votre soin</div>
-      </div>
-      <div class="resa-step">
-        <div class="resa-num">02</div>
-        <div class="resa-text">Sélectionnez<br>une date</div>
-      </div>
-      <div class="resa-step">
-        <div class="resa-num">03</div>
-        <div class="resa-text">Confirmation<br>par courriel</div>
-      </div>
-      <div class="resa-step">
-        <div class="resa-num">04</div>
-        <div class="resa-text">Déposez<br>vos tensions</div>
-      </div>
-    </div>
-    <div class="reveal d3">
-      <a href="https://www.fresha.com" target="_blank" class="btn-rose">Prendre rendez-vous →</a>
-      <p style="margin-top:16px;font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--brun-clair);font-weight:200;">
-        Ou appelez-nous : <a href="tel:5793660433" style="color:var(--rose);text-decoration:none;">(579) 366-0433</a>
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="contact section">
+  <div class="container">
+    <div class="section__header reveal">
+      <p class="section__label" data-i18n="contact_label">Nous trouver</p>
+      <h2 class="section__title" data-i18n="contact_title">Visitez le studio</h2>
+      <p class="section__subtitle" data-i18n="contact_sub">
+        <strong>261A, rue de l'Église, Napierville, QC</strong><br>
+        Sur rendez-vous · Lundi au samedi
       </p>
     </div>
-    <div class="resa-rdv-heart reveal d4">Sur Rendez-vous ♡</div>
-  </div>
-</section>
-
-<!-- =====================
-     CARTE-CADEAU
-===================== -->
-<section id="cadeau">
-  <div class="cadeau-glow"></div>
-  <div class="cadeau-inner">
-    <span class="cadeau-icon">🎁</span>
-    <span class="section-eyebrow reveal" style="color:rgba(196,112,106,0.6);">Offrir Nova</span>
-    <h2 class="reveal d1">Le plus beau cadeau ?<br><em>Un moment rien que pour elle.</em></h2>
-    <p class="reveal d2">
-      Nos cartes-cadeaux sont disponibles en tout montant. Une façon élégante d'offrir la détente, le soin et l'éclat à quelqu'un que vous chérissez — pour un anniversaire, la Fête des Mères, ou juste parce que.
-    </p>
-    <div class="cadeau-montants reveal d3">
-      <div class="cadeau-montant">Soin Lumière · 125 $</div>
-      <div class="cadeau-montant">Rituel Nova · 150 $</div>
-      <div class="cadeau-montant">Duo Éclat · 270 $</div>
-      <div class="cadeau-montant">Montant libre</div>
-    </div>
-    <div class="reveal d4">
-      <a href="tel:5793660433" class="btn-or">Commander ma carte-cadeau →</a>
-      <p class="cadeau-note">Par téléphone ou en salon · (579) 366-0433</p>
-    </div>
-  </div>
-</section>
-
-<!-- =====================
-     CONTACT
-===================== -->
-<section id="contact">
-  <div class="contact-layout">
-    <div>
-      <span class="section-eyebrow reveal">Nous Trouver</span>
-      <h2 class="contact-info reveal d1" style="font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;color:var(--brun);margin:14px 0 28px;">Venez nous<br>rendre visite.</h2>
-      <div class="contact-row reveal d1">
-        <div class="contact-icon">📍</div>
-        <div class="contact-text">
-          <strong>Adresse</strong>
-          261A, rue de l'Église<br>Napierville, QC, J0L 1L0
+    <div class="contact__grid">
+      <div class="contact__info reveal">
+        <div class="contact-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div>
+            <strong data-i18n="addr_label">Adresse</strong>
+            <p>261A, rue de l'Église<br>Napierville, QC, J0L 1L0</p>
+          </div>
         </div>
-      </div>
-      <div class="contact-row reveal d2">
-        <div class="contact-icon">📞</div>
-        <div class="contact-text">
-          <strong>Téléphone</strong>
-          <a href="tel:5793660433">(579) 366-0433</a>
+        <div class="contact-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <div>
+            <strong data-i18n="phone_label">Téléphone</strong>
+            <p><a href="tel:5793660433">(579) 366-0433</a></p>
+          </div>
         </div>
+        <a href="https://maps.google.com/?q=261A+rue+de+l'Église+Napierville+QC+J0L+1L0" target="_blank" rel="noopener noreferrer" class="contact__map-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span data-i18n="map_link">Ouvrir dans Google Maps →</span>
+        </a>
+        <a href="https://instagram.com/nova.headspa" target="_blank" rel="noopener noreferrer" class="contact__insta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @nova.headspa
+        </a>
       </div>
-      <div class="contact-row reveal d2">
-        <div class="contact-icon">🕐</div>
-        <div class="contact-text">
-          <strong>Horaires</strong>
-          Sur rendez-vous seulement<br>Lundi au samedi
-        </div>
-      </div>
-      <a href="https://instagram.com/nova.headspa" target="_blank" class="contact-insta reveal d3">
-        @nova.headspa
-      </a>
-    </div>
-    <div class="reveal d1">
-      <span class="section-eyebrow" style="display:block;margin-bottom:20px;">Nous écrire</span>
-      <form class="contact-form" onsubmit="submitForm(event)">
-        <div class="form-2col">
+      <form class="contact__form reveal" onsubmit="submitForm(event)">
+        <div class="form-row">
           <div class="form-group">
-            <label class="form-lbl">Prénom</label>
-            <input type="text" class="form-field" placeholder="Votre prénom" required>
+            <label for="prenom" data-i18n="form_first">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required autocomplete="given-name">
           </div>
           <div class="form-group">
-            <label class="form-lbl">Nom</label>
-            <input type="text" class="form-field" placeholder="Votre nom">
+            <label for="nom" data-i18n="form_last">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="family-name">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-lbl">Courriel</label>
-          <input type="email" class="form-field" placeholder="votre@courriel.com" required>
+          <label for="courriel" data-i18n="form_email">Courriel</label>
+          <input type="email" id="courriel" name="courriel" placeholder="votre@courriel.com" required autocomplete="email">
         </div>
         <div class="form-group">
-          <label class="form-lbl">Message</label>
-          <textarea class="form-field" placeholder="Comment puis-je vous aider..."></textarea>
+          <label for="message" data-i18n="form_msg">Message</label>
+          <textarea id="message" name="message" placeholder="Comment puis-je vous aider..." rows="4"></textarea>
         </div>
-        <button type="submit" class="btn-rose" style="align-self:flex-start;">
-          Envoyer mon message ✦
-        </button>
+        <p class="form-notice" data-i18n="form_notice">Vos données sont utilisées uniquement pour répondre à votre message. <a href="confidentialite.html">Politique de confidentialité</a></p>
+        <button type="submit" class="btn btn--primary" data-i18n="form_send">Envoyer</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- =====================
-     FOOTER
-===================== -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-lotus">
-        <svg viewBox="0 0 80 80" fill="none">
-          <ellipse cx="40" cy="50" rx="14" ry="20" stroke="#C6973F" stroke-width="1.2" opacity="0.6"/>
-          <ellipse cx="24" cy="52" rx="11" ry="16" transform="rotate(-20 24 52)" stroke="#C6973F" stroke-width="1" opacity="0.5"/>
-          <ellipse cx="56" cy="52" rx="11" ry="16" transform="rotate(20 56 52)" stroke="#C6973F" stroke-width="1" opacity="0.5"/>
-          <ellipse cx="40" cy="28" rx="4" ry="6" stroke="#C6973F" stroke-width="1.2" opacity="0.6"/>
-          <line x1="40" y1="22" x2="40" y2="50" stroke="#C6973F" stroke-width="1" opacity="0.5"/>
-        </svg>
-      </div>
-      <div class="footer-nova">NOVA</div>
-      <div class="footer-headspa">Head Spa</div>
-      <div class="footer-tagline">Détente · Bien-Être · Éclat</div>
-      <div class="footer-giovanna">Giovanna Minoletti</div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <p class="footer__logo">NOVA <em>Head Spa</em></p>
+      <p class="footer__tagline" data-i18n="footer_tag">Head spa · Soins · Bien-être — Pour tous — En expansion</p>
     </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#services">Nos Soins</a></li>
-          <li><a href="#tarifs">Tarifs</a></li>
-          <li><a href="#cadeau">Carte-cadeau 🎁</a></li>
-          <li><a href="#apropos">Notre Histoire</a></li>
-          <li><a href="#temoignages">Avis</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Informations</h4>
-        <ul>
-          <li><a href="#reservation">Réservation</a></li>
-          <li><a href="#">Protocole d'hygiène</a></li>
-          <li><a href="#">Politique d'annulation</a></li>
-          <li><a href="#">Confidentialité</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nous joindre</h4>
-        <ul>
-          <li><a href="tel:5793660433">(579) 366-0433</a></li>
-          <li><a href="#">261A, rue de l'Église</a></li>
-          <li><a href="#">Napierville, QC</a></li>
-          <li><a href="https://instagram.com/nova.headspa" target="_blank">@nova.headspa</a></li>
-        </ul>
-      </div>
+    <nav class="footer__nav" aria-label="Navigation pied de page">
+      <a href="#services" data-i18n="nav_services">Soins</a>
+      <a href="#tarifs" data-i18n="nav_tarifs">Tarifs</a>
+      <a href="#huiles" data-i18n="nav_oils">Huiles</a>
+      <a href="#cadeau" data-i18n="nav_gift">Carte-cadeau</a>
+      <a href="#apropos" data-i18n="nav_about">Notre histoire</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <a href="confidentialite.html" data-i18n="nav_privacy">Confidentialité</a>
+    </nav>
+    <div class="footer__map">
+      <a href="https://maps.google.com/?q=261A+rue+de+l'Église+Napierville+QC+J0L+1L0" target="_blank" rel="noopener noreferrer" data-i18n="footer_map">
+        📍 261A, rue de l'Église, Napierville — Ouvrir dans Google Maps
+      </a>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Nova Head Spa · Tous droits réservés · Filiale d'<a href="#">Entretien Nova</a></p>
-    <p style="font-family:'Great Vibes',cursive;font-size:1.1rem;color:rgba(196,112,106,0.25);">Sur Rendez-vous ♡</p>
+    <p class="footer__copy">&copy; 2025 Nova Head Spa. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
   </div>
 </footer>
 
-<!-- =====================
-     JAVASCRIPT
-===================== -->
-<script>
-// Nav scroll effect
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => obs.observe(el));
-
-// Mobile menu
-function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('open'); }
-function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
-
-// Smooth scroll with nav offset
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' }); }
-  });
-});
-
-// Form submit
-function submitForm(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Envoyé avec amour ♡';
-  btn.style.background = 'linear-gradient(135deg, #8C3A3A, #5A1A1A)';
-  setTimeout(() => {
-    btn.textContent = 'Envoyer mon message ✦';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
-}
-
-// Floating petals
-function createPetal() {
-  const c = document.getElementById('petals-container');
-  const p = document.createElement('div');
-  p.className = 'petal';
-  p.style.cssText = `
-    left: ${Math.random() * 100}%;
-    animation-duration: ${8 + Math.random() * 12}s;
-    animation-delay: ${Math.random() * 6}s;
-    width: ${8 + Math.random() * 10}px;
-    height: ${10 + Math.random() * 12}px;
-    opacity: ${0.3 + Math.random() * 0.5};
-    transform: rotate(${Math.random() * 360}deg);
-    background: radial-gradient(ellipse at 40% 30%, rgba(${220+Math.random()*30}, ${160+Math.random()*40}, ${130+Math.random()*40}, 0.8), rgba(196, 120, 100, 0.3));
-  `;
-  c.appendChild(p);
-  setTimeout(() => p.remove(), 20000);
-}
-setInterval(createPetal, 1200);
-for (let i = 0; i < 6; i++) setTimeout(createPetal, i * 500);
-</script>
+<script src="js/script.js" defer></script>
 </body>
 </html>
