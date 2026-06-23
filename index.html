@@ -3,8 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Head Spa | Détente · Bien-Être · Éclat — Montérégie, QC</title>
-<meta name="description" content="Nova Head Spa — head spa, soins personnalisés et bien-être complet. Pour tous. Napierville, QC. Nouveaux services à venir. Sur rendez-vous. (579) 366-0433">
+<title data-i18n="meta.title">Nova Head Spa | Détente · Bien-Être · Éclat — Montérégie, QC</title>
+<meta name="description" data-i18n-content="meta.desc" content="Nova Head Spa — head spa, soins personnalisés et bien-être complet. Pour tous. Napierville, QC. Sur rendez-vous. (579) 366-0433">
+
+<!-- Open Graph / Social -->
+<meta property="og:title" content="Nova Head Spa | Votre moment de lumière">
+<meta property="og:description" content="Head spa, soins personnalisés et bien-être complet. Pour tous. Napierville, QC.">
+<meta property="og:image" content="https://km-commit.github.io/nova-headspa/img/hero.jpg">
+<meta property="og:url" content="https://km-commit.github.io/nova-headspa/">
+<meta property="og:type" content="website">
+<meta property="og:locale" data-i18n-content="meta.oglocale" content="fr_CA">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -12,41 +25,70 @@
 </head>
 <body>
 
-<a href="#main-content" class="skip-link" data-i18n="skip">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link" data-i18n="a11y.skip">Aller au contenu principal</a>
 
-<!-- ===================== COOKIE BANNER (Loi 25) ===================== -->
-<div id="cookie-consent" role="dialog" aria-label="Consentement aux cookies">
-  <div class="cookie-card">
-    <p class="cookie-title" data-i18n="cookie_title">Respect de votre vie privée</p>
-    <p class="cookie-text" data-i18n="cookie_text">Ce site n'utilise aucun témoin de suivi. Seuls des témoins essentiels sont utilisés. <a href="confidentialite.html">En savoir plus</a></p>
-    <div class="cookie-actions">
-      <button class="btn btn--primary btn--sm" onclick="acceptCookies()" data-i18n="cookie_accept">Compris</button>
-      <a href="confidentialite.html" class="btn btn--ghost btn--sm" data-i18n="cookie_policy">Politique</a>
+<!-- COOKIE CONSENT — Loi 25 (opt-in explicite) -->
+<div id="cookie-consent" class="cookie" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+  <div class="cookie__card">
+    <h2 class="cookie__title" id="cookie-title" data-i18n="cookie.title">Respect de votre vie privée</h2>
+    <p class="cookie__text" id="cookie-desc" data-i18n="cookie.desc">Nous utilisons des témoins essentiels au fonctionnement du site. Avec votre consentement, nous pourrions aussi mesurer l'audience pour améliorer votre expérience. Aucun témoin non essentiel n'est activé sans votre accord. <a href="confidentialite.html">Politique de confidentialité</a></p>
+    <div class="cookie__actions">
+      <button type="button" class="btn btn--primary btn--sm" data-cookie="accept" data-i18n="cookie.accept">Tout accepter</button>
+      <button type="button" class="btn btn--outline btn--sm" data-cookie="decline" data-i18n="cookie.decline">Tout refuser</button>
+      <button type="button" class="btn btn--outline btn--sm" data-cookie="customize" data-i18n="cookie.customize">Personnaliser</button>
     </div>
   </div>
 </div>
 
-<!-- ===================== NAVIGATION ===================== -->
+<!-- COOKIE PREFERENCES -->
+<div id="cookie-prefs" class="cookie-prefs" role="dialog" aria-modal="true" aria-labelledby="cookie-prefs-title" hidden>
+  <div class="cookie-prefs__backdrop" data-cookie="close"></div>
+  <div class="cookie-prefs__panel" role="document">
+    <h2 class="cookie-prefs__title" id="cookie-prefs-title" data-i18n="cookie.prefsTitle">Vos préférences de témoins</h2>
+    <p class="cookie-prefs__intro" data-i18n="cookie.prefsIntro">Activez uniquement ce que vous souhaitez. Aucune case n'est cochée d'avance pour les témoins non essentiels.</p>
+
+    <div class="cookie-pref">
+      <div class="cookie-pref__row">
+        <label class="cookie-pref__name" for="pref-essential" data-i18n="cookie.essential">Témoins essentiels</label>
+        <input type="checkbox" id="pref-essential" checked disabled>
+      </div>
+      <p class="cookie-pref__desc" data-i18n="cookie.essentialDesc">Nécessaires au fonctionnement et à la sécurité du site. Toujours actifs.</p>
+    </div>
+
+    <div class="cookie-pref">
+      <div class="cookie-pref__row">
+        <label class="cookie-pref__name" for="pref-analytics" data-i18n="cookie.analytics">Mesure d'audience</label>
+        <input type="checkbox" id="pref-analytics">
+      </div>
+      <p class="cookie-pref__desc" data-i18n="cookie.analyticsDesc">Statistiques anonymes pour comprendre l'usage du site. Désactivé par défaut.</p>
+    </div>
+
+    <div class="cookie-prefs__actions">
+      <button type="button" class="btn btn--outline btn--sm" data-cookie="decline" data-i18n="cookie.decline">Tout refuser</button>
+      <button type="button" class="btn btn--primary btn--sm" data-cookie="save" data-i18n="cookie.save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
 <header id="navbar" class="navbar">
-  <div class="navbar__inner">
-    <a href="#" class="navbar__logo" aria-label="Nova Head Spa — Accueil">
-      <span class="navbar__logo-nova">NOVA</span>
-      <span class="navbar__logo-sub">Head Spa</span>
+  <div class="navbar__inner container">
+    <a href="#" class="navbar__logo" data-i18n-aria-label="nav.logoAria" aria-label="Nova Head Spa — Accueil">
+      <span class="navbar__logo-text">NOVA <span class="navbar__logo-sep">/</span> HEADSPA</span>
     </a>
-    <nav class="navbar__nav" id="nav-menu" aria-label="Navigation principale">
+    <nav class="navbar__nav" id="nav-menu" data-i18n-aria-label="nav.menuAria" aria-label="Navigation principale">
       <ul class="navbar__list">
-        <li><a href="#services" class="navbar__link" data-i18n="nav_services">Soins</a></li>
-        <li><a href="#tarifs" class="navbar__link" data-i18n="nav_tarifs">Tarifs</a></li>
-        <li><a href="#huiles" class="navbar__link" data-i18n="nav_oils">Huiles</a></li>
-        <li><a href="#cadeau" class="navbar__link" data-i18n="nav_gift">Carte-cadeau</a></li>
-        <li><a href="#apropos" class="navbar__link" data-i18n="nav_about">Notre histoire</a></li>
-        <li><a href="#contact" class="navbar__link" data-i18n="nav_contact">Contact</a></li>
-        <li><a href="#reservation" class="btn btn--nav" data-i18n="nav_book">Sur rendez-vous</a></li>
+        <li><a href="#soins" class="navbar__link" data-i18n="nav.soins">Soins</a></li>
+        <li><a href="#reservation" class="navbar__link" data-i18n="nav.reservation">Réservation</a></li>
+        <li><a href="#apropos" class="navbar__link" data-i18n="nav.histoire">Histoire</a></li>
+        <li><a href="#cadeau" class="navbar__link" data-i18n="nav.cadeau">Carte-cadeau</a></li>
+        <li><a href="#contact" class="navbar__link" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
     <div class="navbar__actions">
-      <button class="lang-toggle" id="lang-toggle" aria-label="Switch to English" title="English">EN</button>
-      <button class="navbar__toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <button type="button" class="lang-switch" id="lang-switch" data-i18n-aria-label="nav.langAria" aria-label="Switch to English">EN</button>
+      <a href="#reservation" class="navbar__cta" data-i18n="nav.cta">Sur rendez-vous →</a>
+      <button class="navbar__toggle" id="nav-toggle" data-i18n-aria-label="nav.toggleAria" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -55,408 +97,366 @@
 
 <main id="main-content">
 
-<!-- ===================== HERO ===================== -->
+<!-- HERO -->
 <section id="hero" class="hero">
-  <div class="hero__bg">
-    <video class="hero__bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-      <source src="assets/img/hero-video.mp4" type="video/mp4">
-    </video>
-    <img src="assets/img/salon-1.jpg" alt="Nova Head Spa — espace de bien-être à Napierville" class="hero__bg-img hero__bg-fallback" loading="eager">
-    <div class="hero__overlay"></div>
-  </div>
   <div class="hero__content">
-    <p class="hero__eyebrow reveal" data-i18n="hero_eyebrow">Head spa · Soins · Bien-être</p>
-    <h1 class="hero__title reveal" data-i18n="hero_title">Votre moment<br>de <em>lumière.</em></h1>
-    <div class="hero__lotus" aria-hidden="true">
-      <svg viewBox="0 0 60 20" fill="none" width="60">
-        <line x1="0" y1="10" x2="18" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-        <g transform="translate(30,10)">
-          <ellipse cx="0" cy="0" rx="3" ry="5" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" fill="none"/>
-          <ellipse cx="-4" cy="0.5" rx="2.5" ry="4" transform="rotate(-15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5" fill="none"/>
-          <ellipse cx="4" cy="0.5" rx="2.5" ry="4" transform="rotate(15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5" fill="none"/>
-        </g>
-        <line x1="42" y1="10" x2="60" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-      </svg>
-    </div>
-    <p class="hero__subtitle reveal" data-i18n="hero_subtitle">Head spa, soins personnalisés et bien-être complet.<br>Pour tous ceux qui méritent une parenthèse de lumière.</p>
+    <p class="hero__eyebrow reveal" data-i18n="hero.eyebrow">Head spa · Soins · Bien-être</p>
+    <h1 class="hero__title reveal" data-i18n="hero.title">Votre<br>moment<br>de <em>lumière.</em></h1>
+    <p class="hero__subtitle reveal" data-i18n="hero.subtitle">Head spa, soins personnalisés et bien-être complet.<br>Pour tous ceux qui méritent une parenthèse de lumière.</p>
     <div class="hero__actions reveal">
-      <a href="#reservation" class="btn btn--hero" data-i18n="hero_cta">Prendre rendez-vous</a>
-      <a href="#services" class="btn btn--hero-ghost" data-i18n="hero_discover">Découvrir nos soins</a>
+      <a href="#reservation" class="btn btn--accent" data-i18n="hero.ctaBook">Prendre rendez-vous</a>
+      <a href="#soins" class="btn btn--outline-dark" data-i18n="hero.ctaDiscover">Découvrir nos soins</a>
     </div>
   </div>
-  <div class="hero__scroll" aria-hidden="true">
-    <span></span>
+  <div class="hero__image">
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="img/hero-video.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
-<!-- ===================== INTRO STRIP ===================== -->
+<!-- INTRO STRIP -->
 <section class="intro-strip">
   <div class="intro-strip__inner">
-    <span data-i18n="strip_1">Détente</span>
+    <span data-i18n="intro.1">Détente</span>
     <span class="sep" aria-hidden="true">·</span>
-    <span data-i18n="strip_2">Bien-Être</span>
+    <span data-i18n="intro.2">Bien-Être</span>
     <span class="sep" aria-hidden="true">·</span>
-    <span data-i18n="strip_3">Éclat</span>
+    <span data-i18n="intro.3">Éclat</span>
     <span class="sep" aria-hidden="true">·</span>
-    <span data-i18n="strip_4">Pour tous</span>
+    <span data-i18n="intro.4">Pour tous</span>
   </div>
 </section>
 
-<!-- ===================== SERVICES ===================== -->
-<section id="services" class="services section">
+<!-- SOINS -->
+<section id="soins" class="soins section" data-nav="dark">
   <div class="container">
-    <div class="services__inner">
-      <div class="services__header reveal">
-        <p class="section__label" data-i18n="services_label">Ce que nous offrons</p>
-        <h2 class="section__title" data-i18n="services_title">Nos soins</h2>
-        <p class="services__note" data-i18n="services_note">Chaque soin est adapté à votre cuir chevelu — parce qu'il n'y a pas deux peaux identiques. Ouvert à tous.</p>
+    <div class="soins__header reveal">
+      <div class="soins__header-left">
+        <p class="section__label" data-i18n="soins.label">Nos soins</p>
+        <h2 class="section__title" data-i18n="soins.title">Choisissez votre<br><em>expérience.</em></h2>
       </div>
-      <div class="services__list">
-        <div class="service-item reveal">
-          <div class="service-item__top">
-            <h3 class="service-item__name" data-i18n="svc_lumiere">Soin Lumière</h3>
-            <span class="service-item__line" aria-hidden="true"></span>
-            <span class="service-item__price">125 $</span>
-          </div>
-          <p class="service-item__desc" data-i18n="svc_lumiere_desc">Consultation express, massage relaxant aux huiles essentielles et traitement de base adapté. 60 minutes.</p>
-        </div>
-        <div class="service-item reveal">
-          <div class="service-item__top">
-            <h3 class="service-item__name"><span data-i18n="svc_rituel">Rituel Nova</span> <span class="service-item__badge" data-i18n="svc_signature">Signature</span></h3>
-            <span class="service-item__line" aria-hidden="true"></span>
-            <span class="service-item__price">150 $</span>
-          </div>
-          <p class="service-item__desc" data-i18n="svc_rituel_desc">Massage profond du cuir chevelu et de la nuque, traitement premium ciblé, masque vapeur et rinçage cascade. 90 minutes.</p>
-        </div>
-        <div class="service-item reveal">
-          <div class="service-item__top">
-            <h3 class="service-item__name" data-i18n="svc_revelation">Révélation Capillaire</h3>
-            <span class="service-item__line" aria-hidden="true"></span>
-            <span class="service-item__price">+ 30 $</span>
-          </div>
-          <p class="service-item__desc" data-i18n="svc_revelation_desc">Analyse approfondie de votre cuir chevelu avec diagnostic précis et recommandations sur mesure. Add-on à tout soin.</p>
-        </div>
-        <div class="service-item reveal">
-          <div class="service-item__top">
-            <h3 class="service-item__name"><span data-i18n="svc_duo">Duo Éclat</span> <span class="service-item__badge" data-i18n="svc_duo_badge">Pour deux</span></h3>
-            <span class="service-item__line" aria-hidden="true"></span>
-            <span class="service-item__price">270 $</span>
-          </div>
-          <p class="service-item__desc" data-i18n="svc_duo_desc">Deux soins Lumière simultanés, en couple ou entre proches. Le bien-être à deux. 90 minutes.</p>
+      <p class="soins__header-right" data-i18n="soins.intro">Trois rituels inspirés des traditions japonaises, conçus pour revitaliser le cuir chevelu, les cheveux et l'esprit.</p>
+    </div>
+
+    <div class="soins__grid">
+      <div class="soin-card reveal" data-soin="essentiel" data-price="89" data-duration="60" role="button" tabindex="0">
+        <span class="soin-card__duration">60 min</span>
+        <h3 class="soin-card__name">Nova Essentiel</h3>
+        <p class="soin-card__desc" data-i18n="soins.essentiel.desc">Le soin idéal pour découvrir l'expérience Nova.</p>
+        <ul class="soin-card__list">
+          <li data-i18n="li.analyseCamera">Analyse du cuir chevelu avec caméra</li>
+          <li data-i18n="li.massageSec">Massage du cuir chevelu à sec</li>
+          <li data-i18n="li.huile">Application d'huile adaptée</li>
+          <li data-i18n="li.exfoliation">Exfoliation du cuir chevelu</li>
+          <li data-i18n="li.shampoing">Shampoing relaxant</li>
+          <li data-i18n="li.jetPluie">Détente sous jet de pluie</li>
+          <li data-i18n="li.masqueNourrissant">Masque capillaire nourrissant</li>
+          <li data-i18n="li.couEpaules">Massage du cou et des épaules</li>
+          <li data-i18n="li.serumOuTonique">Sérum ou tonique capillaire</li>
+          <li data-i18n="li.massageFinal">Massage final du cuir chevelu</li>
+        </ul>
+        <div class="soin-card__bottom">
+          <p class="soin-card__price">89 $</p>
+          <span class="soin-card__cta" data-i18n="soins.select">Sélectionner →</span>
         </div>
       </div>
+
+      <div class="soin-card soin-card--featured reveal" data-soin="evasion" data-price="109" data-duration="75" role="button" tabindex="0">
+        <div class="soin-card__badges">
+          <span class="soin-card__badge" data-i18n="soins.badgePopular">Populaire</span>
+          <span class="soin-card__duration">75 min</span>
+        </div>
+        <h3 class="soin-card__name">Nova Évasion</h3>
+        <p class="soin-card__desc" data-i18n="soins.evasion.desc">Une expérience complète alliant détente et soin capillaire.</p>
+        <ul class="soin-card__list">
+          <li data-i18n="li.analyseCamera">Analyse du cuir chevelu avec caméra</li>
+          <li data-i18n="li.massageSec">Massage du cuir chevelu à sec</li>
+          <li data-i18n="li.huile">Application d'huile adaptée</li>
+          <li data-i18n="li.exfoliationDouce">Exfoliation douce du cuir chevelu</li>
+          <li data-i18n="li.lavage">Lavage en profondeur</li>
+          <li data-i18n="li.jetPluie">Détente sous jet de pluie</li>
+          <li data-i18n="li.peigne">Peigne massant à luminothérapie</li>
+          <li data-i18n="li.masquePerso">Masque capillaire personnalisé</li>
+          <li data-i18n="li.serumOuTonique">Sérum ou tonique capillaire</li>
+          <li data-i18n="li.massageFinal">Massage final du cuir chevelu</li>
+          <li data-i18n="li.couEpaules">Massage du cou et des épaules</li>
+        </ul>
+        <div class="soin-card__bottom">
+          <p class="soin-card__price">109 $</p>
+          <span class="soin-card__cta" data-i18n="soins.select">Sélectionner →</span>
+        </div>
+      </div>
+
+      <div class="soin-card reveal" data-soin="royal" data-price="139" data-duration="105" role="button" tabindex="0">
+        <div class="soin-card__badges">
+          <span class="soin-card__badge" data-i18n="soins.badgePremium">Haut de gamme</span>
+          <span class="soin-card__duration">105 min</span>
+        </div>
+        <h3 class="soin-card__name">Nova Royal</h3>
+        <p class="soin-card__desc" data-i18n="soins.royal.desc">Un soin haut de gamme pour une détente profonde et un cuir chevelu revitalisé.</p>
+        <ul class="soin-card__list">
+          <li data-i18n="li.analyseCamera">Analyse du cuir chevelu avec caméra</li>
+          <li data-i18n="li.lavage">Lavage en profondeur</li>
+          <li data-i18n="li.exfoliationDouce">Exfoliation douce du cuir chevelu</li>
+          <li data-i18n="li.doubleMassage">Double massage du cuir chevelu</li>
+          <li data-i18n="li.couEpaulesBras">Massage du cou, des épaules et des bras</li>
+          <li data-i18n="li.peigne">Peigne massant à luminothérapie</li>
+          <li data-i18n="li.masquePerso">Masque capillaire personnalisé</li>
+          <li data-i18n="li.serumEtTonique">Sérum et tonique capillaire</li>
+          <li data-i18n="li.massageFacial">Massage facial détente</li>
+          <li data-i18n="li.masqueYeux">Masque chauffant pour les yeux</li>
+          <li data-i18n="li.massageFinal">Massage final du cuir chevelu</li>
+        </ul>
+        <div class="soin-card__bottom">
+          <p class="soin-card__price">139 $</p>
+          <span class="soin-card__cta" data-i18n="soins.select">Sélectionner →</span>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- ===================== HUILES ESSENTIELLES ===================== -->
-<section id="huiles" class="oils section">
+<!-- TÉMOIGNAGES -->
+<section id="temoignages" class="temoignages section">
   <div class="container">
-    <div class="section__header reveal">
-      <p class="section__label" data-i18n="oils_label">Personnalisez votre expérience</p>
-      <h2 class="section__title" data-i18n="oils_title">Choisissez vos <em>huiles.</em></h2>
-      <p class="section__subtitle" data-i18n="oils_subtitle">Sélectionnez vos arômes préférés avant votre rendez-vous. Nous préparerons votre mélange personnalisé.</p>
-    </div>
-    <div class="oils__grid">
-      <label class="oil-card reveal">
-        <input type="checkbox" name="oils" value="lavande">
-        <div class="oil-card__inner">
-          <span class="oil-card__emoji" aria-hidden="true">💜</span>
-          <h3 class="oil-card__name" data-i18n="oil_lavande">Lavande</h3>
-          <p class="oil-card__effect" data-i18n="oil_lavande_fx">Apaisante · Anti-stress</p>
-        </div>
-      </label>
-      <label class="oil-card reveal">
-        <input type="checkbox" name="oils" value="eucalyptus">
-        <div class="oil-card__inner">
-          <span class="oil-card__emoji" aria-hidden="true">🌿</span>
-          <h3 class="oil-card__name" data-i18n="oil_eucalyptus">Eucalyptus</h3>
-          <p class="oil-card__effect" data-i18n="oil_eucalyptus_fx">Revigorante · Clarté</p>
-        </div>
-      </label>
-      <label class="oil-card reveal">
-        <input type="checkbox" name="oils" value="menthe">
-        <div class="oil-card__inner">
-          <span class="oil-card__emoji" aria-hidden="true">🍃</span>
-          <h3 class="oil-card__name" data-i18n="oil_menthe">Menthe poivrée</h3>
-          <p class="oil-card__effect" data-i18n="oil_menthe_fx">Rafraîchissante · Énergie</p>
-        </div>
-      </label>
-      <label class="oil-card reveal">
-        <input type="checkbox" name="oils" value="romarin">
-        <div class="oil-card__inner">
-          <span class="oil-card__emoji" aria-hidden="true">🌱</span>
-          <h3 class="oil-card__name" data-i18n="oil_romarin">Romarin</h3>
-          <p class="oil-card__effect" data-i18n="oil_romarin_fx">Stimulante · Croissance</p>
-        </div>
-      </label>
-      <label class="oil-card reveal">
-        <input type="checkbox" name="oils" value="tea-tree">
-        <div class="oil-card__inner">
-          <span class="oil-card__emoji" aria-hidden="true">🫧</span>
-          <h3 class="oil-card__name" data-i18n="oil_teatree">Arbre à thé</h3>
-          <p class="oil-card__effect" data-i18n="oil_teatree_fx">Purifiante · Équilibre</p>
-        </div>
-      </label>
-      <label class="oil-card reveal">
-        <input type="checkbox" name="oils" value="ylang">
-        <div class="oil-card__inner">
-          <span class="oil-card__emoji" aria-hidden="true">🌺</span>
-          <h3 class="oil-card__name" data-i18n="oil_ylang">Ylang-Ylang</h3>
-          <p class="oil-card__effect" data-i18n="oil_ylang_fx">Relaxante · Sensorielle</p>
-        </div>
-      </label>
-    </div>
-    <div class="oils__selection reveal" id="oils-selection" hidden>
-      <p class="oils__chosen" data-i18n="oils_chosen">Votre sélection :</p>
-      <div class="oils__tags" id="oils-tags"></div>
-      <p class="oils__note" data-i18n="oils_note">Mentionnez vos choix lors de la réservation ou nous les préparerons pour vous.</p>
+    <header class="section__header reveal">
+      <p class="section__label" data-i18n="temo.label">Ce qu'on en dit</p>
+      <h2 class="section__title" data-i18n="temo.title">Des moments qui <em>marquent.</em></h2>
+    </header>
+    <div class="temoignages__grid">
+      <blockquote class="temoignage-card reveal">
+        <div class="temoignage-card__stars" data-i18n-aria-label="temo.stars" aria-label="5 étoiles">★★★★★</div>
+        <p class="temoignage-card__text" data-i18n="temo.q1">« Une expérience incroyable. Giovanna prend le temps de comprendre tes besoins. Mon cuir chevelu n'a jamais été aussi sain. J'y retourne chaque mois! »</p>
+        <footer class="temoignage-card__author">
+          <span class="temoignage-card__name">Marianne L.</span>
+          <span class="temoignage-card__soin">Nova Évasion</span>
+        </footer>
+      </blockquote>
+      <blockquote class="temoignage-card reveal">
+        <div class="temoignage-card__stars" data-i18n-aria-label="temo.stars" aria-label="5 étoiles">★★★★★</div>
+        <p class="temoignage-card__text" data-i18n="temo.q2">« J'ai offert le Nova Royal à ma mère pour sa fête. On a passé un moment magique ensemble. L'ambiance est zen, les soins sont top. »</p>
+        <footer class="temoignage-card__author">
+          <span class="temoignage-card__name">Camille D.</span>
+          <span class="temoignage-card__soin">Nova Royal</span>
+        </footer>
+      </blockquote>
+      <blockquote class="temoignage-card reveal">
+        <div class="temoignage-card__stars" data-i18n-aria-label="temo.stars" aria-label="5 étoiles">★★★★★</div>
+        <p class="temoignage-card__text" data-i18n="temo.q3">« En tant que gars, j'étais pas sûr que c'était pour moi. Finalement, c'est le meilleur cadeau que je me suis fait. Super relaxant. »</p>
+        <footer class="temoignage-card__author">
+          <span class="temoignage-card__name">Marc-Antoine B.</span>
+          <span class="temoignage-card__soin">Nova Essentiel</span>
+        </footer>
+      </blockquote>
     </div>
   </div>
 </section>
 
-<!-- ===================== CTA BAND ===================== -->
-<section class="cta-band">
-  <div class="cta-band__inner reveal">
-    <p class="cta-band__text" data-i18n="cta_text">Sur rendez-vous seulement — pour vous garantir toute l'attention.</p>
-    <a href="#reservation" class="btn btn--primary btn--lg" data-i18n="cta_btn">Réserver maintenant</a>
-  </div>
-</section>
-
-<!-- ===================== ABOUT ===================== -->
+<!-- ABOUT -->
 <section id="apropos" class="about section">
   <div class="container about__inner">
     <div class="about__media reveal">
-      <div class="salon-slider">
-        <div class="salon-slider__track" id="slider-track">
-          <div class="salon-slider__slide">
-            <img src="assets/img/salon-1.jpg" alt="Nova Head Spa — espace de soin lumineux" loading="lazy">
-          </div>
-          <div class="salon-slider__slide">
-            <img src="assets/img/salon-2.jpg" alt="Coin détente avec mur végétal" loading="lazy">
-          </div>
-        </div>
-        <div class="salon-slider__controls">
-          <button class="salon-slider__btn" id="slider-prev" aria-label="Image précédente">&#8592;</button>
-          <div class="salon-slider__dots" id="slider-dots"></div>
-          <button class="salon-slider__btn" id="slider-next" aria-label="Image suivante">&#8594;</button>
-        </div>
+      <div class="about__image-wrapper">
+        <img src="img/salon-2.jpg" data-i18n-alt="about.imgAlt" alt="Nova Head Spa — espace de soin" class="about__main-img" loading="lazy">
       </div>
     </div>
     <div class="about__content reveal">
-      <p class="section__label" data-i18n="about_label">Notre histoire</p>
-      <h2 class="section__title" data-i18n="about_title">Le soin, c'est<br><em>une vocation.</em></h2>
-      <p data-i18n="about_p1">Nova est né d'une conviction profonde : prendre soin de soi commence par le haut. Entreprise familiale en pleine croissance, ouverte à toutes et à tous — avec l'ambition d'aller bien au-delà du head spa.</p>
-      <p data-i18n="about_p2">Giovanna Minoletti, praticienne diplômée, a fondé Nova à Napierville comme point de départ. De nouveaux soins et de nouveaux emplacements sont en préparation — parce que le bien-être devrait être accessible à tous, partout.</p>
-      <div class="about__signature">Giovanna Minoletti</div>
+      <p class="section__label" data-i18n="about.label">Notre histoire</p>
+      <h2 class="section__title" data-i18n="about.title">Le soin, c'est<br>une <em>vocation.</em></h2>
+      <p data-i18n="about.p1">Nova est né d'une conviction profonde : prendre soin de soi commence par le haut. Entreprise familiale en pleine croissance, ouverte à toutes et à tous.</p>
+      <p data-i18n="about.p2">Giovanna Minoletti, praticienne diplômée, a fondé Nova à Napierville. De nouveaux soins et emplacements sont en préparation — parce que le bien-être devrait être accessible à tous.</p>
       <div class="about__values">
-        <div class="about__check">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span data-i18n="val_1">Soins personnalisés</span>
-        </div>
-        <div class="about__check">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span data-i18n="val_2">Ouvert à tous</span>
-        </div>
-        <div class="about__check">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span data-i18n="val_3">Atmosphère relaxante</span>
-        </div>
+        <div class="about__value"><span data-i18n="about.v1">Soins personnalisés</span></div>
+        <div class="about__value"><span data-i18n="about.v2">Ouvert à tous</span></div>
+        <div class="about__value"><span data-i18n="about.v3">Atmosphère relaxante</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== TARIFS ===================== -->
-<section id="tarifs" class="tarifs section">
+<!-- RESERVATION -->
+<section id="reservation" class="reservation" data-nav="dark">
   <div class="container">
-    <div class="section__header reveal">
-      <p class="section__label" data-i18n="tarifs_label">Tarifs</p>
-      <h2 class="section__title" data-i18n="tarifs_title">Un investissement <em>en vous.</em></h2>
-    </div>
-    <div class="tarifs__grid">
-      <div class="tarif-card reveal">
-        <h3 class="tarif-card__name" data-i18n="tarif_lumiere">Soin Lumière</h3>
-        <p class="tarif-card__duration" data-i18n="tarif_60">60 minutes</p>
-        <p class="tarif-card__price">125<sup>$</sup></p>
-        <ul class="tarif-card__list">
-          <li data-i18n="tarif_l1">Consultation express du cuir chevelu</li>
-          <li data-i18n="tarif_l2">Massage relaxant aux huiles essentielles</li>
-          <li data-i18n="tarif_l3">Traitement de base adapté</li>
-          <li data-i18n="tarif_l4">Rinçage et coiffage léger</li>
-        </ul>
-        <a href="#reservation" class="btn btn--outline" data-i18n="tarif_book">Réserver</a>
+    <div class="resa__inner">
+      <div class="resa__left reveal">
+        <p class="section__label section__label--light" data-i18n="resa.label">Réservation</p>
+        <h2 class="resa__title" data-i18n="resa.title">Votre moment<br>commence <em>ici.</em></h2>
+        <p class="resa__desc" data-i18n="resa.desc">Complétez les étapes pour réserver. Nous confirmons dans les 24 h.</p>
+        <div class="resa__image">
+          <img src="img/oils.jpg" data-i18n-alt="resa.imgAlt" alt="Huiles essentielles Nova Head Spa" loading="lazy">
+        </div>
       </div>
-      <div class="tarif-card tarif-card--featured reveal">
-        <span class="tarif-card__badge" data-i18n="tarif_fav">Coup de coeur</span>
-        <h3 class="tarif-card__name" data-i18n="tarif_rituel">Rituel Nova</h3>
-        <p class="tarif-card__duration" data-i18n="tarif_90">90 minutes</p>
-        <p class="tarif-card__price">150<sup>$</sup></p>
-        <ul class="tarif-card__list">
-          <li data-i18n="tarif_r1">Consultation personnalisée approfondie</li>
-          <li data-i18n="tarif_r2">Massage profond cuir chevelu & nuque</li>
-          <li data-i18n="tarif_r3">Traitement ciblé premium</li>
-          <li data-i18n="tarif_r4">Masque nourrissant vapeur</li>
-          <li data-i18n="tarif_r5">Rinçage cascade & coiffage inclus</li>
-        </ul>
-        <a href="#reservation" class="btn btn--primary" data-i18n="tarif_book">Réserver</a>
-      </div>
-    </div>
+      <div class="resa__right reveal" id="resa-flow">
+        <!-- Step 1 -->
+        <div class="resa__step resa__step--active" id="resa-step-1" data-step="1">
+          <div class="resa__step-header">
+            <span class="resa__step-num">01</span>
+            <div>
+              <h3 class="resa__step-title" data-i18n="resa.step1">Votre soin</h3>
+              <p class="resa__step-sub" id="resa-soin-display">Nova Essentiel · 89 $ · Nova Évasion · 109 $ · Nova Royal · 139 $</p>
+            </div>
+          </div>
+          <div class="resa__step-body">
+            <div class="resa__pills">
+              <button class="resa__pill" data-soin="essentiel" type="button">Nova Essentiel · 89 $</button>
+              <button class="resa__pill" data-soin="evasion" type="button">Nova Évasion · 109 $</button>
+              <button class="resa__pill" data-soin="royal" type="button">Nova Royal · 139 $</button>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="resa__step" id="resa-step-2" data-step="2">
+          <div class="resa__step-header">
+            <span class="resa__step-num">02</span>
+            <div>
+              <h3 class="resa__step-title" data-i18n="resa.step2">Vos huiles essentielles</h3>
+              <p class="resa__step-sub" data-i18n="resa.step2sub">Survolez pour les bienfaits, cliquez pour choisir.</p>
+            </div>
+          </div>
+          <div class="resa__step-body">
+            <div class="resa__oils">
+              <label class="oil-chip"><input type="checkbox" name="resa-oils" value="lavande"><span class="oil-chip__inner"><span class="oil-chip__icon">💜</span><span class="oil-chip__name" data-i18n="oil.lavande.name">Lavande</span><span class="oil-chip__tag" data-i18n="oil.lavande.tag">Apaisante</span></span><span class="oil-chip__detail" data-i18n="oil.lavande.detail">Calme le stress. Favorise le sommeil.</span></label>
+              <label class="oil-chip"><input type="checkbox" name="resa-oils" value="eucalyptus"><span class="oil-chip__inner"><span class="oil-chip__icon">🌿</span><span class="oil-chip__name" data-i18n="oil.eucalyptus.name">Eucalyptus</span><span class="oil-chip__tag" data-i18n="oil.eucalyptus.tag">Revigorante</span></span><span class="oil-chip__detail" data-i18n="oil.eucalyptus.detail">Stimule la circulation.</span></label>
+              <label class="oil-chip"><input type="checkbox" name="resa-oils" value="menthe"><span class="oil-chip__inner"><span class="oil-chip__icon">🍃</span><span class="oil-chip__name" data-i18n="oil.menthe.name">Menthe</span><span class="oil-chip__tag" data-i18n="oil.menthe.tag">Rafraîchissante</span></span><span class="oil-chip__detail" data-i18n="oil.menthe.detail">Effet frais immédiat.</span></label>
+              <label class="oil-chip"><input type="checkbox" name="resa-oils" value="romarin"><span class="oil-chip__inner"><span class="oil-chip__icon">🌱</span><span class="oil-chip__name" data-i18n="oil.romarin.name">Romarin</span><span class="oil-chip__tag" data-i18n="oil.romarin.tag">Stimulante</span></span><span class="oil-chip__detail" data-i18n="oil.romarin.detail">Stimule la pousse.</span></label>
+              <label class="oil-chip"><input type="checkbox" name="resa-oils" value="tea-tree"><span class="oil-chip__inner"><span class="oil-chip__icon">🫧</span><span class="oil-chip__name" data-i18n="oil.teatree.name">Arbre à thé</span><span class="oil-chip__tag" data-i18n="oil.teatree.tag">Purifiante</span></span><span class="oil-chip__detail" data-i18n="oil.teatree.detail">Purifie en profondeur.</span></label>
+              <label class="oil-chip"><input type="checkbox" name="resa-oils" value="ylang"><span class="oil-chip__inner"><span class="oil-chip__icon">🌺</span><span class="oil-chip__name" data-i18n="oil.ylang.name">Ylang-Ylang</span><span class="oil-chip__tag" data-i18n="oil.ylang.tag">Relaxante</span></span><span class="oil-chip__detail" data-i18n="oil.ylang.detail">Relaxation profonde.</span></label>
+            </div>
+            <button class="btn btn--cream btn--sm resa__next" data-next="3" type="button" data-i18n="resa.continue">Continuer →</button>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="resa__step" id="resa-step-3" data-step="3">
+          <div class="resa__step-header">
+            <span class="resa__step-num">03</span>
+            <div>
+              <h3 class="resa__step-title" data-i18n="resa.step3">Date et heure</h3>
+              <p class="resa__step-sub" data-i18n="resa.step3sub">Choisissez votre moment dans le calendrier.</p>
+            </div>
+          </div>
+          <div class="resa__step-body">
+            <div class="resa__datetime">
+              <div class="form-group form-group--dark"><label for="resa-date" data-i18n="resa.dateLabel">Date souhaitée</label><input type="date" id="resa-date" name="date" required></div>
+              <div class="form-group form-group--dark"><label for="resa-time" data-i18n="resa.timeLabel">Heure</label>
+                <select id="resa-time" name="time" required>
+                  <option value="" data-i18n="resa.timePlaceholder">Choisir…</option>
+                  <option>9 h 00</option><option>9 h 30</option><option>10 h 00</option><option>10 h 30</option>
+                  <option>11 h 00</option><option>11 h 30</option><option>12 h 00</option><option>13 h 00</option>
+                  <option>13 h 30</option><option>14 h 00</option><option>14 h 30</option><option>15 h 00</option>
+                  <option>15 h 30</option><option>16 h 00</option><option>16 h 30</option><option>17 h 00</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn--cream btn--sm resa__next" data-next="4" type="button" data-i18n="resa.continue">Continuer →</button>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="resa__step" id="resa-step-4" data-step="4">
+          <div class="resa__step-header">
+            <span class="resa__step-num">04</span>
+            <div>
+              <h3 class="resa__step-title" data-i18n="resa.step4">Vos informations</h3>
+              <p class="resa__step-sub" data-i18n="resa.step4sub">Pour confirmer votre rendez-vous.</p>
+            </div>
+          </div>
+          <div class="resa__step-body">
+            <form class="resa__form" id="resa-form">
+              <div class="form-row">
+                <div class="form-group form-group--dark"><label for="resa-prenom" data-i18n="form.firstName">Prénom</label><input type="text" id="resa-prenom" name="prenom" required autocomplete="given-name" data-i18n-placeholder="form.firstNamePh" placeholder="Votre prénom"></div>
+                <div class="form-group form-group--dark"><label for="resa-nom" data-i18n="form.lastName">Nom</label><input type="text" id="resa-nom" name="nom" required autocomplete="family-name" data-i18n-placeholder="form.lastNamePh" placeholder="Votre nom"></div>
+              </div>
+              <div class="form-group form-group--dark"><label for="resa-tel" data-i18n="form.phone">Téléphone</label><input type="tel" id="resa-tel" name="telephone" required autocomplete="tel" placeholder="(514) 000-0000"></div>
+              <div class="form-group form-group--dark"><label for="resa-email" data-i18n="form.email">Courriel</label><input type="email" id="resa-email" name="email" required autocomplete="email" placeholder="votre@courriel.com"></div>
+              <div class="form-group form-group--dark"><label for="resa-notes" data-i18n="form.notes">Notes <span class="form-optional" data-i18n="form.optional">(facultatif)</span></label><textarea id="resa-notes" name="notes" rows="2" data-i18n-placeholder="form.notesPh" placeholder="Allergies, préférences..."></textarea></div>
+              <div class="resa__summary" id="resa-summary"></div>
+              <button type="submit" class="btn btn--accent btn--lg btn--full" data-i18n="resa.submit">Confirmer mon rendez-vous →</button>
+              <p class="resa__note" data-i18n="resa.note">Confirmation dans les 24 h · Ou appelez <a href="tel:5793660433">(579) 366-0433</a></p>
+            </form>
+          </div>
+        </div>
 
-    <div class="extras reveal">
-      <h3 class="extras__title" data-i18n="extras_title">À la carte</h3>
-      <div class="extras__grid">
-        <div class="extras__item">
-          <span class="extras__name" data-i18n="ext_massage">Massage nuque & épaules</span>
-          <span class="extras__line"></span>
-          <span class="extras__price">+ 25 $</span>
-        </div>
-        <div class="extras__item">
-          <span class="extras__name" data-i18n="ext_hydra">Traitement hydratation</span>
-          <span class="extras__line"></span>
-          <span class="extras__price">+ 20 $</span>
-        </div>
-        <div class="extras__item">
-          <span class="extras__name" data-i18n="ext_diag">Diagnostic capillaire</span>
-          <span class="extras__line"></span>
-          <span class="extras__price">+ 30 $</span>
-        </div>
-        <div class="extras__item">
-          <span class="extras__name" data-i18n="ext_keratine">Lissage kératine</span>
-          <span class="extras__line"></span>
-          <span class="extras__price" data-i18n="ext_devis">Sur devis</span>
-        </div>
-      </div>
-      <div class="extras__forfaits">
-        <div class="forfait reveal">
-          <div>
-            <h4 class="forfait__name" data-i18n="forf_5">Carte Fidélité — 5 soins</h4>
-            <p class="forfait__desc" data-i18n="forf_5_desc">Économisez 50 $ · Valide 12 mois</p>
-          </div>
-          <span class="forfait__price">575 $</span>
-        </div>
-        <div class="forfait reveal">
-          <div>
-            <h4 class="forfait__name" data-i18n="forf_abo">Abonnement Mensuel</h4>
-            <p class="forfait__desc" data-i18n="forf_abo_desc">2 soins/mois · Économisez 20 $/mois</p>
-          </div>
-          <span class="forfait__price">230 $<small>/mois</small></span>
-        </div>
+        <a href="#reservation" class="btn btn--accent btn--lg resa__cta-main" id="resa-start-btn" data-i18n="resa.start">Commencer ma réservation →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== CARTE-CADEAU ===================== -->
-<section id="cadeau" class="booking">
-  <div class="booking__bg">
-    <img src="assets/img/salon-2.jpg" alt="" aria-hidden="true" loading="lazy">
-    <div class="booking__overlay"></div>
-  </div>
-  <div class="booking__content reveal">
-    <p class="section__label section__label--light" data-i18n="gift_label">Offrir Nova</p>
-    <h2 class="booking__title" data-i18n="gift_title">Le plus beau cadeau ?<br>Un moment <em>rien que pour soi.</em></h2>
-    <p class="booking__desc" data-i18n="gift_desc">Cartes-cadeaux disponibles en tout montant. Anniversaire, fête, ou juste parce que quelqu'un le mérite.</p>
-    <div class="booking__amounts">
-      <span>Soin Lumière · 125 $</span>
-      <span>Rituel Nova · 150 $</span>
-      <span>Duo Éclat · 270 $</span>
-      <span data-i18n="gift_free">Montant libre</span>
-    </div>
-    <a href="tel:5793660433" class="btn btn--hero" data-i18n="gift_cta">Commander · (579) 366-0433</a>
-    <p class="booking__small" data-i18n="gift_note">Par téléphone ou en salon</p>
-  </div>
-</section>
-
-<!-- ===================== RÉSERVATION ===================== -->
-<section id="reservation" class="reservation section">
+<!-- CARTE-CADEAU -->
+<section id="cadeau" class="gift section">
   <div class="container">
-    <div class="section__header reveal">
-      <p class="section__label" data-i18n="resa_label">Rendez-vous</p>
-      <h2 class="section__title" data-i18n="resa_title">Votre moment de lumière<br><em>commence ici.</em></h2>
-    </div>
-    <div class="resa-steps reveal">
-      <div class="resa-step">
-        <span class="resa-step__num">01</span>
-        <p class="resa-step__text" data-i18n="step_1">Choisissez votre soin</p>
+    <div class="gift__inner">
+      <div class="gift__content reveal">
+        <p class="section__label" data-i18n="gift.label">Carte-cadeau</p>
+        <h2 class="section__title" data-i18n="gift.title">Offrez un moment<br>de <em>lumière.</em></h2>
+        <p class="gift__desc" data-i18n="gift.desc">Le cadeau parfait pour un proche, un anniversaire, ou simplement pour faire plaisir. Disponible en tout montant.</p>
+        <div class="gift__options">
+          <span class="gift__amount">89 $</span>
+          <span class="gift__amount">109 $</span>
+          <span class="gift__amount">139 $</span>
+          <span class="gift__amount" data-i18n="gift.custom">Sur mesure</span>
+        </div>
+        <div class="gift__actions">
+          <a href="tel:5793660433" class="btn btn--dark" data-i18n="gift.ctaPhone">Commander une carte-cadeau</a>
+          <a href="#contact" class="btn btn--outline-dark" data-i18n="gift.ctaWrite">Nous écrire</a>
+        </div>
       </div>
-      <div class="resa-step">
-        <span class="resa-step__num">02</span>
-        <p class="resa-step__text" data-i18n="step_2">Sélectionnez vos huiles</p>
+      <div class="gift__media reveal">
+        <div class="gift__flip" role="button" tabindex="0" data-i18n-aria-label="gift.flipAria" aria-label="Cliquez pour retourner la carte">
+          <div class="gift__flip-inner">
+            <div class="gift__flip-front">
+              <img src="img/carte-front-crop.png" data-i18n-alt="gift.altFront" alt="Carte-cadeau Nova Head Spa — recto" loading="lazy">
+            </div>
+            <div class="gift__flip-back">
+              <img src="img/carte-back-crop.png" data-i18n-alt="gift.altBack" alt="Carte-cadeau Nova Head Spa — verso" loading="lazy">
+            </div>
+          </div>
+          <p class="gift__flip-hint" data-i18n="gift.flipHint">Cliquez pour retourner</p>
+        </div>
       </div>
-      <div class="resa-step">
-        <span class="resa-step__num">03</span>
-        <p class="resa-step__text" data-i18n="step_3">Choisissez une date</p>
-      </div>
-      <div class="resa-step">
-        <span class="resa-step__num">04</span>
-        <p class="resa-step__text" data-i18n="step_4">Déposez vos tensions</p>
-      </div>
-    </div>
-    <div class="resa-cta reveal">
-      <a href="https://www.fresha.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" data-i18n="resa_cta">Prendre rendez-vous →</a>
-      <p class="resa-phone" data-i18n="resa_phone">Ou appelez-nous : <a href="tel:5793660433">(579) 366-0433</a></p>
     </div>
   </div>
 </section>
 
-<!-- ===================== CONTACT ===================== -->
+<!-- CONTACT -->
 <section id="contact" class="contact section">
   <div class="container">
-    <div class="section__header reveal">
-      <p class="section__label" data-i18n="contact_label">Nous trouver</p>
-      <h2 class="section__title" data-i18n="contact_title">Visitez le studio</h2>
-      <p class="section__subtitle" data-i18n="contact_sub">
-        <strong>261A, rue de l'Église, Napierville, QC</strong><br>
-        Sur rendez-vous · Lundi au samedi
-      </p>
-    </div>
     <div class="contact__grid">
       <div class="contact__info reveal">
-        <div class="contact-row">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <div>
-            <strong data-i18n="addr_label">Adresse</strong>
+        <p class="section__label" data-i18n="contact.label">Nous trouver</p>
+        <h2 class="section__title" data-i18n="contact.title">Visitez le <em>studio.</em></h2>
+
+        <div class="contact__details">
+          <div class="contact-item">
+            <span class="contact-item__label" data-i18n="contact.addrLabel">Adresse</span>
             <p>261A, rue de l'Église<br>Napierville, QC, J0L 1L0</p>
           </div>
-        </div>
-        <div class="contact-row">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          <div>
-            <strong data-i18n="phone_label">Téléphone</strong>
+          <div class="contact-item">
+            <span class="contact-item__label" data-i18n="contact.phoneLabel">Téléphone</span>
             <p><a href="tel:5793660433">(579) 366-0433</a></p>
           </div>
+          <div class="contact-item">
+            <span class="contact-item__label" data-i18n="contact.hoursLabel">Horaire</span>
+            <p data-i18n="contact.hours">Sur rendez-vous · Lundi au samedi</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item__label" data-i18n="contact.igLabel">Instagram</span>
+            <p><a href="https://instagram.com/nova.headspa" target="_blank" rel="noopener noreferrer">@headspa.nova</a></p>
+          </div>
         </div>
-        <a href="https://maps.google.com/?q=261A+rue+de+l'Église+Napierville+QC+J0L+1L0" target="_blank" rel="noopener noreferrer" class="contact__map-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <span data-i18n="map_link">Ouvrir dans Google Maps →</span>
-        </a>
-        <a href="https://instagram.com/nova.headspa" target="_blank" rel="noopener noreferrer" class="contact__insta">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          @nova.headspa
-        </a>
+        <a href="https://maps.google.com/?q=261A+rue+de+l'Église+Napierville+QC+J0L+1L0" target="_blank" rel="noopener noreferrer" class="contact__map-link" data-i18n="contact.map">Ouvrir dans Google Maps →</a>
       </div>
-      <form class="contact__form reveal" onsubmit="submitForm(event)">
+
+      <form class="contact__form reveal" action="https://formspree.io/f/xyzgobdj" method="POST">
         <div class="form-row">
-          <div class="form-group">
-            <label for="prenom" data-i18n="form_first">Prénom</label>
-            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required autocomplete="given-name">
-          </div>
-          <div class="form-group">
-            <label for="nom" data-i18n="form_last">Nom</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="family-name">
-          </div>
+          <div class="form-group form-group--underline"><label for="prenom" data-i18n="form.firstName">Prénom</label><input type="text" id="prenom" name="prenom" data-i18n-placeholder="form.firstNamePh" placeholder="Votre prénom" required autocomplete="given-name"></div>
+          <div class="form-group form-group--underline"><label for="nom" data-i18n="form.lastName">Nom</label><input type="text" id="nom" name="nom" data-i18n-placeholder="form.lastNamePh" placeholder="Votre nom" autocomplete="family-name"></div>
         </div>
-        <div class="form-group">
-          <label for="courriel" data-i18n="form_email">Courriel</label>
-          <input type="email" id="courriel" name="courriel" placeholder="votre@courriel.com" required autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="message" data-i18n="form_msg">Message</label>
-          <textarea id="message" name="message" placeholder="Comment puis-je vous aider..." rows="4"></textarea>
-        </div>
-        <p class="form-notice" data-i18n="form_notice">Vos données sont utilisées uniquement pour répondre à votre message. <a href="confidentialite.html">Politique de confidentialité</a></p>
-        <button type="submit" class="btn btn--primary" data-i18n="form_send">Envoyer</button>
+        <div class="form-group form-group--underline"><label for="courriel" data-i18n="form.email">Courriel</label><input type="email" id="courriel" name="courriel" placeholder="votre@courriel.com" required autocomplete="email"></div>
+        <div class="form-group form-group--underline"><label for="message" data-i18n="form.message">Message</label><textarea id="message" name="message" data-i18n-placeholder="form.messagePh" placeholder="Comment puis-je vous aider..." rows="3"></textarea></div>
+        <p class="form-notice" data-i18n="contact.notice">Vos données sont utilisées uniquement pour répondre à votre message.</p>
+        <button type="submit" class="btn btn--dark" data-i18n="contact.send">Envoyer →</button>
       </form>
     </div>
   </div>
@@ -464,31 +464,55 @@
 
 </main>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <p class="footer__logo">NOVA <em>Head Spa</em></p>
-      <p class="footer__tagline" data-i18n="footer_tag">Head spa · Soins · Bien-être — Pour tous — En expansion</p>
+<!-- FOOTER -->
+<footer class="footer" data-nav="dark">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <p class="footer__logo">NOVA</p>
+        <p class="footer__tagline" data-i18n="footer.tagline">Head spa · Soins · Bien-être<br>Pour tous · En expansion</p>
+        <a href="https://instagram.com/nova.headspa" target="_blank" rel="noopener noreferrer" class="footer__social">@headspa.nova</a>
+      </div>
+      <nav class="footer__col" data-i18n-aria-label="footer.navAria" aria-label="Navigation pied de page">
+        <h4 data-i18n="footer.navTitle">Navigation</h4>
+        <ul>
+          <li><a href="#soins" data-i18n="nav.soins">Soins</a></li>
+          <li><a href="#reservation" data-i18n="nav.reservation">Réservation</a></li>
+          <li><a href="#apropos" data-i18n="footer.histoire">Notre histoire</a></li>
+          <li><a href="#cadeau" data-i18n="nav.cadeau">Carte-cadeau</a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h4 data-i18n="footer.contactTitle">Contact</h4>
+        <ul>
+          <li><a href="tel:5793660433">(579) 366-0433</a></li>
+          <li>261A, rue de l'Église</li>
+          <li>Napierville, QC J0L 1L0</li>
+          <li data-i18n="footer.hours">Sur rendez-vous · Lun–Sam</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer.legalTitle">Légal</h4>
+        <ul>
+          <li><a href="confidentialite.html" data-i18n="footer.privacy">Confidentialité</a></li>
+          <li><button type="button" class="footer__link-btn" data-cookie="manage" data-i18n="footer.manageCookies">Gérer les témoins</button></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <nav class="footer__nav" aria-label="Navigation pied de page">
-      <a href="#services" data-i18n="nav_services">Soins</a>
-      <a href="#tarifs" data-i18n="nav_tarifs">Tarifs</a>
-      <a href="#huiles" data-i18n="nav_oils">Huiles</a>
-      <a href="#cadeau" data-i18n="nav_gift">Carte-cadeau</a>
-      <a href="#apropos" data-i18n="nav_about">Notre histoire</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
-      <a href="confidentialite.html" data-i18n="nav_privacy">Confidentialité</a>
-    </nav>
-    <div class="footer__map">
-      <a href="https://maps.google.com/?q=261A+rue+de+l'Église+Napierville+QC+J0L+1L0" target="_blank" rel="noopener noreferrer" data-i18n="footer_map">
-        📍 261A, rue de l'Église, Napierville — Ouvrir dans Google Maps
-      </a>
+    <div class="footer__bottom">
+      <p data-i18n="footer.copyright">&copy; 2025 Nova Head Spa. Tous droits réservés.</p>
     </div>
-    <p class="footer__copy">&copy; 2025 Nova Head Spa. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
   </div>
 </footer>
 
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar" id="mobile-bar">
+  <a href="tel:5793660433" class="mobile-bar__phone" data-i18n="mobile.call">Appeler</a>
+  <a href="#reservation" class="mobile-bar__book" data-i18n="mobile.book">Réserver</a>
+</div>
+
+<script src="js/i18n.js" defer></script>
 <script src="js/script.js" defer></script>
 </body>
 </html>

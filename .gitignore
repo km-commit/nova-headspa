@@ -18,3 +18,6 @@ Thumbs.db
 
 # Archives
 assets/archive_*
+
+# Script de déploiement (logique de jeton — garder privé)
+deploy_github.sh
