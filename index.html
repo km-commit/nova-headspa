@@ -22,6 +22,43 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Données structurées pour Google (fiche locale / Maps) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DaySpa",
+  "name": "Nova Head Spa",
+  "description": "Head spa, soins capillaires personnalisés et bien-être complet à Napierville, QC. Pour tous, sur rendez-vous.",
+  "image": "https://km-commit.github.io/nova-headspa/img/hero.jpg",
+  "url": "https://km-commit.github.io/nova-headspa/",
+  "telephone": "+1-579-366-0433",
+  "priceRange": "$$",
+  "currenciesAccepted": "CAD",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "261A, rue de l'Église",
+    "addressLocality": "Napierville",
+    "addressRegion": "QC",
+    "postalCode": "J0L 1L0",
+    "addressCountry": "CA"
+  },
+  "areaServed": "Montérégie, Québec",
+  "founder": { "@type": "Person", "name": "Giovanna Minoletti" },
+  "sameAs": ["https://instagram.com/nova.headspa"],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00",
+    "closes": "17:00"
+  }],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Essentiel" }, "price": "89", "priceCurrency": "CAD" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Évasion" }, "price": "109", "priceCurrency": "CAD" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nova Royal" }, "price": "129", "priceCurrency": "CAD" }
+  ]
+}
+</script>
 </head>
 <body>
 
