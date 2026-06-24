@@ -78,7 +78,9 @@ const I18N = {
     "temo.label": `Ce qu'on en dit`,
     "temo.title": `Des moments qui <em>marquent.</em>`,
     "temo.stars": `5 étoiles sur 5`,
-    "temo.q1": `« Une expérience incroyable. Giovanna prend le temps de comprendre tes besoins. Mon cuir chevelu n'a jamais été aussi sain. J'y retourne chaque mois! »`,
+    "temo.q1": `« L'analyse du cuir chevelu était vraiment complète et le massage du cuir chevelu était tout simplement incroyable. Giovanna a été merveilleuse, elle m'a mise à l'aise dès le début et a pris grand soin de moi tout au long du traitement. Je suis ressortie détendue, rafraîchie et très satisfaite de mon expérience. »`,
+    "temo.source": `Avis Google · 5,0 ★`,
+    "temo.cta": `Voir nos avis sur Google →`,
     "temo.q2": `« J'ai offert le Nova Royal à ma mère pour sa fête. On a passé un moment magique ensemble. L'ambiance est zen, les soins sont top. »`,
     "temo.q3": `« En tant que gars, j'étais pas sûr que c'était pour moi. Finalement, c'est le meilleur cadeau que je me suis fait. Super relaxant. »`,
 
@@ -283,7 +285,9 @@ const I18N = {
     "temo.label": `What people say`,
     "temo.title": `Moments that <em>stay with you.</em>`,
     "temo.stars": `5 out of 5 stars`,
-    "temo.q1": `"An incredible experience. Giovanna takes the time to understand your needs. My scalp has never been healthier. I go back every month!"`,
+    "temo.q1": `"The scalp analysis was truly thorough and the scalp massage was simply incredible. Giovanna was wonderful — she put me at ease from the very start and took great care of me throughout the treatment. I left relaxed, refreshed and very satisfied with my experience."`,
+    "temo.source": `Google review · 5.0 ★`,
+    "temo.cta": `See our Google reviews →`,
     "temo.q2": `"I gave the Nova Royal to my mom for her birthday. We shared a magical moment together. The atmosphere is calm and the treatments are top-notch."`,
     "temo.q3": `"As a guy, I wasn't sure it was for me. Turns out it's the best gift I've given myself. Super relaxing."`,
 

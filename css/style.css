@@ -418,6 +418,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── TÉMOIGNAGES ───────────────────────────────────────────── */
 .temoignages { background: var(--cream); }
+.temoignages__featured { max-width: 720px; margin: 0 auto; text-align: center; }
+.temoignages__featured .temoignage-card { text-align: left; }
+.temoignages__featured .temoignage-card__text { font-size: var(--fs-md); }
+.temoignages__cta {
+  display: inline-block; margin-top: var(--space-8);
+  font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text);
+  border-bottom: 1.5px solid var(--text); padding-bottom: 4px; transition: all 0.2s;
+}
+.temoignages__cta:hover { color: var(--rose); border-color: var(--rose); }
 .temoignages__grid {
   display: flex; flex-direction: column; gap: 16px;
   max-width: 1100px; margin: 0 auto;
