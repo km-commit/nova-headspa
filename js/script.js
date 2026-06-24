@@ -174,7 +174,7 @@ if (contactForm) {
   const soinNames = {
     essentiel: 'Nova Essentiel — 89 $ (60 min)',
     evasion: 'Nova Évasion — 109 $ (75 min)',
-    royal: 'Nova Royal — 139 $ (105 min)'
+    royal: 'Nova Royal — 129 $ (105 min)'
   };
 
   if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
@@ -273,7 +273,7 @@ if (contactForm) {
     if (dateVal) data.append('date', dateVal);
     if (timeEl && timeEl.value) data.append('heure', timeEl.value);
 
-    fetch('https://formspree.io/f/xyzgobdj', {
+    fetch('https://formspree.io/f/xdarkqrn', {
       method: 'POST', body: data, headers: { 'Accept': 'application/json' }
     }).then(r => {
       if (r.ok) {
@@ -284,7 +284,7 @@ if (contactForm) {
           form.reset(); selectedSoin = null;
           soinCards.forEach(c => c.classList.remove('is-selected'));
           pills.forEach(p => p.classList.remove('is-active'));
-          if (soinDisplay) soinDisplay.textContent = 'Nova Essentiel · 89 $ · Nova Évasion · 109 $ · Nova Royal · 139 $';
+          if (soinDisplay) soinDisplay.textContent = 'Nova Essentiel · 89 $ · Nova Évasion · 109 $ · Nova Royal · 129 $';
           if (summaryDiv) { summaryDiv.classList.remove('is-visible'); summaryDiv.innerHTML = ''; }
           document.querySelectorAll('.oil-chip input').forEach(cb => { cb.checked = false; cb.closest('.oil-chip').classList.remove('is-selected'); });
           activateStep(1);
