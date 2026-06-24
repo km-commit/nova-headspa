@@ -205,7 +205,7 @@ const I18N = {
     "legal.rightsH": `Vos droits`,
     "legal.rightsP": `Vous avez le droit d'accéder à vos renseignements, de les faire rectifier ou d'en demander la suppression. Pour exercer ces droits, écrivez-nous ou téléphonez au <a href="tel:5793660433">(579) 366-0433</a>.`,
     "legal.respH": `Responsable de la protection des renseignements`,
-    "legal.respP": `Giovanna Minoletti — Nova Head Spa, 261A, rue de l'Église, Napierville, QC, J0L 1L0.`,
+    "legal.respP": `Giovanna Minoletti — Nova Head Spa, 261A, rue de l'Église, Napierville, QC, J0J 1L0.`,
     "legal.updated": `Dernière mise à jour : juin 2026.`
   },
 
@@ -410,7 +410,7 @@ const I18N = {
     "legal.rightsH": `Your rights`,
     "legal.rightsP": `You have the right to access your information, to have it corrected, or to request its deletion. To exercise these rights, write to us or call <a href="tel:5793660433">(579) 366-0433</a>.`,
     "legal.respH": `Information protection officer`,
-    "legal.respP": `Giovanna Minoletti — Nova Head Spa, 261A, rue de l'Église, Napierville, QC, J0L 1L0.`,
+    "legal.respP": `Giovanna Minoletti — Nova Head Spa, 261A, rue de l'Église, Napierville, QC, J0J 1L0.`,
     "legal.updated": `Last updated: June 2026.`
   }
 };
