@@ -167,24 +167,40 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .promo-bar {
   position: fixed; top: 0; left: 0; width: 100%; z-index: 1002;
   background: linear-gradient(135deg, var(--brown-dark) 0%, #5a2e1f 100%);
-  color: var(--cream); text-align: center;
-  padding: 12px 40px 14px 16px;
+  color: var(--cream);
+  padding: 10px 0;
+  overflow: hidden;
 }
 .promo-bar ~ .navbar { top: calc(var(--promo-h, 42px) - 2px); }
 .promo-bar.hidden ~ .navbar { top: 0; }
+.promo-bar__track {
+  overflow: hidden;
+  padding-right: 36px;
+}
 .promo-bar__inner {
-  display: flex; align-items: center; justify-content: center;
-  gap: 10px; flex-wrap: wrap;
+  display: flex; align-items: center;
+  gap: 24px;
+  white-space: nowrap;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+.promo-bar:hover .promo-bar__inner { animation-play-state: paused; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
 }
 .promo-bar__sparkle {
-  color: var(--gold); font-size: 0.85rem;
+  color: var(--gold); font-size: 0.85rem; flex-shrink: 0;
+}
+.promo-bar__sep {
+  color: var(--gold); font-size: 0.85rem; flex-shrink: 0;
 }
 .promo-bar__text {
-  font-size: var(--fs-xs); line-height: 1.5; letter-spacing: 0.02em;
+  font-size: var(--fs-xs); line-height: 1.5; letter-spacing: 0.02em; flex-shrink: 0;
 }
 .promo-bar__text strong { color: var(--rose-pale); }
 .promo-bar__cta {
-  display: inline-block;
+  display: inline-block; flex-shrink: 0;
   font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--brown-dark); background: var(--rose-pale);
   padding: 5px 14px; border-radius: 6px;
@@ -194,10 +210,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .promo-bar__close {
   position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
   color: rgba(255,255,255,0.5); font-size: 1.3rem; line-height: 1;
-  transition: color 0.2s;
+  transition: color 0.2s; z-index: 1;
 }
 .promo-bar__close:hover { color: var(--cream); }
 .promo-bar.hidden { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .promo-bar__inner { animation: none; }
+}
 
 /* ── ACCESSIBILITY ─────────────────────────────────────────── */
 .skip-link {
