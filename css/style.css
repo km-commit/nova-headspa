@@ -176,15 +176,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .promo-bar__track {
   overflow: hidden;
   padding-right: 36px;
+  -webkit-mask-image: -webkit-linear-gradient(left, transparent 0, #000 2%, #000 98%, transparent 100%);
 }
 .promo-bar__inner {
-  display: flex; align-items: center;
+  display: inline-flex; align-items: center;
   gap: 24px;
   white-space: nowrap;
-  width: max-content;
+  will-change: transform;
+  -webkit-animation: marquee 20s linear infinite;
   animation: marquee 20s linear infinite;
 }
-.promo-bar:hover .promo-bar__inner { animation-play-state: paused; }
+.promo-bar:hover .promo-bar__inner {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+@-webkit-keyframes marquee {
+  0% { -webkit-transform: translateX(0); transform: translateX(0); }
+  100% { -webkit-transform: translateX(-33.333%); transform: translateX(-33.333%); }
+}
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.333%); }
@@ -411,6 +420,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero__video {
   width: 100%; height: 100%; object-fit: cover; object-position: center center;
+}
+.hero__video--desktop { display: none; }
+.hero__video--mobile { display: block; }
+@media (min-width: 768px) {
+  .hero__video--desktop { display: block; }
+  .hero__video--mobile { display: none; }
 }
 .hero__overlay {
   position: absolute; inset: 0;
