@@ -291,7 +291,7 @@ if (contactForm) {
           form.reset(); selectedSoin = null;
           soinCards.forEach(c => c.classList.remove('is-selected'));
           pills.forEach(p => p.classList.remove('is-active'));
-          if (soinDisplay) soinDisplay.textContent = 'Nova Essentiel · 89 $ · Nova Évasion · 109 $ · Nova Royal · 129 $';
+          if (soinDisplay) soinDisplay.textContent = t('resa.step1sub');
           if (summaryDiv) { summaryDiv.classList.remove('is-visible'); summaryDiv.innerHTML = ''; }
           document.querySelectorAll('.oil-chip input').forEach(cb => { cb.checked = false; cb.closest('.oil-chip').classList.remove('is-selected'); });
           activateStep(1);
