@@ -179,13 +179,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   -webkit-mask-image: -webkit-linear-gradient(left, transparent 0, #000 2%, #000 98%, transparent 100%);
 }
 .promo-bar__inner {
-  display: inline-flex; align-items: center;
+  display: inline-flex; align-items: center; flex-wrap: nowrap;
   gap: 24px;
   white-space: nowrap;
   will-change: transform;
   -webkit-animation: marquee 20s linear infinite;
   animation: marquee 20s linear infinite;
 }
+.promo-bar__inner > * { flex-shrink: 0; }
 .promo-bar:hover .promo-bar__inner {
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
@@ -205,7 +206,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--gold); font-size: 0.85rem; flex-shrink: 0;
 }
 .promo-bar__text {
-  font-size: var(--fs-xs); line-height: 1.5; letter-spacing: 0.02em; flex-shrink: 0;
+  display: inline; font-size: var(--fs-xs); line-height: 1.5; letter-spacing: 0.02em; flex-shrink: 0;
 }
 .promo-bar__text strong { color: var(--rose-pale); }
 .promo-bar__cta {
