@@ -204,8 +204,8 @@
       <p class="soins__header-right" data-i18n="soins.intro">Trois rituels inspirés des traditions japonaises, conçus pour revitaliser le cuir chevelu, les cheveux et l'esprit.</p>
     </div>
 
-    <div class="soins__grid">
-      <div class="soin-card reveal" data-soin="essentiel" data-price="89" data-duration="60" role="button" tabindex="0">
+    <div class="soins__grid stagger">
+      <div class="soin-card reveal-scale" data-soin="essentiel" data-price="89" data-duration="60" role="button" tabindex="0">
         <span class="soin-card__duration">60 min</span>
         <h3 class="soin-card__name">Nova Essentiel</h3>
         <p class="soin-card__desc" data-i18n="soins.essentiel.desc">Le soin idéal pour découvrir l'expérience Nova.</p>
@@ -227,7 +227,7 @@
         </div>
       </div>
 
-      <div class="soin-card soin-card--featured reveal" data-soin="evasion" data-price="109" data-duration="75" role="button" tabindex="0">
+      <div class="soin-card soin-card--featured reveal-scale" data-soin="evasion" data-price="109" data-duration="75" role="button" tabindex="0">
         <div class="soin-card__badges">
           <span class="soin-card__badge" data-i18n="soins.badgePopular">Populaire</span>
           <span class="soin-card__duration">75 min</span>
@@ -253,7 +253,7 @@
         </div>
       </div>
 
-      <div class="soin-card reveal" data-soin="royal" data-price="129" data-duration="105" role="button" tabindex="0">
+      <div class="soin-card reveal-scale" data-soin="royal" data-price="129" data-duration="105" role="button" tabindex="0">
         <div class="soin-card__badges">
           <span class="soin-card__badge" data-i18n="soins.badgePremium">Haut de gamme</span>
           <span class="soin-card__duration">105 min</span>
@@ -307,12 +307,12 @@
 <!-- ABOUT -->
 <section id="apropos" class="about section">
   <div class="container about__inner">
-    <div class="about__media reveal">
+    <div class="about__media reveal-left">
       <div class="about__image-wrapper">
         <img src="img/salon-2.jpg" data-i18n-alt="about.imgAlt" alt="Nova Head Spa — espace de soin" class="about__main-img" loading="lazy">
       </div>
     </div>
-    <div class="about__content reveal">
+    <div class="about__content reveal-right">
       <p class="section__label" data-i18n="about.label">Notre histoire</p>
       <h2 class="section__title" data-i18n="about.title">Le soin, c'est<br>une <em>vocation.</em></h2>
       <p data-i18n="about.p1">Nova est né d'une conviction profonde : prendre soin de soi commence par le haut. Un espace ouvert à toutes et à tous, dédié au bien-être.</p>
@@ -454,7 +454,7 @@
 <section id="cadeau" class="gift section">
   <div class="container">
     <div class="gift__inner">
-      <div class="gift__content reveal">
+      <div class="gift__content reveal-left">
         <p class="section__label" data-i18n="gift.label">Carte-cadeau</p>
         <h2 class="section__title" data-i18n="gift.title">Offrez un moment<br>de <em>lumière.</em></h2>
         <p class="gift__tagline" data-i18n="gift.tagline">Pour lui · Pour elle</p>
@@ -470,7 +470,7 @@
           <a href="#contact" class="btn btn--outline-dark" data-i18n="gift.ctaWrite">Nous écrire</a>
         </div>
       </div>
-      <div class="gift__media reveal">
+      <div class="gift__media reveal-scale">
         <img src="img/carte-front-crop.png" class="gift__card-img" data-i18n-alt="gift.altFront" alt="Carte-cadeau Nova Head Spa" loading="lazy">
       </div>
     </div>
@@ -481,7 +481,7 @@
 <section id="contact" class="contact section">
   <div class="container">
     <div class="contact__grid">
-      <div class="contact__info reveal">
+      <div class="contact__info reveal-left">
         <p class="section__label" data-i18n="contact.label">Nous trouver</p>
         <h2 class="section__title" data-i18n="contact.title">Visitez le <em>studio.</em></h2>
 
@@ -510,7 +510,7 @@
         <a href="https://maps.google.com/?q=261A+rue+de+l'Église+Napierville+QC+J0L+1L0" target="_blank" rel="noopener noreferrer" class="contact__map-link" data-i18n="contact.map">Ouvrir dans Google Maps →</a>
       </div>
 
-      <form class="contact__form reveal" action="https://formspree.io/f/xdarkqrn" method="POST">
+      <form class="contact__form reveal-right" action="https://formspree.io/f/xdarkqrn" method="POST">
         <div class="form-row">
           <div class="form-group form-group--underline"><label for="prenom" data-i18n="form.firstName">Prénom</label><input type="text" id="prenom" name="prenom" data-i18n-placeholder="form.firstNamePh" placeholder="Votre prénom" required autocomplete="given-name"></div>
           <div class="form-group form-group--underline"><label for="nom" data-i18n="form.lastName">Nom</label><input type="text" id="nom" name="nom" data-i18n-placeholder="form.lastNamePh" placeholder="Votre nom" autocomplete="family-name"></div>
@@ -564,7 +564,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p data-i18n="footer.copyright">&copy; 2025 Nova Head Spa. Tous droits réservés.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 Nova Head Spa. Tous droits réservés.</p>
     </div>
   </div>
 </footer>

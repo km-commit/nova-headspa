@@ -45,11 +45,18 @@ if (mobileBar) {
   });
 }
 
-// ── REVEAL ───────────────────────────────────────────────────
+// ── REVEAL & SCROLL ANIMATIONS ──────────────────────────────
 const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.classList.contains('stagger')) {
+        e.target.querySelectorAll('.reveal, .reveal-scale').forEach(c => c.classList.add('visible'));
+      }
+    }
+  });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .section-line').forEach(el => obs.observe(el));
 
 // ── SMOOTH SCROLL ────────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {

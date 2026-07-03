@@ -182,7 +182,7 @@ const I18N = {
     "footer.legalTitle": `Légal`,
     "footer.privacy": `Confidentialité`,
     "footer.manageCookies": `Gérer les témoins`,
-    "footer.copyright": `© 2025 Nova Head Spa. Tous droits réservés.`,
+    "footer.copyright": `© 2026 Nova Head Spa. Tous droits réservés.`,
 
     "mobile.call": `Appeler`,
     "mobile.book": `Réserver`,
@@ -467,7 +467,7 @@ const I18N = {
     "footer.legalTitle": `Legal`,
     "footer.privacy": `Privacy`,
     "footer.manageCookies": `Manage cookies`,
-    "footer.copyright": `© 2025 Nova Head Spa. All rights reserved.`,
+    "footer.copyright": `© 2026 Nova Head Spa. All rights reserved.`,
 
     "mobile.call": `Call`,
     "mobile.book": `Book`,
