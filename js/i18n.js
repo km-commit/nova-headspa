@@ -149,7 +149,6 @@ const I18N = {
 
     "gift.label": `Carte-cadeau`,
     "gift.title": `Offrez un moment<br>de <em>lumière.</em>`,
-    "gift.tagline": `Pour lui · Pour elle`,
     "gift.desc": `Le cadeau parfait pour tous — un anniversaire, une occasion spéciale, ou simplement pour faire plaisir. Disponible en tout montant.`,
     "gift.custom": `Sur mesure`,
     "gift.ctaPhone": `Commander une carte-cadeau`,
@@ -434,7 +433,6 @@ const I18N = {
 
     "gift.label": `Gift card`,
     "gift.title": `Give a moment<br>of <em>light.</em>`,
-    "gift.tagline": `For him · For her`,
     "gift.desc": `The perfect gift for everyone — a birthday, a special occasion, or simply to treat someone. Available in any amount.`,
     "gift.custom": `Custom`,
     "gift.ctaPhone": `Order a gift card`,
