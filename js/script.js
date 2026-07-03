@@ -302,9 +302,53 @@ if (contactForm) {
   });
 })();
 
-// ── GIFT CARD FLIP ─────────────────────────────────────────
-const flipCard = document.querySelector('.gift__flip');
-if (flipCard) {
-  flipCard.addEventListener('click', () => flipCard.classList.toggle('is-flipped'));
-  flipCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipCard.classList.toggle('is-flipped'); }});
-}
+// ── PROMO POPUP + STRIP ───────────────────────────────────
+(function () {
+  const popup = document.getElementById('promo-popup');
+  const popupClose = document.getElementById('promo-close');
+  const popupBackdrop = document.getElementById('promo-backdrop');
+  const popupCta = document.getElementById('promo-cta');
+  const bar = document.getElementById('promo-bar');
+  const barClose = document.getElementById('promo-bar-close');
+  if (!popup || !bar) return;
+
+  function updateBarHeight() {
+    if (bar.classList.contains('hidden')) {
+      document.documentElement.style.setProperty('--promo-h', '0px');
+    } else {
+      document.documentElement.style.setProperty('--promo-h', bar.getBoundingClientRect().height + 'px');
+    }
+  }
+
+  function closePopup() {
+    popup.classList.add('hidden');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('nova_promo_popup', '1');
+    bar.classList.remove('hidden');
+    updateBarHeight();
+  }
+
+  function closeBar() {
+    bar.classList.add('hidden');
+    sessionStorage.setItem('nova_promo_bar', '1');
+    updateBarHeight();
+  }
+
+  if (sessionStorage.getItem('nova_promo_popup')) {
+    popup.classList.add('hidden');
+    if (!sessionStorage.getItem('nova_promo_bar')) {
+      bar.classList.remove('hidden');
+    }
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+
+  updateBarHeight();
+  window.addEventListener('resize', updateBarHeight);
+
+  if (popupClose) popupClose.addEventListener('click', closePopup);
+  if (popupBackdrop) popupBackdrop.addEventListener('click', closePopup);
+  if (popupCta) popupCta.addEventListener('click', closePopup);
+  if (barClose) barClose.addEventListener('click', closeBar);
+})();
+

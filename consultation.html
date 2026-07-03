@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="cpage.metaTitle">Questionnaire de consultation | Nova Head Spa</title>
+<meta name="description" data-i18n-content="cpage.metaDesc" content="Remplissez votre questionnaire de consultation avant votre rendez-vous chez Nova Head Spa pour une expérience personnalisée.">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── HERO BANNER ─────────────────────── */
+.consult-hero {
+  background: var(--brown-dark); padding: calc(var(--nav-h) + 48px) 0 56px;
+  position: relative; overflow: hidden;
+}
+.consult-hero::before {
+  content: ''; position: absolute; top: -100px; right: -60px;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: rgba(200,144,126,0.06);
+}
+.consult-hero__back {
+  display: inline-block; font-size: var(--fs-base); color: var(--rose-pale);
+  text-decoration: none; margin-bottom: var(--space-6); opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.consult-hero__back:hover { opacity: 1; }
+.consult-hero .section__label { color: var(--rose-pale); }
+.consult-hero .section__title { color: var(--cream); }
+.consult-hero .section__title em { color: var(--rose-pale); }
+.consult-hero__intro {
+  font-size: var(--fs-lg); color: rgba(255,255,255,0.75); line-height: 1.8;
+  max-width: 600px; margin-bottom: var(--space-6);
+}
+/* ── FORM BODY ───────────────────────── */
+.consult-body { padding: 64px 0 80px; }
+.consult__form { max-width: 720px; }
+
+.consult__section { margin-bottom: var(--space-20); }
+.consult__section-title {
+  font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 500;
+  color: var(--text); margin-bottom: var(--space-8); padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(61,31,24,0.08);
+}
+.consult__question {
+  font-family: var(--font-body); font-size: var(--fs-base); font-weight: 400;
+  color: var(--text); line-height: 1.7;
+  margin-bottom: var(--space-6); margin-top: var(--space-10);
+}
+
+/* ── CHIPS (checkboxes / radios) ──────── */
+.consult__checks {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: var(--space-4);
+}
+.consult__check {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-body); font-size: var(--fs-base); color: var(--text);
+  cursor: pointer; padding: 12px 20px; border-radius: 40px; min-height: 44px;
+  border: 1px solid rgba(61,31,24,0.15); background: transparent;
+  transition: all 0.25s var(--ease);
+}
+.consult__check:hover { border-color: var(--rose); background: rgba(181,117,106,0.04); }
+.consult__check input[type="checkbox"],
+.consult__check input[type="radio"] {
+  accent-color: var(--rose); width: 18px; height: 18px; cursor: pointer;
+}
+.consult__check input:checked + span { color: var(--rose); font-weight: 500; }
+.consult__check:has(input:checked) {
+  border-color: var(--rose); background: rgba(181,117,106,0.08);
+  box-shadow: 0 0 0 1px var(--rose);
+}
+/* Focus visible for keyboard nav */
+.consult__check:focus-within {
+  outline: 2px solid var(--rose); outline-offset: 2px;
+}
+
+/* ── FORM INPUTS ─────────────────────── */
+.consult__form .form-group { margin-top: 24px; }
+.consult__form .form-group label {
+  font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 500;
+  letter-spacing: 0.02em; color: var(--text);
+}
+.consult__form .form-group input,
+.consult__form .form-group textarea {
+  font-family: var(--font-body); font-size: var(--fs-base); color: var(--text);
+  border: none; border-bottom: 1.5px solid rgba(61,31,24,0.15);
+  background: transparent; padding: 14px 0; width: 100%; min-height: 44px;
+  transition: border-color 0.2s;
+}
+.consult__form .form-group input::placeholder,
+.consult__form .form-group textarea::placeholder {
+  color: rgba(61,31,24,0.35); font-size: var(--fs-base);
+}
+.consult__form .form-group input:focus,
+.consult__form .form-group textarea:focus {
+  outline: 2px solid var(--rose); outline-offset: 2px; border-bottom-color: var(--rose);
+}
+.consult__form .form-group textarea {
+  border: 1.5px solid rgba(61,31,24,0.15); border-radius: 12px;
+  padding: 16px; resize: vertical; min-height: 120px;
+}
+.consult__form .form-group textarea:focus {
+  border-color: var(--rose);
+}
+
+/* ── CONSENT BOXES ───────────────────── */
+.consult__consent-box {
+  background: var(--brown-dark); border-radius: 16px; padding: 40px 36px;
+  margin-bottom: var(--space-6); color: rgba(255,255,255,0.75);
+  font-size: var(--fs-base); line-height: 1.8;
+}
+.consult__consent-box h3 {
+  font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 500;
+  color: var(--cream); margin-bottom: var(--space-4);
+}
+.consult__consent-box p { margin-bottom: var(--space-4); }
+.consult__consent-box p:last-child { margin-bottom: 0; }
+
+.consult__consent-label {
+  display: flex; align-items: flex-start; gap: 16px; cursor: pointer;
+  font-family: var(--font-body); font-size: var(--fs-base); color: var(--text);
+  font-weight: 400; padding: var(--space-6) 0; line-height: 1.7;
+}
+.consult__consent-label input {
+  accent-color: var(--rose); width: 24px; height: 24px; margin-top: 2px; flex-shrink: 0;
+}
+.consult__consent-label input:focus {
+  outline: 2px solid var(--rose); outline-offset: 2px;
+}
+
+/* ── SUBMIT ──────────────────────────── */
+.consult__submit-area { margin-top: var(--space-16); }
+.consult__notice {
+  font-size: var(--fs-sm); color: var(--text-muted); margin-top: var(--space-6); line-height: 1.7;
+}
+.consult__notice a { color: var(--rose); }
+
+/* ── DIVIDER ─────────────────────────── */
+.consult__divider {
+  width: 40px; height: 1.5px; background: rgba(61,31,24,0.15); margin: 0 0 var(--space-6);
+}
+
+/* ── RESPONSIVE ──────────────────────── */
+@media (max-width: 768px) {
+  .consult__consent-box { padding: 28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link" data-i18n="cpage.skip">Aller au contenu principal</a>
+
+<header id="navbar" class="navbar scrolled">
+  <div class="navbar__inner container">
+    <a href="index.html" class="navbar__logo" data-i18n-aria-label="nav.logoAria" aria-label="Nova Head Spa — Accueil">
+      <span class="navbar__logo-text">NOVA <span class="navbar__logo-sep">/</span> HEADSPA</span>
+    </a>
+    <div class="navbar__actions">
+      <button type="button" class="lang-switch" id="lang-switch" data-i18n-aria-label="nav.langAria" aria-label="Switch to English">EN</button>
+      <a href="index.html#reservation" class="navbar__cta" data-i18n="nav.cta">Sur rendez-vous →</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="consult-hero" aria-labelledby="consult-heading">
+  <div class="container">
+    <a href="index.html" class="consult-hero__back" data-i18n="cpage.back">← Retour à l'accueil</a>
+    <p class="section__label" data-i18n="cpage.label">Questionnaire</p>
+    <h1 class="section__title" id="consult-heading" data-i18n="cpage.title">Questionnaire de <em>consultation.</em></h1>
+    <p class="consult-hero__intro" data-i18n="cpage.intro">Ce questionnaire nous aide à personnaliser votre soin pour des résultats optimaux et un moment de bien-être sur mesure.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="consult-body" aria-label="Formulaire de consultation">
+  <div class="container">
+    <form class="consult__form" action="https://formspree.io/f/xdarkqrn" method="POST" aria-label="Questionnaire de consultation">
+      <input type="hidden" name="_subject" value="Questionnaire de consultation — Nova Head Spa">
+
+      <!-- INFOS PERSONNELLES -->
+      <div class="consult__section">
+        <h2 class="consult__section-title" data-i18n="cpage.s1Title">Vos informations</h2>
+        <div class="consult__divider"></div>
+        <div class="form-group">
+          <label for="c-nom" data-i18n="cpage.nameLabel">Nom complet</label>
+          <input type="text" id="c-nom" name="nom_complet" required autocomplete="name" data-i18n-placeholder="cpage.namePh" placeholder="Votre nom complet">
+        </div>
+        <div class="form-group">
+          <label for="c-tel" data-i18n="cpage.phoneLabel">Téléphone</label>
+          <input type="tel" id="c-tel" name="telephone" required autocomplete="tel" placeholder="(514) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="c-email" data-i18n="cpage.emailLabel">Courriel</label>
+          <input type="email" id="c-email" name="courriel" required autocomplete="email" data-i18n-placeholder="cpage.emailPh" placeholder="votre@courriel.com">
+        </div>
+      </div>
+
+      <!-- ÉTAT DU CUIR CHEVELU -->
+      <div class="consult__section">
+        <h2 class="consult__section-title" data-i18n="cpage.s2Title">État actuel de votre cuir chevelu</h2>
+        <div class="consult__divider"></div>
+
+        <p class="consult__question" data-i18n="cpage.q1">Comment décririez-vous votre cuir chevelu ?</p>
+        <div class="consult__checks" role="group" aria-label="Type de cuir chevelu">
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Normal"><span data-i18n="cpage.normal">Normal</span></label>
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Gras"><span data-i18n="cpage.oily">Gras</span></label>
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Sec"><span data-i18n="cpage.dry">Sec</span></label>
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Sensible"><span data-i18n="cpage.sensitive">Sensible</span></label>
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Avec pellicules"><span data-i18n="cpage.dandruff">Avec pellicules</span></label>
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Avec démangeaisons"><span data-i18n="cpage.itchy">Avec démangeaisons</span></label>
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Irrité / rougeurs"><span data-i18n="cpage.irritated">Irrité / rougeurs</span></label>
+          <label class="consult__check"><input type="checkbox" name="cuir_chevelu" value="Je ne sais pas"><span data-i18n="cpage.unsure">Je ne sais pas</span></label>
+        </div>
+
+        <p class="consult__question" data-i18n="cpage.q2">À quelle fréquence avez-vous déjà reçu un soin head spa ?</p>
+        <div class="consult__checks" role="radiogroup" aria-label="Fréquence head spa">
+          <label class="consult__check"><input type="radio" name="freq_headspa" value="Non, jamais" required><span data-i18n="cpage.never">Non, jamais</span></label>
+          <label class="consult__check"><input type="radio" name="freq_headspa" value="Oui, une fois"><span data-i18n="cpage.once">Oui, une fois</span></label>
+          <label class="consult__check"><input type="radio" name="freq_headspa" value="Oui, quelques fois"><span data-i18n="cpage.fewTimes">Oui, quelques fois</span></label>
+          <label class="consult__check"><input type="radio" name="freq_headspa" value="Oui, régulièrement"><span data-i18n="cpage.regularly">Oui, régulièrement</span></label>
+        </div>
+      </div>
+
+      <!-- ROUTINE CAPILLAIRE -->
+      <div class="consult__section">
+        <h2 class="consult__section-title" data-i18n="cpage.s3Title">Routine capillaire actuelle</h2>
+        <div class="consult__divider"></div>
+
+        <p class="consult__question" data-i18n="cpage.q3">À quelle fréquence lavez-vous vos cheveux ?</p>
+        <div class="consult__checks" role="radiogroup" aria-label="Fréquence de lavage">
+          <label class="consult__check"><input type="radio" name="freq_lavage" value="1 fois par semaine" required><span data-i18n="cpage.onceWeek">1 fois par semaine</span></label>
+          <label class="consult__check"><input type="radio" name="freq_lavage" value="2 à 3 fois par semaine"><span data-i18n="cpage.twoThree">2 à 3 fois par semaine</span></label>
+          <label class="consult__check"><input type="radio" name="freq_lavage" value="Aux 2 jours"><span data-i18n="cpage.everyTwo">Aux 2 jours</span></label>
+          <label class="consult__check"><input type="radio" name="freq_lavage" value="Tous les jours"><span data-i18n="cpage.daily">Tous les jours</span></label>
+        </div>
+
+        <p class="consult__question" data-i18n="cpage.q4">Préférez-vous la température de l'eau :</p>
+        <div class="consult__checks" role="radiogroup" aria-label="Température de l'eau">
+          <label class="consult__check"><input type="radio" name="temperature" value="Tiède" required><span data-i18n="cpage.warm">Tiède</span></label>
+          <label class="consult__check"><input type="radio" name="temperature" value="Chaude"><span data-i18n="cpage.hot">Chaude</span></label>
+          <label class="consult__check"><input type="radio" name="temperature" value="Très chaude"><span data-i18n="cpage.veryHot">Très chaude</span></label>
+        </div>
+
+        <p class="consult__question" data-i18n="cpage.q5">Avez-vous une préférence pour la pression de vos soins ?</p>
+        <div class="consult__checks" role="radiogroup" aria-label="Pression du massage">
+          <label class="consult__check"><input type="radio" name="pression" value="Douce" required><span data-i18n="cpage.gentle">Douce</span></label>
+          <label class="consult__check"><input type="radio" name="pression" value="Moyenne"><span data-i18n="cpage.medium">Moyenne</span></label>
+          <label class="consult__check"><input type="radio" name="pression" value="Forte"><span data-i18n="cpage.firm">Forte</span></label>
+        </div>
+      </div>
+
+      <!-- NOTES -->
+      <div class="consult__section">
+        <h2 class="consult__section-title" data-i18n="cpage.s4Title">Autres informations</h2>
+        <div class="consult__divider"></div>
+        <p class="consult__question" data-i18n="cpage.q6">Y a-t-il autre chose que nous devrions savoir pour personnaliser votre soin et assurer votre confort et votre sécurité ?</p>
+        <div class="form-group">
+          <label for="c-notes" data-i18n="cpage.notesLabel">Notes</label>
+          <textarea id="c-notes" name="notes" rows="4" data-i18n-placeholder="cpage.notesPh" placeholder="Allergies, conditions médicales, préférences..."></textarea>
+        </div>
+      </div>
+
+      <!-- CONSENTEMENT -->
+      <div class="consult__section">
+        <h2 class="consult__section-title" data-i18n="cpage.s5Title">Consentement aux soins</h2>
+        <div class="consult__divider"></div>
+
+        <div class="consult__consent-box" role="note">
+          <h3 data-i18n="cpage.consent1Title">Nature du soin Headspa</h3>
+          <p data-i18n="cpage.consent1p1">J'ai compris que le soin Headspa inclut, sans s'y limiter : nettoyage du cuir chevelu, exfoliation, massage du cuir chevelu, cou et épaules, masques et soins spécifiques, thérapie à l'eau et relaxation.</p>
+          <p data-i18n="cpage.consent1p2">Le soin n'est pas un traitement médical et ne remplace en aucun cas un avis ou un traitement donné par un professionnel de la santé.</p>
+        </div>
+
+        <div class="consult__consent-box" role="note">
+          <h3 data-i18n="cpage.consent2Title">Réactions possibles</h3>
+          <p data-i18n="cpage.consent2p1">J'ai pris connaissance que, bien que rares, certaines réactions peuvent survenir après un soin, telles que : rougeurs, sensibilité, inconfort temporaire, etc.</p>
+        </div>
+
+        <div class="consult__consent-box" role="note">
+          <h3 data-i18n="cpage.consent3Title">Clause additionnelle — Reconnaissance des risques et responsabilité</h3>
+          <p data-i18n="cpage.consent3p1">Je comprends que, malgré toutes les précautions prises, certaines réactions imprévisibles peuvent survenir. J'accepte volontairement de recevoir le soin Headspa. Je reconnais que Nova Headspa ne peut être tenue responsable des réactions imprévisibles ou des complications résultant d'informations incomplètes, inexactes ou omises que j'aurais fournies.</p>
+          <p data-i18n="cpage.consent3p2">Je m'engage à suivre les recommandations après le soin et à signaler immédiatement toute réaction inhabituelle.</p>
+          <p data-i18n="cpage.consent3p3">Cette clause ne limite pas les droits prévus par les lois applicables et ne dégage pas l'entreprise de sa responsabilité en cas de faute ou de négligence.</p>
+        </div>
+
+        <label class="consult__consent-label">
+          <input type="checkbox" name="consentement" value="Oui, je consens" required>
+          <span data-i18n="cpage.consentCheck">J'accepte de recevoir le soin Headspa et j'autorise l'esthéticienne à procéder aux soins nécessaires.</span>
+        </label>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="consult__submit-area">
+        <button type="submit" class="btn btn--dark btn--lg btn--full" data-i18n="cpage.submit">Envoyer le questionnaire →</button>
+        <p class="consult__notice" data-i18n="cpage.notice">Toutes les informations sont confidentielles et utilisées uniquement pour personnaliser votre soin. <a href="confidentialite.html">Politique de confidentialité</a></p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer" data-nav="dark">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>&copy; 2026 Nova Head Spa. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js" defer></script>
+<script src="js/script.js" defer></script>
+</body>
+</html>
