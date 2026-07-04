@@ -6,7 +6,7 @@
 const I18N = {
   fr: {
     "meta.title": `Nova Head Spa | Détente · Bien-Être · Éclat — Montérégie, QC`,
-    "meta.desc": `Nova Head Spa — head spa, soins personnalisés et bien-être complet. Pour tous. Napierville, QC. Sur rendez-vous. (438) 453-4971`,
+    "meta.desc": `Nova Head Spa — head spa, soins personnalisés et bien-être complet. Pour tous. Napierville, QC. Sur rendez-vous. (579) 366-0433`,
     "meta.oglocale": `fr_CA`,
     "a11y.skip": `Aller au contenu principal`,
 
@@ -117,7 +117,7 @@ const I18N = {
     "resa.step4sub": `Pour confirmer votre rendez-vous.`,
     "resa.continue": `Continuer →`,
     "resa.submit": `Confirmer mon rendez-vous →`,
-    "resa.note": `Confirmation dans les 24 h · Ou appelez <a href="tel:4384534971">(438) 453-4971</a>`,
+    "resa.note": `Confirmation dans les 24 h · Ou appelez <a href="tel:5793660433">(579) 366-0433</a>`,
     "resa.start": `Commencer ma réservation →`,
 
     "oil.lavande.name": `Lavande`,
@@ -213,7 +213,7 @@ const I18N = {
     "legal.keepH": `Conservation`,
     "legal.keepP": `Vos renseignements sont conservés uniquement pour la durée nécessaire au traitement de votre demande, puis détruits de façon sécuritaire.`,
     "legal.rightsH": `Vos droits`,
-    "legal.rightsP": `Vous avez le droit d'accéder à vos renseignements, de les faire rectifier ou d'en demander la suppression. Pour exercer ces droits, écrivez-nous ou téléphonez au <a href="tel:4384534971">(438) 453-4971</a>.`,
+    "legal.rightsP": `Vous avez le droit d'accéder à vos renseignements, de les faire rectifier ou d'en demander la suppression. Pour exercer ces droits, écrivez-nous ou téléphonez au <a href="tel:5793660433">(579) 366-0433</a>.`,
     "legal.respH": `Responsable de la protection des renseignements`,
     "legal.respP": `Nova Head Spa, 261A, rue de l'Église, Napierville, QC, J0J 1L0.`,
     "legal.updated": `Dernière mise à jour : juin 2026.`,
@@ -291,7 +291,7 @@ const I18N = {
 
   en: {
     "meta.title": `Nova Head Spa | Relaxation · Wellness · Radiance — Montérégie, QC`,
-    "meta.desc": `Nova Head Spa — head spa, personalized treatments and complete wellness. For everyone. Napierville, QC. By appointment. (438) 453-4971`,
+    "meta.desc": `Nova Head Spa — head spa, personalized treatments and complete wellness. For everyone. Napierville, QC. By appointment. (579) 366-0433`,
     "meta.oglocale": `en_CA`,
     "a11y.skip": `Skip to main content`,
 
@@ -402,7 +402,7 @@ const I18N = {
     "resa.step4sub": `To confirm your appointment.`,
     "resa.continue": `Continue →`,
     "resa.submit": `Confirm my appointment →`,
-    "resa.note": `Confirmation within 24 hours · Or call <a href="tel:4384534971">(438) 453-4971</a>`,
+    "resa.note": `Confirmation within 24 hours · Or call <a href="tel:5793660433">(579) 366-0433</a>`,
     "resa.start": `Start my booking →`,
 
     "oil.lavande.name": `Lavender`,
@@ -498,7 +498,7 @@ const I18N = {
     "legal.keepH": `Retention`,
     "legal.keepP": `Your information is kept only for as long as needed to process your request, then securely destroyed.`,
     "legal.rightsH": `Your rights`,
-    "legal.rightsP": `You have the right to access your information, to have it corrected, or to request its deletion. To exercise these rights, write to us or call <a href="tel:4384534971">(438) 453-4971</a>.`,
+    "legal.rightsP": `You have the right to access your information, to have it corrected, or to request its deletion. To exercise these rights, write to us or call <a href="tel:5793660433">(579) 366-0433</a>.`,
     "legal.respH": `Information protection officer`,
     "legal.respP": `Nova Head Spa, 261A, rue de l'Église, Napierville, QC, J0J 1L0.`,
     "legal.updated": `Last updated: June 2026.`,
