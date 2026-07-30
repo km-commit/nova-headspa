@@ -631,6 +631,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-bottom: 1.5px solid var(--text); padding-bottom: 4px; transition: all 0.2s;
 }
 .temoignages__cta:hover { color: var(--rose); border-color: var(--rose); }
+.temoignages__cta--centered { display: block; width: fit-content; margin-left: auto; margin-right: auto; }
 .temoignages__grid {
   display: flex; flex-direction: column; gap: 16px;
   max-width: 1100px; margin: 0 auto;

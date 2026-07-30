@@ -90,6 +90,7 @@ const I18N = {
     "temo.cta": `Voir nos avis sur Google →`,
     "temo.q2": `« J'ai offert le Nova Royal à ma mère pour sa fête. On a passé un moment magique ensemble. L'ambiance est zen, les soins sont top. »`,
     "temo.q3": `« En tant que gars, j'étais pas sûr que c'était pour moi. Finalement, c'est le meilleur cadeau que je me suis fait. Super relaxant. »`,
+    "temo.q4": `« Très bon service relaxant »`,
 
     "about.imgAlt": `Nova Head Spa — espace de soin`,
     "about.label": `Notre histoire`,
@@ -378,6 +379,7 @@ const I18N = {
     "temo.cta": `See our Google reviews →`,
     "temo.q2": `"I gave the Nova Royal to my mom for her birthday. We shared a magical moment together. The atmosphere is calm and the treatments are top-notch."`,
     "temo.q3": `"As a guy, I wasn't sure it was for me. Turns out it's the best gift I've given myself. Super relaxing."`,
+    "temo.q4": `"Very good, relaxing service."`,
 
     "about.imgAlt": `Nova Head Spa — treatment space`,
     "about.label": `Our story`,
