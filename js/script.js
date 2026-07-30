@@ -195,14 +195,11 @@ if (contactForm) {
   const timeSelect = document.getElementById('resa-time');
 
   async function refreshAvailableSlots() {
-    console.log('[nova-debug] refreshAvailableSlots called', { hasTimeSelect: !!timeSelect, hasDateInput: !!dateInput, supabaseClientType: typeof supabaseClient, supabaseClientTruthy: !!supabaseClient });
-    if (!timeSelect || !dateInput) { console.log('[nova-debug] bail: missing timeSelect/dateInput'); return; }
-    if (typeof supabaseClient === 'undefined' || !supabaseClient) { console.log('[nova-debug] bail: supabaseClient not ready'); return; } // pas encore configuré
+    if (!timeSelect || !dateInput) return;
+    if (typeof supabaseClient === 'undefined' || !supabaseClient) return; // pas encore configuré
     const date = dateInput.value;
-    console.log('[nova-debug] date value =', date);
-    if (!date) { console.log('[nova-debug] bail: no date'); return; }
+    if (!date) return;
     const duration = soinDurations[selectedSoin] || 60;
-    console.log('[nova-debug] calling rpc with', { date, duration });
 
     timeSelect.innerHTML = `<option value="">${t('resa.checkingSlots')}</option>`;
     timeSelect.disabled = true;
@@ -227,7 +224,6 @@ if (contactForm) {
     timeSelect.innerHTML = options.join('');
   }
 
-  console.log('[nova-debug] booking IIFE init', { timeSelectFound: !!timeSelect, dateInputFound: !!dateInput });
   if (dateInput) dateInput.addEventListener('change', refreshAvailableSlots);
 
   function activateStep(n) {
