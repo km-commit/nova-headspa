@@ -21,3 +21,6 @@ assets/archive_*
 
 # Script de déploiement (logique de jeton — garder privé)
 deploy_github.sh
+
+# Clé SSH locale pour push GitHub (privée, ne jamais commit)
+.git-ssh/
