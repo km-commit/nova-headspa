@@ -550,12 +550,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .soin-card__list li::before {
   content: '—'; position: absolute; left: 0; color: var(--rose); font-size: 0.7rem;
 }
+.soin-card__more {
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--rose); padding-left: 20px; margin-top: 2px;
+}
+.soin-card--featured .soin-card__more { color: var(--rose-pale); }
 .soin-card__bottom {
   display: flex; align-items: center; justify-content: space-between;
   padding-top: 20px; border-top: 1px solid rgba(61,31,24,0.06);
 }
 .soin-card__price {
-  font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 400; color: var(--text);
+  font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 500; color: var(--text);
 }
 .soin-card__tax { font-family: var(--font-body); font-size: var(--fs-xs); font-weight: 400; opacity: 0.6; }
 .soin-card__cta {
@@ -657,6 +662,29 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .temoignage-card__soin {
   font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--rose);
+}
+
+/* ── FAQ ───────────────────────────────────────────────────── */
+.faq { background: var(--cream-warm); }
+.faq__list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid rgba(61,31,24,0.1); }
+.faq-item:first-child { border-top: 1px solid rgba(61,31,24,0.1); }
+.faq-item__q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; padding: 26px 4px; text-align: left;
+  font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 400; color: var(--text);
+}
+.faq-item__icon {
+  font-size: 1.5rem; font-weight: 300; color: var(--rose); flex-shrink: 0; line-height: 1;
+  transition: transform 0.3s var(--ease);
+}
+.faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
+.faq-item__a {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease);
+}
+.faq-item.is-open .faq-item__a { max-height: 220px; }
+.faq-item__a p {
+  padding: 0 4px 26px; color: var(--text-muted); font-size: var(--fs-base); line-height: 1.7; max-width: 620px;
 }
 
 /* ── ABOUT ─────────────────────────────────────────────────── */
