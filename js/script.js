@@ -183,8 +183,48 @@ if (contactForm) {
     evasion: 'Nova Évasion — 109 $ (75 min)',
     royal: 'Nova Royal — 129 $ (105 min)'
   };
+  const soinDurations = { essentiel: 60, evasion: 75, royal: 105 };
 
   if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
+
+  // ── VRAIES DISPONIBILITÉS (Supabase) ────────────────────────
+  // Tant que js/supabase-config.js n'a pas été configuré avec un
+  // vrai projet, supabaseClient est `null` et on garde la liste
+  // d'heures statique du HTML — le site continue de fonctionner
+  // sans casser pendant la mise en place du backend.
+  const timeSelect = document.getElementById('resa-time');
+
+  async function refreshAvailableSlots() {
+    if (!timeSelect || !dateInput) return;
+    if (typeof supabaseClient === 'undefined' || !supabaseClient) return; // pas encore configuré
+    const date = dateInput.value;
+    if (!date) return;
+    const duration = soinDurations[selectedSoin] || 60;
+
+    timeSelect.innerHTML = `<option value="">${t('resa.checkingSlots')}</option>`;
+    timeSelect.disabled = true;
+
+    const { data, error } = await supabaseClient.rpc('get_available_slots', {
+      p_date: date,
+      p_duration: duration
+    });
+
+    timeSelect.disabled = false;
+
+    if (error || !data || !data.length) {
+      timeSelect.innerHTML = `<option value="">${t('resa.noSlots')}</option>`;
+      return;
+    }
+
+    const options = [`<option value="">${t('resa.timePlaceholder')}</option>`]
+      .concat(data.map(row => {
+        const hhmm = row.slot_time.slice(0, 5); // "09:30:00" -> "09:30"
+        return `<option value="${hhmm}">${hhmm.replace(':', ' h ')}</option>`;
+      }));
+    timeSelect.innerHTML = options.join('');
+  }
+
+  if (dateInput) dateInput.addEventListener('change', refreshAvailableSlots);
 
   function activateStep(n) {
     steps.forEach(s => s.classList.toggle('resa__step--active', parseInt(s.dataset.step) === n));
@@ -197,6 +237,7 @@ if (contactForm) {
     soinCards.forEach(c => c.classList.toggle('is-selected', c.dataset.soin === id));
     pills.forEach(p => p.classList.toggle('is-active', p.dataset.soin === id));
     if (soinDisplay) soinDisplay.textContent = soinNames[id] || id;
+    refreshAvailableSlots();
     activateStep(2);
     setTimeout(() => {
       const target = document.getElementById('resa-step-2') || document.getElementById('reservation');
@@ -263,7 +304,7 @@ if (contactForm) {
   }
 
   const resaForm = document.getElementById('resa-form');
-  if (resaForm) resaForm.addEventListener('submit', e => {
+  if (resaForm) resaForm.addEventListener('submit', async e => {
     e.preventDefault();
     const form = e.target;
     const btn = form.querySelector('button[type="submit"]');
@@ -279,6 +320,34 @@ if (contactForm) {
     const timeEl = document.getElementById('resa-time');
     if (dateVal) data.append('date', dateVal);
     if (timeEl && timeEl.value) data.append('heure', timeEl.value);
+
+    // Étape 1: si Supabase est configuré, on réserve le créneau pour de
+    // vrai (avec vérification anti-chevauchement côté serveur) AVANT
+    // d'envoyer la notification par courriel. Si quelqu'un d'autre vient
+    // de prendre ce créneau, on arrête tout et on prévient la cliente.
+    if (typeof supabaseClient !== 'undefined' && supabaseClient && dateVal && timeEl && timeEl.value) {
+      const { error: bookingError } = await supabaseClient.from('appointments').insert({
+        appointment_date: dateVal,
+        start_time: timeEl.value,
+        duration_minutes: soinDurations[selectedSoin] || 60,
+        soin: selectedSoin || 'essentiel',
+        prenom: form.prenom.value,
+        nom: form.nom.value,
+        telephone: form.telephone.value,
+        email: form.email.value,
+        notes: form.notes ? form.notes.value : '',
+        oils: oils.join(', ')
+      });
+
+      if (bookingError) {
+        btn.textContent = t('resa.slotTaken');
+        btn.style.background = '#c0392b'; btn.style.color = '#fff';
+        btn.disabled = false;
+        refreshAvailableSlots();
+        setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 4000);
+        return;
+      }
+    }
 
     fetch('https://formspree.io/f/xdarkqrn', {
       method: 'POST', body: data, headers: { 'Accept': 'application/json' }
