@@ -31,10 +31,20 @@ alter table appointments enable row level security;
 -- Autorise l'insertion publique (une visiteuse peut prendre rendez-vous),
 -- mais AUCUNE lecture publique directe de la table (donc pas de fuite
 -- des noms/téléphones/courriels des autres clientes).
+-- (drop + create, pas "or replace", pour rester compatible avec toutes
+-- les versions de Postgres — et pour que ce script soit rejouable sans
+-- erreur si la politique existe déjà.)
+drop policy if exists "Public can insert appointments" on appointments;
 create policy "Public can insert appointments"
   on appointments for insert
   to anon
   with check (true);
+
+-- La politique RLS ci-dessus ne fait qu'AFFINER l'accès — sans ce GRANT
+-- de base, le rôle "anon" n'a pas la permission d'écrire dans la table
+-- du tout, et Postgres bloque avec la même erreur 42501 avant même de
+-- regarder les politiques RLS.
+grant insert on appointments to anon;
 
 -- ============================================================
 -- Fonction: renvoie les heures disponibles pour une date et une
@@ -122,6 +132,7 @@ begin
 end;
 $$;
 
+drop trigger if exists check_overlap_before_insert on appointments;
 create trigger check_overlap_before_insert
   before insert on appointments
   for each row
