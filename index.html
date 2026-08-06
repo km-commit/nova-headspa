@@ -22,6 +22,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<noscript><style>
+  .reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .section-line {
+    opacity: 1 !important; transform: none !important;
+  }
+</style></noscript>
 
 <!-- Données structurées pour Google (fiche locale / Maps) -->
 <script type="application/ld+json">
@@ -63,17 +68,17 @@
 
 <a href="#main-content" class="skip-link" data-i18n="a11y.skip">Aller au contenu principal</a>
 
-<!-- PROMO POPUP — Ouverture officielle -->
+<!-- PROMO POPUP — Les Fleurs de la Chance (août 2026) -->
 <div class="promo-popup" id="promo-popup" role="dialog" aria-modal="true" aria-labelledby="promo-title">
   <div class="promo-popup__backdrop" id="promo-backdrop"></div>
   <div class="promo-popup__card">
     <button class="promo-popup__close" id="promo-close" aria-label="Fermer">&times;</button>
     <div class="promo-popup__sparkles">✦ ✦ ✦</div>
-    <p class="promo-popup__eyebrow">1<sup>er</sup> juillet 2026</p>
-    <h2 class="promo-popup__title" id="promo-title" data-i18n="promo.title">Ouverture<br>officielle!</h2>
+    <p class="promo-popup__eyebrow" data-i18n="promo.eyebrow">Août 2026</p>
+    <h2 class="promo-popup__title" id="promo-title" data-i18n="promo.title">Les Fleurs<br>de la Chance</h2>
     <div class="promo-popup__divider"></div>
-    <p class="promo-popup__offer" data-i18n="promo.offer"><span class="promo-popup__percent">25 %</span> de rabais<br>sur tous les soins</p>
-    <p class="promo-popup__detail" data-i18n="promo.detail">Tout le mois de juillet · Pour célébrer avec vous</p>
+    <p class="promo-popup__offer" data-i18n="promo.offer"><span class="promo-popup__percent">5 prix</span> à gagner<br>Tirage le 31 août 2026</p>
+    <p class="promo-popup__detail" data-i18n="promo.detail">Chaque soin reçu en août = une participation au tirage</p>
     <a href="#reservation" class="promo-popup__cta" id="promo-cta" data-i18n="promo.cta">Réserver maintenant →</a>
     <p class="promo-popup__tagline">Nova Head Spa · Napierville</p>
   </div>
@@ -84,17 +89,17 @@
   <div class="promo-bar__track">
     <div class="promo-bar__inner">
       <span class="promo-bar__sparkle">✦</span>
-      <span class="promo-bar__text" data-i18n="promo.strip"><strong>Ouverture officielle!</strong> 25 % de rabais tout le mois de juillet.</span>
+      <span class="promo-bar__text" data-i18n="promo.strip"><strong>Les Fleurs de la Chance!</strong> 5 prix à gagner — tirage le 31 août.</span>
       <a href="#reservation" class="promo-bar__cta" data-i18n="promo.stripCta">Réserver →</a>
       <span class="promo-bar__sparkle">✦</span>
       <span class="promo-bar__sep">·</span>
       <span class="promo-bar__sparkle">✦</span>
-      <span class="promo-bar__text" data-i18n="promo.strip"><strong>Ouverture officielle!</strong> 25 % de rabais tout le mois de juillet.</span>
+      <span class="promo-bar__text" data-i18n="promo.strip"><strong>Les Fleurs de la Chance!</strong> 5 prix à gagner — tirage le 31 août.</span>
       <a href="#reservation" class="promo-bar__cta" data-i18n="promo.stripCta">Réserver →</a>
       <span class="promo-bar__sparkle">✦</span>
       <span class="promo-bar__sep">·</span>
       <span class="promo-bar__sparkle">✦</span>
-      <span class="promo-bar__text" data-i18n="promo.strip"><strong>Ouverture officielle!</strong> 25 % de rabais tout le mois de juillet.</span>
+      <span class="promo-bar__text" data-i18n="promo.strip"><strong>Les Fleurs de la Chance!</strong> 5 prix à gagner — tirage le 31 août.</span>
       <a href="#reservation" class="promo-bar__cta" data-i18n="promo.stripCta">Réserver →</a>
       <span class="promo-bar__sparkle">✦</span>
       <span class="promo-bar__sep">·</span>
@@ -156,7 +161,6 @@
       <ul class="navbar__list">
         <li><a href="#soins" class="navbar__link" data-i18n="nav.soins">Soins</a></li>
         <li><a href="#reservation" class="navbar__link" data-i18n="nav.reservation">Réservation</a></li>
-        <li><a href="consultation.html" class="navbar__link" data-i18n="nav.questionnaire">Questionnaire</a></li>
         <li><a href="#apropos" class="navbar__link" data-i18n="nav.histoire">Histoire</a></li>
         <li><a href="#faq" class="navbar__link" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="#cadeau" class="navbar__link" data-i18n="nav.cadeau">Carte-cadeau</a></li>
@@ -307,6 +311,7 @@
               <button class="resa__pill" data-soin="evasion" type="button">Nova Évasion · 109 $ +tx</button>
               <button class="resa__pill" data-soin="royal" type="button">Nova Royal · 129 $ +tx</button>
             </div>
+            <p class="resa__step-note" data-i18n="resa.step1note">Votre demande est confirmée par notre équipe dans les 24 h (téléphone ou courriel).</p>
           </div>
         </div>
         <!-- Step 2 -->
@@ -315,7 +320,7 @@
             <span class="resa__step-num">02</span>
             <div>
               <h3 class="resa__step-title" data-i18n="resa.step2">Vos huiles essentielles</h3>
-              <p class="resa__step-sub" data-i18n="resa.step2sub">Survolez pour les bienfaits, cliquez pour choisir.</p>
+              <p class="resa__step-sub" data-i18n="resa.step2sub">Touchez ou survolez pour découvrir les bienfaits, sélectionnez celles que vous aimez.</p>
             </div>
           </div>
           <div class="resa__step-body">
@@ -375,29 +380,11 @@
               <div class="resa__summary" id="resa-summary"></div>
               <button type="submit" class="btn btn--accent btn--lg btn--full" data-i18n="resa.submit">Confirmer mon rendez-vous →</button>
               <p class="resa__note" data-i18n="resa.note">Confirmation dans les 24 h · Ou appelez <a href="tel:5793660433">(579) 366-0433</a></p>
-              <p class="resa__note"><a href="consultation.html" data-i18n="resa.consult">Remplir le questionnaire de consultation →</a></p>
             </form>
           </div>
         </div>
 
         <a href="#reservation" class="btn btn--accent btn--lg resa__cta-main" id="resa-start-btn" data-i18n="resa.start">Commencer ma réservation →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUESTIONNAIRE DE CONSULTATION -->
-<section id="questionnaire" class="consult-cta section">
-  <div class="container">
-    <div class="consult-cta__inner reveal">
-      <div class="consult-cta__content">
-        <p class="section__label" data-i18n="consult.label">Avant votre rendez-vous</p>
-        <h2 class="section__title consult-cta__title" data-i18n="consult.title">Remplissez votre <em>questionnaire.</em></h2>
-        <p class="consult-cta__desc" data-i18n="consult.desc">Pour une expérience personnalisée, complétez votre questionnaire de consultation avant votre visite. Cela nous permet d'adapter chaque soin à vos besoins.</p>
-      </div>
-      <div class="consult-cta__action">
-        <a href="consultation.html" class="btn btn--dark btn--lg" data-i18n="consult.cta">Remplir le questionnaire →</a>
-        <p class="consult-cta__note" data-i18n="consult.note">Confidentiel · 2 minutes · Sur votre téléphone ou ordinateur</p>
       </div>
     </div>
   </div>

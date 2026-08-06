@@ -46,17 +46,28 @@ if (mobileBar) {
 }
 
 // ── REVEAL & SCROLL ANIMATIONS ──────────────────────────────
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      if (e.target.classList.contains('stagger')) {
-        e.target.querySelectorAll('.reveal, .reveal-scale').forEach(c => c.classList.add('visible'));
+// Safety net: content must never stay permanently invisible if the
+// observer never fires (old browser, slow/blocked script, JS error
+// elsewhere on the page). Force everything visible after a short delay.
+const revealTargets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .section-line');
+const revealNow = () => revealTargets.forEach(el => el.classList.add('visible'));
+
+if (!('IntersectionObserver' in window)) {
+  revealNow();
+} else {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.classList.contains('stagger')) {
+          e.target.querySelectorAll('.reveal, .reveal-scale').forEach(c => c.classList.add('visible'));
+        }
       }
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .section-line').forEach(el => obs.observe(el));
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  revealTargets.forEach(el => obs.observe(el));
+  setTimeout(revealNow, 4000);
+}
 
 // ── SMOOTH SCROLL ────────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
