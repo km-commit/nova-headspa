@@ -39,6 +39,12 @@ create policy "Public can insert appointments"
 -- ============================================================
 -- Fonction: renvoie les heures disponibles pour une date et une
 -- durée de soin données, sans jamais exposer les infos personnelles.
+--
+-- Une zone tampon de 30 min est imposée APRÈS chaque rendez-vous
+-- confirmé (nettoyage/pause entre deux clientes). La comparaison
+-- est symétrique (buffer ajouté des deux côtés dans le test) pour
+-- que ce tampon s'applique peu importe lequel des deux rendez-vous
+-- — l'existant ou le nouveau créneau candidat — précède l'autre.
 -- ============================================================
 create or replace function get_available_slots(p_date date, p_duration int)
 returns table(slot_time time)
@@ -52,6 +58,7 @@ declare
   opening time := '09:00';
   closing time := '17:00';
   step interval := '30 minutes';
+  buffer interval := '30 minutes';
 begin
   slot := opening;
   while slot < closing loop
@@ -59,13 +66,14 @@ begin
 
     -- Le créneau ne doit pas dépasser l'heure de fermeture
     if slot_end <= closing then
-      -- Le créneau est disponible s'il ne chevauche aucun rendez-vous confirmé
+      -- Le créneau est disponible s'il ne chevauche aucun rendez-vous
+      -- confirmé, tampon de 30 min après chaque rendez-vous inclus
       if not exists (
         select 1 from appointments a
         where a.appointment_date = p_date
           and a.status = 'confirmed'
-          and slot < (a.start_time + (a.duration_minutes || ' minutes')::interval)
-          and slot_end > a.start_time
+          and slot < (a.start_time + (a.duration_minutes || ' minutes')::interval + buffer)
+          and a.start_time < (slot_end + buffer)
       ) then
         slot_time := slot;
         return next;
@@ -97,14 +105,16 @@ language plpgsql
 security definer
 set search_path = public
 as $$
+declare
+  buffer interval := '30 minutes';
 begin
   if exists (
     select 1 from appointments a
     where a.appointment_date = new.appointment_date
       and a.status = 'confirmed'
       and a.id is distinct from new.id
-      and new.start_time < (a.start_time + (a.duration_minutes || ' minutes')::interval)
-      and (new.start_time + (new.duration_minutes || ' minutes')::interval) > a.start_time
+      and new.start_time < (a.start_time + (a.duration_minutes || ' minutes')::interval + buffer)
+      and a.start_time < (new.start_time + (new.duration_minutes || ' minutes')::interval + buffer)
   ) then
     raise exception 'Ce créneau vient d''être réservé par quelqu''un d''autre. Merci de choisir une autre heure.';
   end if;

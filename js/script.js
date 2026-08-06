@@ -192,9 +192,9 @@ if (contactForm) {
   const soinNames = {
     essentiel: 'Nova Essentiel — 89 $ (60 min)',
     evasion: 'Nova Évasion — 109 $ (75 min)',
-    royal: 'Nova Royal — 129 $ (105 min)'
+    royal: 'Nova Royal — 129 $ (90 min)'
   };
-  const soinDurations = { essentiel: 60, evasion: 75, royal: 105 };
+  const soinDurations = { essentiel: 60, evasion: 75, royal: 90 };
 
   if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
 
