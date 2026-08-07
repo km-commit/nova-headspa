@@ -43,10 +43,12 @@ const I18N = {
     "consult.note": `Confidentiel · 2 minutes · Sur votre téléphone ou ordinateur`,
 
     "hero.eyebrow": `Head spa · Soins · Bien-être`,
-    "hero.title": `Votre<br>moment<br>de <em>lumière.</em>`,
+    "hero.title": `Votre moment de <em>lumière.</em>`,
     "hero.subtitle": `Head spa, soins personnalisés et bien-être complet.<br>Pour tous ceux qui méritent une parenthèse de lumière.`,
     "hero.ctaBook": `Prendre rendez-vous`,
     "hero.ctaDiscover": `Découvrir nos soins`,
+    "hero.imgAlt": `Nova Head Spa — ambiance`,
+    "hero.imgTag": `L'art du soin capillaire`,
 
     "intro.1": `Détente`,
     "intro.2": `Bien-Être`,
@@ -351,10 +353,12 @@ const I18N = {
     "consult.note": `Confidential · 2 minutes · On your phone or computer`,
 
     "hero.eyebrow": `Head spa · Treatments · Wellness`,
-    "hero.title": `Your<br>moment<br>of <em>light.</em>`,
+    "hero.title": `Your moment of <em>light.</em>`,
     "hero.subtitle": `Head spa, personalized treatments and complete wellness.<br>For everyone who deserves a moment of light.`,
     "hero.ctaBook": `Book an appointment`,
     "hero.ctaDiscover": `Discover our treatments`,
+    "hero.imgAlt": `Nova Head Spa — ambiance`,
+    "hero.imgTag": `The art of hair care`,
 
     "intro.1": `Relaxation`,
     "intro.2": `Wellness`,
