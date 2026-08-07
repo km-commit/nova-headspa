@@ -181,18 +181,19 @@
 
 <!-- HERO -->
 <section id="hero" class="hero">
-  <div class="hero__video-bg">
-    <video class="hero__video hero__video--desktop" src="img/hero-video.mp4" poster="img/hero-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
-    <video class="hero__video hero__video--mobile" src="img/hero-mobile.mp4" poster="img/hero-mobile-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
-    <div class="hero__overlay"></div>
-  </div>
-  <div class="hero__content">
-    <p class="hero__eyebrow reveal" data-i18n="hero.eyebrow">Head spa · Soins · Bien-être</p>
-    <h1 class="hero__title reveal" data-i18n="hero.title">Votre<br>moment<br>de <em>lumière.</em></h1>
-    <p class="hero__subtitle reveal" data-i18n="hero.subtitle">Head spa, soins personnalisés et bien-être complet.<br>Pour tous ceux qui méritent une parenthèse de lumière.</p>
-    <div class="hero__actions reveal">
-      <a href="#reservation" class="btn btn--accent" data-i18n="hero.ctaBook">Prendre rendez-vous</a>
-      <a href="#soins" class="btn btn--outline-light" data-i18n="hero.ctaDiscover">Découvrir nos soins</a>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal" data-i18n="hero.eyebrow">Head spa · Soins · Bien-être</p>
+      <h1 class="hero__title reveal" data-i18n="hero.title">Votre<br>moment<br>de <em>lumière.</em></h1>
+      <p class="hero__subtitle reveal" data-i18n="hero.subtitle">Head spa, soins personnalisés et bien-être complet.<br>Pour tous ceux qui méritent une parenthèse de lumière.</p>
+      <div class="hero__actions reveal">
+        <a href="#reservation" class="btn btn--dark" data-i18n="hero.ctaBook">Prendre rendez-vous</a>
+        <a href="#soins" class="btn btn--outline-dark" data-i18n="hero.ctaDiscover">Découvrir nos soins</a>
+      </div>
+    </div>
+    <div class="hero__media reveal-scale">
+      <img src="img/hero.jpg" data-i18n-alt="hero.imgAlt" alt="Nova Head Spa — ambiance" loading="eager">
+      <span class="hero__media-tag" data-i18n="hero.imgTag">L'art du soin capillaire</span>
     </div>
   </div>
 </section>
@@ -424,7 +425,7 @@
   <div class="container about__inner">
     <div class="about__media reveal-left">
       <div class="about__image-wrapper">
-        <img src="img/salon-2.jpg" data-i18n-alt="about.imgAlt" alt="Nova Head Spa — espace de soin" class="about__main-img" loading="lazy">
+        <video class="about__main-img" src="img/soin-massage.mp4" autoplay muted loop playsinline></video>
       </div>
     </div>
     <div class="about__content reveal-right">
@@ -432,11 +433,6 @@
       <h2 class="section__title" data-i18n="about.title">Le soin, c'est<br>une <em>vocation.</em></h2>
       <p data-i18n="about.p1">Nova est né d'une conviction profonde : prendre soin de soi commence par le haut. Un espace ouvert à toutes et à tous, dédié au bien-être.</p>
       <p data-i18n="about.p2">Installé à Napierville, Nova est un espace où chaque visite est pensée pour vous offrir un moment de calme et de ressourcement.</p>
-      <div class="about__values">
-        <div class="about__value"><span data-i18n="about.v1">Soins personnalisés</span></div>
-        <div class="about__value"><span data-i18n="about.v2">Ouvert à tous</span></div>
-        <div class="about__value"><span data-i18n="about.v3">Atmosphère relaxante</span></div>
-      </div>
     </div>
   </div>
 </section>
